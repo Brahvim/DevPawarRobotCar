@@ -1,38 +1,32 @@
-#pragma region  // Global declarations!
+#define DEBUG  // Used by `Globals.hpp`.
+
+#pragma region Includes.
 #include <Servo.h>
 #include <AFMotor.h>
-#include "AppRoutine.hpp"
+#include <Vector.h>
 
-#define PIN_ULTRASONIC_ECHO A0
-#define PIN_ULTRASONIC_TRIG A1
-#define PIN_MOTOR 10
-#define WHEEL_SPEED 170
-#define SERVO_POINT 103
-
-int g_left = 0;
-int g_right = 0;
-int g_L1 = 0;
-int g_R1 = 0;
-
-Servo g_servo;
-
-AF_DCMotor g_dcMotors[4] = {
-  AF_DCMotor(1),
-  AF_DCMotor(2),
-  AF_DCMotor(3),
-  AF_DCMotor(4),
-};
+#include "NsCar.hpp"
+#include "Globals.hpp"  // Includes more stuff!
+#include "NsUltrasonic.hpp"
 #pragma endregion
 
-void (*restart)(void) = 0;
+// #pragma region Static declarations.
+static Vector<NsAppRoutines::AppRoutine *> s_routinesArray;
+// #pragma endregion
+
+namespace NsAppRoutines {
+void setRoutine(const AppRoutine &p_ptrAppRoutine) {
+}
+}
 
 void setup() {
-  Serial.begin(9600);
+  while (!Serial) {}
+  Serial.begin(ARDUINO_SERIAL_BAUD_RATE);
 
   pinMode(PIN_ULTRASONIC_ECHO, INPUT);
   pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
 
-  g_servo.attach(PIN_MOTOR);
+  g_servo.attach(PIN_SERVO);
 
   g_dcMotors[1].setSpeed(WHEEL_SPEED);
   g_dcMotors[2].setSpeed(WHEEL_SPEED);
@@ -55,34 +49,34 @@ void bluetoothControlRoutine() {
 
   switch (Serial.read()) {
     case 'F':
-    forward();
-    break;
+      forward();
+      break;
 
     case 'B':
-    backward();
-    break;
+      backward();
+      break;
 
     case 'L':
-    left();
-    break;
+      left();
+      break;
 
     case 'R':
-    right();
-    break;
+      right();
+      break;
 
     case 'S':
-    stop();
-    break;
+      stop();
+      break;
 
     default:
-    // TODO Make some error routine!
-    break;
+      // TODO Make some error routine!
+      break;
   }
 }
 
 void obstacleRoutine() {
-  const int dist = ultrasonicRead();  // Could use this info later!
-  // Serial.println("Distance: " + dist);
+  const int dist = NsUltrasonic::read();  // Could use this info later!
+  DEBUG_PRINT("Distance: " + dist);
   delay(100);
 
   if (dist > 12) {
@@ -96,17 +90,17 @@ void obstacleRoutine() {
   delay(100);
   stop();
 
-  g_left = lookLeft();
+  const int leftVal = lookLeft();
   g_servo.write(SERVO_POINT);
 
   delay(800);
 
-  g_right = lookRight();
+  const int rightVal = lookRight();
   g_servo.write(SERVO_POINT);
 
-  if (g_left < g_right)
+  if (leftVal < rightVal)
     right();
-  else if (g_left > g_right)
+  else if (leftVal > rightVal)
     left();
 
 
@@ -126,69 +120,49 @@ void voiceControlRoutine() {
     return;
 
   char receivedValue = Serial.read();
-  Serial.println(receivedValue);
+  DEBUG_PRINT(receivedValue);
 
   switch (receivedValue) {
     case '^':
-    forward();
-    break;
+      forward();
+      break;
 
     case '-':
-    backward();
-    break;
+      backward();
+      break;
 
     case '<':
-    g_left = lookLeft();
-    g_servo.write(SERVO_POINT);
+      const int leftVal = lookLeft();
+      g_servo.write(SERVO_POINT);
 
-    if (g_left >= 10) {
-      left();
-      delay(500);
-      stop();
-    } else if (g_left < 10)
-      stop();  // Let's not worry about having an extra condition here!
-    break;
+      if (leftVal >= 10) {
+        left();
+        delay(500);
+        stop();
+      } else if (leftVal < 10)
+        stop();  // Let's not worry about having an extra condition here!
+      break;
 
     case '>':
-    g_right = lookRight();
-    g_servo.write(SERVO_POINT);
-    if (g_right >= 10) {
-      right();
-      delay(500);
-      stop();
-    } else if (g_right < 10) {
-      stop();
-    }
-    break;
+      const int rightVal = lookRight();
+      g_servo.write(SERVO_POINT);
+      if (rightVal >= 10) {
+        right();
+        delay(500);
+        stop();
+      } else if (rightVal < 10) {
+        stop();
+      }
+      break;
 
     case '*':
-    stop();
-    break;
+      stop();
+      break;
 
     default:
-    // TODO Make some error routine!
-    break;
+      // TODO Make some error routine!
+      break;
   }
-}
-
-int ultrasonicRead() {
-  // Lower TRIG for `4` microseconds as an error check:
-  digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
-  delayMicroseconds(4);  // ...We'll also wait this out.
-
-  // From the HC-SR04 datasheet:
-  // Set TRIG for `10` microseconds:
-  digitalWrite(PIN_ULTRASONIC_TRIG, HIGH);
-  delayMicroseconds(10);
-
-  // Set it low again for next use! ...things go wrong, okay!?
-  digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
-
-  // Giving the ultrasonic sensor a duration gets us a reading:
-  long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH);  // Pulse duration.
-  pulseDur = pulseDur / 29 / 2;                        // Time-to-centimeters conversion.
-  pulseDur = sqrt(pulseDur);                           // This is important.
-  return pulseDur;
 }
 
 void forward() {
@@ -229,11 +203,11 @@ void stop() {
 int lookRight() {
   g_servo.write(20);
   delay(800);
-  return ultrasonicRead();
+  return NsUltrasonic::read();
 }
 
 int lookLeft() {
   g_servo.write(180);
   delay(800);
-  return ultrasonicRead();
+  return NsUltrasonic::read();
 }
