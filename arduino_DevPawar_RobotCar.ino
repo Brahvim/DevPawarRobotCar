@@ -8,12 +8,10 @@
 #define WHEEL_SPEED 170
 #define SERVO_POINT 103
 
-int g_left;
-int g_right;
-int L = 0;
-int R = 0;
-int L1 = 0;
-int R1 = 0;
+int g_left = 0;
+int g_right = 0;
+int g_L1 = 0;
+int g_R1 = 0;
 
 Servo g_servo;
 
@@ -25,11 +23,16 @@ AF_DCMotor g_dcMotors[4] = {
 };
 #pragma endregion
 
+void (*restart)(void) = 0;
+
 void setup() {
   Serial.begin(9600);
-  pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
+
   pinMode(PIN_ULTRASONIC_ECHO, INPUT);
+  pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
+
   g_servo.attach(PIN_MOTOR);
+
   g_dcMotors[1].setSpeed(WHEEL_SPEED);
   g_dcMotors[2].setSpeed(WHEEL_SPEED);
   g_dcMotors[3].setSpeed(WHEEL_SPEED);
@@ -43,13 +46,13 @@ void loop() {
 }
 
 void bluetoothControlRoutine() {
-  char receivedValue = 0;
-  if (Serial.available() > 0) {
-    receivedValue = Serial.read();
-    Serial.println(receivedValue);
-  }
+  if (Serial.available() < 1)
+    return;
 
-  switch (receivedValue) {
+  // Unconventional, but accounts for bad cases without `<=`.
+  // Also, faster! :>
+
+  switch (Serial.read()) {
     case 'F':
       forward();
       break;
@@ -69,12 +72,16 @@ void bluetoothControlRoutine() {
     case 'S':
       stop();
       break;
+
+    default:
+      // TODO Make some error routine!
+      break;
   }
 }
 
 void obstacleRoutine() {
-  const int dist = ultrasonicRead();
-  Serial.println("Distance: ", dist);
+  const int dist = ultrasonicRead();  // Could use this info later!
+  // Serial.println("Distance: " + dist);
   delay(100);
 
   if (dist > 12) {
@@ -88,77 +95,92 @@ void obstacleRoutine() {
   delay(100);
   stop();
 
-  L = lookLeft();
+  g_left = lookLeft();
   g_servo.write(SERVO_POINT);
 
   delay(800);
 
-  R = lookRight();
+  g_right = lookRight();
   g_servo.write(SERVO_POINT);
 
-  if (L < R)
+  if (g_left < g_right)
     right();
-  else if (L > R)
+  else if (g_left > g_right)
     left();
 
 
   delay(500);
   stop();
+
+  // Is this because of a race condition?
   delay(200);
   delay(500);
+
   stop();
   delay(200);
 }
 
 void voiceControlRoutine() {
-  char receivedValue = 0;
-  if (Serial.available() > 0) {
-    receivedValue = Serial.read();
-    Serial.println(receivedValue);
-    if (receivedValue == '^') {
+  if (Serial.available() < 1)
+    return;
+
+  char receivedValue = Serial.read();
+  Serial.println(receivedValue);
+
+  switch (receivedValue) {
+    case '^':
       forward();
-    } else if (receivedValue == '-') {
+      break;
+
+    case '-':
       backward();
-    } else if (receivedValue == '<') {
-      L = lookLeft();
+      break;
+
+    case '<':
+      g_left = lookLeft();
       g_servo.write(SERVO_POINT);
-      if (L >= 10) {
+
+      if (g_left >= 10) {
         left();
         delay(500);
         stop();
-      } else if (L < 10) {
-        stop();
-      }
-    } else if (receivedValue == '>') {
-      R = lookRight();
+      } else if (g_left < 10)
+        stop();  // Let's not worry about having an extra condition here!
+      break;
+
+    case '>':
+      g_right = lookRight();
       g_servo.write(SERVO_POINT);
-      if (R >= 10) {
+      if (g_right >= 10) {
         right();
         delay(500);
         stop();
-      } else if (R < 10) {
+      } else if (g_right < 10) {
         stop();
       }
-    } else if (receivedValue == '*') {
+      break;
+
+    case '*':
       stop();
-    }
+      break;
+
+    default:
+      // TODO Make some error routine!
+      break;
   }
 }
 
-/**
-  Sends a pulse to the ultrasonic sensor, and then 
-  reads the distance the ultrasonic sensor has read.
-*/
 int ultrasonicRead() {
-  // Set the line to `LOW` (just to make sure):
+  // Lower TRIG for `4` microseconds as an error check:
   digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
-  delayMicroseconds(4);  // We're making a pulse, thus this little delay.
+  delayMicroseconds(4);  // ...We'll also wait this out.
 
-  // Set the line to `HIGH`:
+  // From the HC-SR04 datasheet:
+  // Set TRIG for `10` microseconds:
   digitalWrite(PIN_ULTRASONIC_TRIG, HIGH);
-  delayMicroseconds(10);  // We wait more before reading anything off of the sensor.
+  delayMicroseconds(10);
 
-  // Set the pin to `LOW` again:
+  // Set it low again for next use! ...things go wrong, okay!?
   digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 
   // Giving the ultrasonic sensor a duration gets us a reading:
