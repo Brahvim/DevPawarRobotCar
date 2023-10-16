@@ -1,168 +1,216 @@
-/*obstacle avoiding, Bluetooth control, voice control robot car.
-   https://srituhobby.com
-*/
+#pragma region  // Global declarations!
 #include <Servo.h>
 #include <AFMotor.h>
-#define Echo A0
-#define Trig A1
-#define motor 10
-#define Speed 170
-#define spoint 103
-char value;
-int distance;
-int Left;
-int Right;
+
+#define PIN_ULTRASONIC_ECHO A0
+#define PIN_ULTRASONIC_TRIG A1
+#define PIN_MOTOR 10
+#define WHEEL_SPEED 170
+#define SERVO_POINT 103
+
+int g_left;
+int g_right;
 int L = 0;
 int R = 0;
 int L1 = 0;
 int R1 = 0;
-Servo servo;
-AF_DCMotor M1(1);
-AF_DCMotor M2(2);
-AF_DCMotor M3(3);
-AF_DCMotor M4(4);
+
+Servo g_servo;
+
+AF_DCMotor g_dcMotors[4] = {
+  AF_DCMotor(1),
+  AF_DCMotor(2),
+  AF_DCMotor(3),
+  AF_DCMotor(4),
+};
+#pragma endregion
+
 void setup() {
   Serial.begin(9600);
-  pinMode(Trig, OUTPUT);
-  pinMode(Echo, INPUT);
-  servo.attach(motor);
-  M1.setSpeed(Speed);
-  M2.setSpeed(Speed);
-  M3.setSpeed(Speed);
-  M4.setSpeed(Speed);
+  pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
+  pinMode(PIN_ULTRASONIC_ECHO, INPUT);
+  g_servo.attach(PIN_MOTOR);
+  g_dcMotors[1].setSpeed(WHEEL_SPEED);
+  g_dcMotors[2].setSpeed(WHEEL_SPEED);
+  g_dcMotors[3].setSpeed(WHEEL_SPEED);
+  g_dcMotors[4].setSpeed(WHEEL_SPEED);
 }
+
 void loop() {
-  //Obstacle();
-  //Bluetoothcontrol();
-  //voicecontrol();
+  obstacleRoutine();
+  bluetoothControlRoutine();
+  voiceControlRoutine();
 }
-void Bluetoothcontrol() {
+
+void bluetoothControlRoutine() {
+  char receivedValue = 0;
   if (Serial.available() > 0) {
-    value = Serial.read();
-    Serial.println(value);
+    receivedValue = Serial.read();
+    Serial.println(receivedValue);
   }
-  if (value == 'F') {
-    forward();
-  } else if (value == 'B') {
-    backward();
-  } else if (value == 'L') {
-    left();
-  } else if (value == 'R') {
-    right();
-  } else if (value == 'S') {
-    Stop();
-  }
-}
-void Obstacle() {
-  distance = ultrasonic();
-  if (distance <= 12) {
-    Stop();
-    backward();
-    delay(100);
-    Stop();
-    L = leftsee();
-    servo.write(spoint);
-    delay(800);
-    R = rightsee();
-    servo.write(spoint);
-    if (L < R) {
-      right();
-      delay(500);
-      Stop();
-      delay(200);
-    } else if (L > R) {
-      left();
-      delay(500);
-      Stop();
-      delay(200);
-    }
-  } else {
-    forward();
-  }
-}
-void voicecontrol() {
-  if (Serial.available() > 0) {
-    value = Serial.read();
-    Serial.println(value);
-    if (value == '^') {
+
+  switch (receivedValue) {
+    case 'F':
       forward();
-    } else if (value == '-') {
+      break;
+
+    case 'B':
       backward();
-    } else if (value == '<') {
-      L = leftsee();
-      servo.write(spoint);
-      if (L >= 10 ) {
+      break;
+
+    case 'L':
+      left();
+      break;
+
+    case 'R':
+      right();
+      break;
+
+    case 'S':
+      stop();
+      break;
+  }
+}
+
+void obstacleRoutine() {
+  const int dist = ultrasonicRead();
+  Serial.println("Distance: ", dist);
+  delay(100);
+
+  if (dist > 12) {
+    forward();
+    return;
+  }
+
+  stop();
+  backward();
+
+  delay(100);
+  stop();
+
+  L = lookLeft();
+  g_servo.write(SERVO_POINT);
+
+  delay(800);
+
+  R = lookRight();
+  g_servo.write(SERVO_POINT);
+
+  if (L < R)
+    right();
+  else if (L > R)
+    left();
+
+
+  delay(500);
+  stop();
+  delay(200);
+  delay(500);
+  stop();
+  delay(200);
+}
+
+void voiceControlRoutine() {
+  char receivedValue = 0;
+  if (Serial.available() > 0) {
+    receivedValue = Serial.read();
+    Serial.println(receivedValue);
+    if (receivedValue == '^') {
+      forward();
+    } else if (receivedValue == '-') {
+      backward();
+    } else if (receivedValue == '<') {
+      L = lookLeft();
+      g_servo.write(SERVO_POINT);
+      if (L >= 10) {
         left();
         delay(500);
-        Stop();
+        stop();
       } else if (L < 10) {
-        Stop();
+        stop();
       }
-    } else if (value == '>') {
-      R = rightsee();
-      servo.write(spoint);
-      if (R >= 10 ) {
+    } else if (receivedValue == '>') {
+      R = lookRight();
+      g_servo.write(SERVO_POINT);
+      if (R >= 10) {
         right();
         delay(500);
-        Stop();
+        stop();
       } else if (R < 10) {
-        Stop();
+        stop();
       }
-    } else if (value == '*') {
-      Stop();
+    } else if (receivedValue == '*') {
+      stop();
     }
   }
 }
-// Ultrasonic sensor distance reading function
-int ultrasonic() {
-  digitalWrite(Trig, LOW);
-  delayMicroseconds(4);
-  digitalWrite(Trig, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(Trig, LOW);
-  long t = pulseIn(Echo, HIGH);
-  long cm = t / 29 / 2; //time convert distance
-  return cm;
+
+/**
+  Sends a pulse to the ultrasonic sensor, and then 
+  reads the distance the ultrasonic sensor has read.
+*/
+int ultrasonicRead() {
+  // Set the line to `LOW` (just to make sure):
+  digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
+  delayMicroseconds(4);  // We're making a pulse, thus this little delay.
+
+  // Set the line to `HIGH`:
+  digitalWrite(PIN_ULTRASONIC_TRIG, HIGH);
+  delayMicroseconds(10);  // We wait more before reading anything off of the sensor.
+
+  // Set the pin to `LOW` again:
+  digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
+
+  // Giving the ultrasonic sensor a duration gets us a reading:
+  long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH);  // Pulse duration.
+  pulseDur = pulseDur / 29 / 2;                        // Time-to-centimeters conversion.
+  pulseDur = sqrt(pulseDur);                           // This is important.
+  return pulseDur;
 }
+
 void forward() {
-  M1.run(FORWARD);
-  M2.run(FORWARD);
-  M3.run(FORWARD);
-  M4.run(FORWARD);
+  g_dcMotors[1].run(FORWARD);
+  g_dcMotors[2].run(FORWARD);
+  g_dcMotors[3].run(FORWARD);
+  g_dcMotors[4].run(FORWARD);
 }
+
 void backward() {
-  M1.run(BACKWARD);
-  M2.run(BACKWARD);
-  M3.run(BACKWARD);
-  M4.run(BACKWARD);
+  g_dcMotors[1].run(BACKWARD);
+  g_dcMotors[2].run(BACKWARD);
+  g_dcMotors[3].run(BACKWARD);
+  g_dcMotors[4].run(BACKWARD);
 }
+
 void right() {
-  M1.run(BACKWARD);
-  M2.run(BACKWARD);
-  M3.run(FORWARD);
-  M4.run(FORWARD);
+  g_dcMotors[1].run(BACKWARD);
+  g_dcMotors[2].run(BACKWARD);
+  g_dcMotors[3].run(FORWARD);
+  g_dcMotors[4].run(FORWARD);
 }
+
 void left() {
-  M1.run(FORWARD);
-  M2.run(FORWARD);
-  M3.run(BACKWARD);
-  M4.run(BACKWARD);
+  g_dcMotors[1].run(FORWARD);
+  g_dcMotors[2].run(FORWARD);
+  g_dcMotors[3].run(BACKWARD);
+  g_dcMotors[4].run(BACKWARD);
 }
-void Stop() {
-  M1.run(RELEASE);
-  M2.run(RELEASE);
-  M3.run(RELEASE);
-  M4.run(RELEASE);
+
+void stop() {
+  g_dcMotors[1].run(RELEASE);
+  g_dcMotors[2].run(RELEASE);
+  g_dcMotors[3].run(RELEASE);
+  g_dcMotors[4].run(RELEASE);
 }
-int rightsee() {
-  servo.write(20);
+
+int lookRight() {
+  g_servo.write(20);
   delay(800);
-  Left = ultrasonic();
-  return Left;
+  return ultrasonicRead();
 }
-int leftsee() {
-  servo.write(180);
+
+int lookLeft() {
+  g_servo.write(180);
   delay(800);
-  Right = ultrasonic();
-  return Right;
+  return ultrasonicRead();
 }
