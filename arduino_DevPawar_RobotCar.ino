@@ -1,6 +1,7 @@
 #pragma region  // Global declarations!
 #include <Servo.h>
 #include <AFMotor.h>
+#include "AppRoutine.hpp"
 
 #define PIN_ULTRASONIC_ECHO A0
 #define PIN_ULTRASONIC_TRIG A1
@@ -54,28 +55,28 @@ void bluetoothControlRoutine() {
 
   switch (Serial.read()) {
     case 'F':
-      forward();
-      break;
+    forward();
+    break;
 
     case 'B':
-      backward();
-      break;
+    backward();
+    break;
 
     case 'L':
-      left();
-      break;
+    left();
+    break;
 
     case 'R':
-      right();
-      break;
+    right();
+    break;
 
     case 'S':
-      stop();
-      break;
+    stop();
+    break;
 
     default:
-      // TODO Make some error routine!
-      break;
+    // TODO Make some error routine!
+    break;
   }
 }
 
@@ -129,44 +130,44 @@ void voiceControlRoutine() {
 
   switch (receivedValue) {
     case '^':
-      forward();
-      break;
+    forward();
+    break;
 
     case '-':
-      backward();
-      break;
+    backward();
+    break;
 
     case '<':
-      g_left = lookLeft();
-      g_servo.write(SERVO_POINT);
+    g_left = lookLeft();
+    g_servo.write(SERVO_POINT);
 
-      if (g_left >= 10) {
-        left();
-        delay(500);
-        stop();
-      } else if (g_left < 10)
-        stop();  // Let's not worry about having an extra condition here!
-      break;
+    if (g_left >= 10) {
+      left();
+      delay(500);
+      stop();
+    } else if (g_left < 10)
+      stop();  // Let's not worry about having an extra condition here!
+    break;
 
     case '>':
-      g_right = lookRight();
-      g_servo.write(SERVO_POINT);
-      if (g_right >= 10) {
-        right();
-        delay(500);
-        stop();
-      } else if (g_right < 10) {
-        stop();
-      }
-      break;
+    g_right = lookRight();
+    g_servo.write(SERVO_POINT);
+    if (g_right >= 10) {
+      right();
+      delay(500);
+      stop();
+    } else if (g_right < 10) {
+      stop();
+    }
+    break;
 
     case '*':
-      stop();
-      break;
+    stop();
+    break;
 
     default:
-      // TODO Make some error routine!
-      break;
+    // TODO Make some error routine!
+    break;
   }
 }
 
