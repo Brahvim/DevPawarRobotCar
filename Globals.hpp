@@ -2,9 +2,13 @@
 
 #include "NsAppRoutines.hpp"
 
+#include <AFMotor.h>
+#include <Servo.h>
+#include <Vector.h>
+
 #pragma region Value macros.
-#define WHEEL_SPEED 170
-#define SERVO_POINT 103
+#define WHEEL_SPEED              170
+#define SERVO_POINT              103
 #define ARDUINO_SERIAL_BAUD_RATE 9600
 
 // Ultrasonic pins:
@@ -18,21 +22,26 @@
 #pragma region Functional macros.
 // Debugging ones!:
 #ifdef DEBUG
-#define DEBUG_PRINT(x) Serial.print(x)
-#define DEBUG_PRINTLN(x) Serial.println(x)
-#else  // Define these as empty!:
-#define DEBUG_PRINT(x)
-#define DEBUG_PRINTLN(x)
+#define DEBUG_PRINT(...)      \
+    Serial.print("[DEBUG] "); \
+    Serial.print(__VA_ARGS__)
+#define DEBUG_PRINTLN(...)    \
+    Serial.print("[DEBUG] "); \
+    Serial.println(__VA_ARGS__)
+#else // Define these as empty!:
+#define DEBUG_PRINT(...)
+#define DEBUG_PRINTLN(...)
 #endif
+
 #pragma endregion
 
 #pragma region Global values.
-const Servo g_servo;
-const AF_DCMotor g_dcMotors[4] = {
-  AF_DCMotor(1),
-  AF_DCMotor(2),
-  AF_DCMotor(3),
-  AF_DCMotor(4),
+Servo           g_servo;
+AF_DCMotor      g_dcMotors[4] = {
+         AF_DCMotor(1),
+         AF_DCMotor(2),
+         AF_DCMotor(3),
+         AF_DCMotor(4),
 };
 #pragma endregion
 
