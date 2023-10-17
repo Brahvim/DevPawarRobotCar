@@ -1,9 +1,8 @@
-#define DEBUG // Used by `Globals.hpp`.
-
 #pragma region Includes.
-#include "Globals.hpp" // Includes more stuff!
+#include "Globals.hpp" // Has more `#include` directives!
 #include "NsCar.hpp"
-#include "NsUltrasonic.hpp"
+
+#include <Vector.h>
 #pragma endregion
 
 // #pragma region Static declarations.
@@ -11,215 +10,172 @@ static Vector<NsAppRoutines::AppRoutine> s_routinesVector;
 // #pragma endregion
 
 namespace NsAppRoutines {
-    NsAppRoutines::AppRoutineAdditionError addRoutine(const NsAppRoutines::AppRoutine &p_routine) {
-      for (const VectorIterator<NsAppRoutines::AppRoutine> it = s_routinesVector.begin();
-            it != s_routinesVector.end(); it++) {
-              auto obj = *it;
-            // if (decltype(obj) == decltype(p_routine))
-            //     return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
-        }
+	// Apparently references are always non-`nullptr`!
+	NsAppRoutines::AppRoutineAdditionError addRoutine(const NsAppRoutines::AppRoutine &p_routine) {
+		for (const VectorIterator<NsAppRoutines::AppRoutine> it = s_routinesVector.begin();
+			 it != s_routinesVector.end(); it++) {
+			auto obj = *it;
+			if (TYPE_NAME(p_routine) == TYPE_NAME(obj))
+				return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
+		}
 
-        s_routinesVector.push_back(p_routine);
-        return NsAppRoutines::AppRoutineAdditionError::NO_ERROR;
-    }
+		s_routinesVector.push_back(p_routine);
+		return NsAppRoutines::AppRoutineAdditionError::NO_ERROR;
+	}
 
-    void removeRoutine(const NsAppRoutines::AppRoutine &p_routine) {
-        for (const VectorIterator<NsAppRoutines::AppRoutine> it = s_routinesVector.begin();
-            it != s_routinesVector.end(); it++) {
-        }
-    }
+	void removeRoutine(const NsAppRoutines::AppRoutine &p_routine) {
+		for (const VectorIterator<NsAppRoutines::AppRoutine> it = s_routinesVector.begin();
+			 it != s_routinesVector.end(); it++)
+			;
+	}
 }
 
 void setup() {
-    while (!Serial)
-        ;
+	while (!Serial)
+		;
 
-    Serial.begin(ARDUINO_SERIAL_BAUD_RATE);
+	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
 
-    pinMode(PIN_ULTRASONIC_ECHO, INPUT);
-    pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
+	// Make sure we can talk with the ultrasonic sensor:
+	pinMode(PIN_ULTRASONIC_ECHO, INPUT);
+	pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
 
-    g_servo.attach(PIN_SERVO);
+	g_servo.attach(PIN_SERVO);
 
-    g_dcMotors[1].setSpeed(WHEEL_SPEED);
-    g_dcMotors[2].setSpeed(WHEEL_SPEED);
-    g_dcMotors[3].setSpeed(WHEEL_SPEED);
-    g_dcMotors[4].setSpeed(WHEEL_SPEED);
+	g_dcMotors[1].setSpeed(WHEEL_SPEED);
+	g_dcMotors[2].setSpeed(WHEEL_SPEED);
+	g_dcMotors[3].setSpeed(WHEEL_SPEED);
+	g_dcMotors[4].setSpeed(WHEEL_SPEED);
+
+	start();
 }
 
 void loop() {
-    obstacleRoutine();
-    bluetoothControlRoutine();
-    voiceControlRoutine();
+	obstacleRoutine();
+	voiceControlRoutine(); // Should come after `bluetoothControlRoutine()`...?
+	bluetoothControlRoutine();
 }
 
 void bluetoothControlRoutine() {
-    if (Serial.available() < 1)
-        return;
+	if (Serial.available() < 1)
+		return;
 
-    // Unconventional, but accounts for bad cases without `<=`.
-    // Also, faster! :>
+	// Unconventional, but accounts for bad cases without `<=`.
+	// Also, faster! :>
 
-    switch (Serial.read()) {
-        case 'F':
-        forward();
-        break;
+	switch (Serial.read()) {
+		case 'F':
+			NsCar::forward();
+			break;
 
-        case 'B':
-        backward();
-        break;
+		case 'B':
+			NsCar::backward();
+			break;
 
-        case 'L':
-        left();
-        break;
+		case 'L':
+			NsCar::left();
+			break;
 
-        case 'R':
-        right();
-        break;
+		case 'R':
+			NsCar::right();
+			break;
 
-        case 'S':
-        stop();
-        break;
+		case 'S':
+			NsCar::stop();
+			break;
 
-        default:
-        // TODO Make some error routine!
-        break;
-    }
+		default:
+			// TODO Make some error routine!
+			break;
+	}
 }
 
 void obstacleRoutine() {
-    const int dist = NsUltrasonic::read(); // Could use this info later!
-    DEBUG_PRINTLN("Distance: " + dist);
-    delay(100);
+	const int dist = NsUltrasonic::read(); // Could use this info later!
+	DEBUG_PRINTLN("Distance: " + dist);
+	delay(100);
 
-    if (dist > 12) {
-        forward();
-        return;
-    }
+	if (dist > 12) {
+		NsCar::forward();
+		return;
+	}
 
-    stop();
-    backward();
+	NsCar::stop();
+	NsCar::backward();
 
-    delay(100);
-    stop();
+	delay(100);
+	NsCar::stop();
 
-    const int leftVal = lookLeft();
-    g_servo.write(SERVO_POINT);
+	const int leftVal = NsCar::lookLeft();
+	g_servo.write(SERVO_POINT);
 
-    delay(800);
+	delay(800);
 
-    const int rightVal = lookRight();
-    g_servo.write(SERVO_POINT);
+	const int rightVal = NsCar::lookRight();
+	g_servo.write(SERVO_POINT);
 
-    if (leftVal < rightVal)
-        right();
-    else if (leftVal > rightVal)
-        left();
+	if (leftVal < rightVal)
+		NsCar::right();
+	else if (leftVal > rightVal)
+		NsCar::left();
 
-    delay(500);
-    stop();
+	delay(500);
+	NsCar::stop();
 
-    // Is this because of a race condition?
-    delay(200);
-    delay(500);
+	// Is this because of a race condition?
+	delay(200);
+	delay(500);
 
-    stop();
-    delay(200);
+	NsCar::stop();
+	delay(200);
 }
 
 void voiceControlRoutine() {
-    if (Serial.available() < 1)
-        return;
+	if (Serial.available() < 1)
+		return;
 
-    char receivedValue = Serial.read();
-    DEBUG_PRINTLN("Received voice control: " + receivedValue);
+	char receivedValue = Serial.read();
+	DEBUG_PRINTLN("Received voice control: " + receivedValue);
 
-    switch (receivedValue) {
-        case '^':
-        forward();
-        break;
+	switch (receivedValue) {
+		case '^':
+			NsCar::forward();
+			break;
 
-        case '-':
-        backward();
-        break;
+		case '-':
+			NsCar::backward();
+			break;
 
-        case '<':
-        const int leftVal = lookLeft();
-        g_servo.write(SERVO_POINT);
+		case '<':
+			const int leftVal = NsCar::lookLeft();
+			g_servo.write(SERVO_POINT);
 
-        if (leftVal >= 10) {
-            left();
-            delay(500);
-            stop();
-        } else if (leftVal < 10)
-            stop(); // Let's not worry about having an extra condition here!
-        break;
+			if (leftVal >= 10) {
+				NsCar::left();
+				delay(500);
+				NsCar::stop();
+			} else if (leftVal < 10)
+				NsCar::stop(); // Let's not worry about having an extra condition here!
+			break;
 
-        case '>':
-        const int rightVal = lookRight();
-        g_servo.write(SERVO_POINT);
-        if (rightVal >= 10) {
-            right();
-            delay(500);
-            stop();
-        } else if (rightVal < 10) {
-            stop();
-        }
-        break;
+		case '>':
+			const int rightVal = NsCar::lookRight();
+			g_servo.write(SERVO_POINT);
+			if (rightVal >= 10) {
+				NsCar::right();
+				delay(500);
+				NsCar::stop();
+			} else if (rightVal < 10) {
+				NsCar::stop();
+			}
+			break;
 
-        case '*':
-        stop();
-        break;
+		case '*':
+			NsCar::stop();
+			break;
 
-        default:
-        // TODO Make some error routine!
-        break;
-    }
-}
-
-void forward() {
-    g_dcMotors[1].run(FORWARD);
-    g_dcMotors[2].run(FORWARD);
-    g_dcMotors[3].run(FORWARD);
-    g_dcMotors[4].run(FORWARD);
-}
-
-void backward() {
-    g_dcMotors[1].run(BACKWARD);
-    g_dcMotors[2].run(BACKWARD);
-    g_dcMotors[3].run(BACKWARD);
-    g_dcMotors[4].run(BACKWARD);
-}
-
-void right() {
-    g_dcMotors[1].run(BACKWARD);
-    g_dcMotors[2].run(BACKWARD);
-    g_dcMotors[3].run(FORWARD);
-    g_dcMotors[4].run(FORWARD);
-}
-
-void left() {
-    g_dcMotors[1].run(FORWARD);
-    g_dcMotors[2].run(FORWARD);
-    g_dcMotors[3].run(BACKWARD);
-    g_dcMotors[4].run(BACKWARD);
-}
-
-void stop() {
-    g_dcMotors[1].run(RELEASE);
-    g_dcMotors[2].run(RELEASE);
-    g_dcMotors[3].run(RELEASE);
-    g_dcMotors[4].run(RELEASE);
-}
-
-int lookRight() {
-    g_servo.write(20);
-    delay(800);
-    return NsUltrasonic::read();
-}
-
-int lookLeft() {
-    g_servo.write(180);
-    delay(800);
-    return NsUltrasonic::read();
+		default:
+			// TODO Make some error routine!
+			break;
+	}
 }
