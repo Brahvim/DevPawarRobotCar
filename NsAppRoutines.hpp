@@ -1,12 +1,14 @@
 #pragma once
 
+#define MAKE_APP_ROUTINE(identifier)
+
 namespace NsAppRoutines {
 
     class AppRoutine {
     protected:
         /** @brief  Called when this routine starts. */
         virtual void setup(){
-            // <Sigh>.....  ^ Arduino IDE formatting!...
+            // <Sigh>...  ^ Arduino IDE formatting!...
         };
 
         /** @brief  Called in `loop()` after this routine has started. */
@@ -23,12 +25,13 @@ namespace NsAppRoutines {
         };
     };
 
-    enum AppRoutineError {
+    enum AppRoutineAdditionError {
+      NO_ERROR,
       ROUTINE_ALREADY_EXISTS,
     };
 
     /** Adds a routine. */
-    void addRoutine(const NsAppRoutines::AppRoutine &routine);
+    NsAppRoutines::AppRoutineAdditionError addRoutine(const NsAppRoutines::AppRoutine &routine);
 
     /** Removes a routine. */
     void removeRoutine(const NsAppRoutines::AppRoutine &routine);

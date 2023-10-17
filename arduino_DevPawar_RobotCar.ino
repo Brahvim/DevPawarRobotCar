@@ -11,8 +11,16 @@ static Vector<NsAppRoutines::AppRoutine> s_routinesVector;
 // #pragma endregion
 
 namespace NsAppRoutines {
-    void addRoutine(const NsAppRoutines::AppRoutine &p_routine) {
+    NsAppRoutines::AppRoutineAdditionError addRoutine(const NsAppRoutines::AppRoutine &p_routine) {
+      for (const VectorIterator<NsAppRoutines::AppRoutine> it = s_routinesVector.begin();
+            it != s_routinesVector.end(); it++) {
+              auto obj = *it;
+            // if (decltype(obj) == decltype(p_routine))
+            //     return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
+        }
+
         s_routinesVector.push_back(p_routine);
+        return NsAppRoutines::AppRoutineAdditionError::NO_ERROR;
     }
 
     void removeRoutine(const NsAppRoutines::AppRoutine &p_routine) {
