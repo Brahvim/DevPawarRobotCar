@@ -1,5 +1,12 @@
+#define ENABLE_DEBUG_LOGS
+
+#include "../DebuggingMacros.hpp"
 #include "../Globals.hpp"
 
-MAKE_TYPE_INFO(BluetoothRoutine);
+class BluetoothRoutine : public NsAppRoutines::AppRoutine {
+	void loop() override {
+		DEBUG_PRINTLN("Yo!");
+	}
+};
 
-class BluetoothRoutine : NsAppRoutines::AppRoutine {};
+MAKE_TYPE_INFO(BluetoothRoutine);

@@ -1,13 +1,9 @@
 #pragma once
 
-// #define MAKE_APP_ROUTINE(identifier, class_body) \
-// 	MAKE_TYPE_INFO(identifier)                      \
-// 	class identifier : NsAppRoutines::AppRoutine
-
 namespace NsAppRoutines {
 
 	class AppRoutine {
-	protected:
+	public:
 		/** @brief  Called when this routine starts. */
 		virtual void setup(){
 			// <Sigh>...  ^ Arduino IDE formatting!...
@@ -29,14 +25,19 @@ namespace NsAppRoutines {
 
 	enum AppRoutineAdditionError {
 		NO_ERROR,
-		ROUTINE_IS_NULL,
 		ROUTINE_ALREADY_EXISTS,
 	};
 
-	/** Adds a routine. */
-	NsAppRoutines::AppRoutineAdditionError addRoutine(const NsAppRoutines::AppRoutine &routine);
+	/**
+	 * @brief Attempts to add a routine of the given type, returning
+	 * `NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS` if it was already added.
+	 * Otherwise, the routine is added and `NsAppRoutines::AppRoutineAdditionError::NO_ERROR` is returned.
+	 */
+	template <class RoutineT>
+	NsAppRoutines::AppRoutineAdditionError addRoutine();
 
-	/** Removes a routine. */
-	void removeRoutine(const NsAppRoutines::AppRoutine &routine);
+	/** Attempts to remove a routine, then tell if it was successful. */
+	template <class RoutineT>
+	bool removeRoutine();
 
 }

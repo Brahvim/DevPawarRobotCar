@@ -1,5 +1,9 @@
 #pragma once
 
+#include <Servo.h>
+
+extern const Servo g_servo;
+
 namespace NsUltrasonic {
 
 	int read() {
@@ -21,6 +25,18 @@ namespace NsUltrasonic {
 		// pulseDur = sqrt(pulseDur);                        // This is
 		// important. Weirdly, the datasheet doesn't mention it.
 		return pulseDur;
+	}
+
+	int lookLeft() {
+		g_servo.write(180);
+		delay(800);
+		return NsUltrasonic::read();
+	}
+
+	int lookRight() {
+		g_servo.write(20);
+		delay(800);
+		return NsUltrasonic::read();
 	}
 
 }
