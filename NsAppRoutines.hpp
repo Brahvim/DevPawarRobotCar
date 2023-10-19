@@ -2,22 +2,23 @@
 
 namespace NsAppRoutines {
 
+	/**
+	 * @brief A class to allow many tasks to take place at once, and be added or removed easily.
+	 * All data is maintained privately, in a single implementation file.
+	 */
 	class AppRoutine {
 	public:
 		/** @brief  Called when this routine starts. */
-		virtual void setup() {
-		} /* = 0; */
+		virtual void setup();
 
 		/** @brief  Called in `loop()` after this routine has started. */
-		virtual void loop() {
-		} /* = 0; */
+		virtual void loop();
 
 		/**
 		 * @brief  Called when this routine has been requested to be removed
 		 * from the list of currently active routines.
 		 */
-		virtual void out() {
-		} /* = 0; */
+		virtual void out();
 	};
 
 	enum AppRoutineAdditionError {
@@ -33,7 +34,7 @@ namespace NsAppRoutines {
 	template <class RoutineT>
 	NsAppRoutines::AppRoutineAdditionError addRoutine();
 
-	/** Attempts to remove a routine, then tell if it was successful. */
+	/** @brief Attempts to remove a routine, then tell if it was successful. */
 	template <class RoutineT>
 	bool removeRoutine();
 

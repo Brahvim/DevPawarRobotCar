@@ -1,8 +1,4 @@
-#pragma once
-
-#include <Servo.h>
-
-extern const Servo g_servo;
+#include "NsUltrasonic.hpp"
 
 namespace NsUltrasonic {
 

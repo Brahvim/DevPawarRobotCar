@@ -1,10 +1,11 @@
 #define ENABLE_DEBUG_LOGS
 
 #pragma region Includes.
+#include "CarApi/NsCar.hpp"
+#include "CarApi/NsUltrasonic.hpp"
 #include "DebuggingMacros.hpp"
-#include "Globals.hpp" // Has more `#include` directives!
+#include "Globals.hpp"
 #include "NsAppRoutines.hpp"
-#include "NsCar.hpp"
 
 #include <AFMotor.h>
 #include <ArxContainer.h>
@@ -20,14 +21,17 @@ static arx::map<const char *, NsAppRoutines::AppRoutine *> s_routinesToClassName
 #pragma endregion
 
 void setup() {
+	// "iS mY bOWl oF cErEAl hERe yET?!?1!1/":
 	while (!Serial)
 		;
+
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
 
 	// Make sure we can talk with the ultrasonic sensor:
-	pinMode(PIN_ULTRASONIC_ECHO, INPUT);
-	pinMode(PIN_ULTRASONIC_TRIG, OUTPUT);
+	pinMode(PIN_ULTRASONIC_TRIG, OUTPUT); // This guy triggers the sensor,
+	pinMode(PIN_ULTRASONIC_ECHO, INPUT);  // ...This guy reports the distance back.
 
+	// Set the motors up! All of 'em !:
 	g_servo.attach(PIN_SERVO);
 
 	NsCar::dcMotors[1].setSpeed(WHEEL_SPEED);
@@ -35,144 +39,24 @@ void setup() {
 	NsCar::dcMotors[3].setSpeed(WHEEL_SPEED);
 	NsCar::dcMotors[4].setSpeed(WHEEL_SPEED);
 
-	DEBUG_PRINTLN("Calling `start()`.");
-	start();
+	DEBUG_PRINT("Calling `");
+	DEBUG_WRITE(STRINGIZE(START_FXN_NAME));
+	DEBUG_WRITELN("()`.");
+
+	// Start!:
+	START_FXN_NAME();
 }
 
 void loop() {
+	// So we... iterate over 'em all, and...
+	// ...yeah, you get the point!:
 	for (auto it = s_routinesToClassNamesMap.begin(); it != s_routinesToClassNamesMap.end(); it++) {
-		// DEBUG_PRINT("Size of vector: ");
-		// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+		DEBUG_PRINT("Size of vector: ");
+		DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+
+		// Have this variable just in case. Dunno when the big iterations are gunna be here!:
 		const auto routine = it->second;
 		routine->loop();
-	}
-
-	// obstacleRoutine();
-	// voiceControlRoutine(); // Should come after `bluetoothControlRoutine()`...?
-	// bluetoothControlRoutine();
-}
-
-void bluetoothControlRoutine() {
-	if (Serial.available() < 1)
-		return;
-
-	// Unconventional, but accounts for bad cases without `<=`.
-	// Also, faster! :>
-
-	switch (Serial.read()) {
-		case 'F':
-			NsCar::moveForward();
-			break;
-
-		case 'B':
-			NsCar::moveBackward();
-			break;
-
-		case 'L':
-			NsCar::moveLeft();
-			break;
-
-		case 'R':
-			NsCar::moveRight();
-			break;
-
-		case 'S':
-			NsCar::stop();
-			break;
-
-		default:
-			// TODO Make some error routine!
-			break;
-	}
-}
-
-void obstacleRoutine() {
-	const int dist = NsUltrasonic::read(); // Could use this info later!
-	DEBUG_PRINTLN("Distance: " + dist);
-	delay(100);
-
-	if (dist > 12) {
-		NsCar::moveForward();
-		return;
-	}
-
-	NsCar::stop();
-	NsCar::moveBackward();
-
-	delay(100);
-	NsCar::stop();
-
-	const int leftVal = NsUltrasonic::lookLeft();
-	g_servo.write(SERVO_POINT);
-
-	delay(800);
-
-	const int rightVal = NsUltrasonic::lookRight();
-	g_servo.write(SERVO_POINT);
-
-	if (leftVal < rightVal)
-		NsCar::moveRight();
-	else if (leftVal > rightVal)
-		NsCar::moveLeft();
-
-	delay(500);
-	NsCar::stop();
-
-	// Is this because of a race condition?
-	delay(200);
-	delay(500);
-
-	NsCar::stop();
-	delay(200);
-}
-
-void voiceControlRoutine() {
-	if (Serial.available() < 1)
-		return;
-
-	char receivedValue = Serial.read();
-	DEBUG_PRINTLN("Received voice control: " + receivedValue);
-
-	switch (receivedValue) {
-		case '^':
-			NsCar::moveForward();
-			break;
-
-		case '-':
-			NsCar::moveBackward();
-			break;
-
-		case '<':
-			const int leftVal = NsUltrasonic::lookLeft();
-			g_servo.write(SERVO_POINT);
-
-			if (leftVal >= 10) {
-				NsCar::moveLeft();
-				delay(500);
-				NsCar::stop();
-			} else if (leftVal < 10)
-				NsCar::stop(); // Let's not worry about having an extra condition here!
-			break;
-
-		case '>':
-			const int rightVal = NsUltrasonic::lookRight();
-			g_servo.write(SERVO_POINT);
-			if (rightVal >= 10) {
-				NsCar::moveRight();
-				delay(500);
-				NsCar::stop();
-			} else if (rightVal < 10) {
-				NsCar::stop();
-			}
-			break;
-
-		case '*':
-			NsCar::stop();
-			break;
-
-		default:
-			// TODO Make some error routine!
-			break;
 	}
 }
 
@@ -186,17 +70,11 @@ namespace NsAppRoutines {
 			DEBUG_WRITE(TYPE_NAME(RoutineT));
 			DEBUG_WRITELN("` already exists. Didn't add another.");
 
+			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
 			return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
 		}
 
-		// Older check. No longer needed!:
-		// for (const auto &obj : s_routinesToClassNamesMap)
-		// 	if (strcmp(obj.first, TYPE_NAME(RoutineT))) {
-		// 		DEBUG_PRINT("Routine of type: `");
-		// 		DEBUG_WRITE(TYPE_NAME(RoutineT));
-		// 		DEBUG_WRITELN("` already exists. Didn't add it.");
-		// 	}
-
+		// Okay, here we go! Roll the callback!:
 		NsAppRoutines::AppRoutine *routine = new RoutineT();
 		s_routinesToClassNamesMap[TYPE_NAME(RoutineT)] = routine;
 		routine->setup();
@@ -210,23 +88,28 @@ namespace NsAppRoutines {
 
 	template <class RoutineT>
 	bool removeRoutine() {
+		// Check if a routine of the same class name exists:
 		for (auto it = s_routinesToClassNamesMap.begin(); it != s_routinesToClassNamesMap.end(); it++) {
-			if (it->first == TYPE_NAME(RoutineT)) {
-				NsAppRoutines::AppRoutine *routine = &(it->second);
-				routine->out();
-				delete routine;
+			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
+			if (it->first != TYPE_NAME(RoutineT))
+				continue;
 
-				s_routinesToClassNamesMap.erase(it);
+			// If we've found one, we dispatch the callback and de-allocate memory:
+			NsAppRoutines::AppRoutine *routine = &(it->second);
+			routine->out();
+			delete routine;
 
-				DEBUG_PRINT("Removed routine of type: `");
-				DEBUG_WRITE(TYPE_NAME(RoutineT));
-				DEBUG_WRITELN("`.");
+			// ...As well as remove our object from our map:
+			s_routinesToClassNamesMap.erase(it);
 
-				// DEBUG_PRINT("Size of vector: ");
-				// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+			DEBUG_PRINT("Removed routine of type: `");
+			DEBUG_WRITE(TYPE_NAME(RoutineT));
+			DEBUG_WRITELN("`.");
 
-				return true;
-			}
+			// DEBUG_PRINT("Size of vector: ");
+			// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+
+			return true;
 		}
 
 		DEBUG_PRINT("Found no removable routine of type: `");
