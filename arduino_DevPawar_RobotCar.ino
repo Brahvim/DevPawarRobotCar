@@ -7,8 +7,8 @@
 #include "NsCar.hpp"
 
 #include <AFMotor.h>
+#include <ArxContainer.h>
 #include <Servo.h>
-#include <Vector.h>
 #pragma endregion
 
 #pragma region Global definitions.
@@ -16,18 +16,13 @@ const Servo g_servo;
 #pragma endregion
 
 #pragma region Static declarations.
-static NsAppRoutines::AppRoutine s_routineStorage[10];
-
-// This library automatically uses references in the type specified:
-static Vector<NsAppRoutines::AppRoutine> s_routinesVector;
+static arx::map<const char *, NsAppRoutines::AppRoutine *> s_routinesToClassNamesMap;
 #pragma endregion
 
 void setup() {
 	while (!Serial)
 		;
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
-
-	s_routinesVector.setStorage(s_routineStorage);
 
 	// Make sure we can talk with the ultrasonic sensor:
 	pinMode(PIN_ULTRASONIC_ECHO, INPUT);
@@ -42,14 +37,14 @@ void setup() {
 
 	DEBUG_PRINTLN("Calling `start()`.");
 	start();
-
-	DEBUG_PRINT("Size of vector: ");
-	DEBUG_WRITELN(s_routinesVector.size());
 }
 
 void loop() {
-	for (const auto &r : s_routinesVector) {
-		r.loop();
+	for (auto it = s_routinesToClassNamesMap.begin(); it != s_routinesToClassNamesMap.end(); it++) {
+		// DEBUG_PRINT("Size of vector: ");
+		// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+		const auto routine = it->second;
+		routine->loop();
 	}
 
 	// obstacleRoutine();
@@ -185,12 +180,26 @@ namespace NsAppRoutines {
 
 	template <class RoutineT>
 	NsAppRoutines::AppRoutineAdditionError addRoutine() {
-		for (const auto &obj : s_routinesVector)
-			if (TYPE_NAME(obj) == TYPE_NAME(RoutineT))
-				return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
+		// If an object of this class already exists,
+		if (s_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != s_routinesToClassNamesMap.end()) {
+			DEBUG_PRINT("Routine of type `");
+			DEBUG_WRITE(TYPE_NAME(RoutineT));
+			DEBUG_WRITELN("` already exists. Didn't add another.");
 
-		const AppRoutine *routine = new RoutineT();
-		s_routinesVector.push_back(*routine);
+			return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
+		}
+
+		// Older check. No longer needed!:
+		// for (const auto &obj : s_routinesToClassNamesMap)
+		// 	if (strcmp(obj.first, TYPE_NAME(RoutineT))) {
+		// 		DEBUG_PRINT("Routine of type: `");
+		// 		DEBUG_WRITE(TYPE_NAME(RoutineT));
+		// 		DEBUG_WRITELN("` already exists. Didn't add it.");
+		// 	}
+
+		NsAppRoutines::AppRoutine *routine = new RoutineT();
+		s_routinesToClassNamesMap[TYPE_NAME(RoutineT)] = routine;
+		routine->setup();
 
 		DEBUG_PRINT("Added routine of type: `");
 		DEBUG_WRITE(TYPE_NAME(RoutineT));
@@ -201,20 +210,29 @@ namespace NsAppRoutines {
 
 	template <class RoutineT>
 	bool removeRoutine() {
-		// Checking against a method call here since... threads.
-		// Yeah. On a completely serial order device too!:
-		for (size_t i = 0; i < s_routinesVector.size(); i++) {
-			const auto &obj = s_routinesVector[i];
-			if (TYPE_NAME(obj) == TYPE_NAME(RoutineT)) {
+		for (auto it = s_routinesToClassNamesMap.begin(); it != s_routinesToClassNamesMap.end(); it++) {
+			if (it->first == TYPE_NAME(RoutineT)) {
+				NsAppRoutines::AppRoutine *routine = &(it->second);
+				routine->out();
+				delete routine;
+
+				s_routinesToClassNamesMap.erase(it);
+
 				DEBUG_PRINT("Removed routine of type: `");
 				DEBUG_WRITE(TYPE_NAME(RoutineT));
 				DEBUG_WRITELN("`.");
 
-				s_routinesVector.remove(i);
+				// DEBUG_PRINT("Size of vector: ");
+				// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+
 				return true;
 			}
 		}
+
+		DEBUG_PRINT("Found no removable routine of type: `");
+		DEBUG_WRITE(TYPE_NAME(RoutineT));
+		DEBUG_WRITELN("`.");
+
 		return false;
 	}
-
 }

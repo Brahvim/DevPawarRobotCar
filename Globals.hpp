@@ -18,10 +18,11 @@
 template <typename TypeT>
 struct TypeInfo {
 	static const char *name;
-}; // Can't go into `PROGMEM`...
+}; // Can't be kept in `PROGMEM`...
 template <typename TypeT>
 const char *TypeInfo<TypeT>::name = "Unknown";
 
+// https://arduino.stackexchange.com/a/3080
 #define TYPE_NAME(var) TypeInfo<typeof(var)>::name
 #define MAKE_TYPE_INFO(type) \
 	template <>              \

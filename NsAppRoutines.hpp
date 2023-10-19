@@ -5,22 +5,19 @@ namespace NsAppRoutines {
 	class AppRoutine {
 	public:
 		/** @brief  Called when this routine starts. */
-		virtual void setup(){
-			// <Sigh>...  ^ Arduino IDE formatting!...
-		};
+		virtual void setup() {
+		} /* = 0; */
 
 		/** @brief  Called in `loop()` after this routine has started. */
-		virtual void loop(){
-
-		};
+		virtual void loop() {
+		} /* = 0; */
 
 		/**
 		 * @brief  Called when this routine has been requested to be removed
 		 * from the list of currently active routines.
 		 */
-		virtual void out(){
-
-		};
+		virtual void out() {
+		} /* = 0; */
 	};
 
 	enum AppRoutineAdditionError {
