@@ -4,6 +4,7 @@
 #include "../Api/DebuggingMacros.hpp"
 #include "../Api/Globals.hpp"
 #include "../Api/NsAppRoutines.hpp"
+#include "../CarApi/NsServo.hpp"
 
 class ObstacleHandlingRoutine : public NsAppRoutines::AppRoutine {};
 

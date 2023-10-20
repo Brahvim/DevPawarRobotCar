@@ -20,7 +20,7 @@ public:
 
 			case '<':
 				const int leftVal = NsUltrasonic::lookLeft();
-				g_servo.write(SERVO_POINT);
+				NsServo::servo.write(SERVO_POINT);
 
 				if (leftVal >= 10) {
 					NsCar::moveLeft();
@@ -32,7 +32,7 @@ public:
 
 			case '>':
 				const int rightVal = NsUltrasonic::lookRight();
-				g_servo.write(SERVO_POINT);
+				NsServo::servo.write(SERVO_POINT);
 				if (rightVal >= 10) {
 					NsCar::moveRight();
 					delay(500);

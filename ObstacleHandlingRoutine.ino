@@ -19,12 +19,12 @@ public:
 		NsCar::stop();
 
 		const int leftVal = NsUltrasonic::lookLeft();
-		g_servo.write(SERVO_POINT);
+		NsServo::servo.write(SERVO_POINT);
 
 		delay(800);
 
 		const int rightVal = NsUltrasonic::lookRight();
-		g_servo.write(SERVO_POINT);
+		NsServo::servo.write(SERVO_POINT);
 
 		if (leftVal < rightVal)
 			NsCar::moveRight();

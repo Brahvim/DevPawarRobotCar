@@ -1,8 +1,5 @@
+#include "../NsServo.hpp"
 #include "../NsUltrasonic.hpp"
-
-#include <Servo.h>
-
-extern const Servo g_servo;
 
 namespace NsUltrasonic {
 
@@ -28,13 +25,13 @@ namespace NsUltrasonic {
 	}
 
 	int lookLeft() {
-		g_servo.write(180);
+		NsServo::servo.write(180);
 		delay(800);
 		return NsUltrasonic::read();
 	}
 
 	int lookRight() {
-		g_servo.write(20);
+		NsServo::servo.write(20);
 		delay(800);
 		return NsUltrasonic::read();
 	}

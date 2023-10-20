@@ -2,6 +2,7 @@
 
 #pragma region Includes.
 #include "../CarApi/NsCar.hpp"
+#include "../CarApi/NsServo.hpp"
 #include "../CarApi/NsUltrasonic.hpp"
 #include "CustomSetup.hpp"
 #include "DebuggingMacros.hpp"
@@ -13,10 +14,9 @@
 #include <Servo.h>
 #pragma endregion
 
-#pragma region Global definitions.
-const Servo g_servo;
+// #pragma region Global definitions.
 arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
-#pragma endregion
+// #pragma endregion
 
 void setup() {
 	// "iS mY bOWl oF cErEAl hERe yET?!?1!1/":
@@ -30,7 +30,7 @@ void setup() {
 	pinMode(PIN_ULTRASONIC_ECHO, INPUT);  // ...This guy reports the distance back.
 
 	// Set the motors up! All of 'em !:
-	g_servo.attach(PIN_SERVO);
+	NsServo::servo.attach(PIN_SERVO);
 
 	NsCar::dcMotors[1].setSpeed(WHEEL_SPEED);
 	NsCar::dcMotors[2].setSpeed(WHEEL_SPEED);
