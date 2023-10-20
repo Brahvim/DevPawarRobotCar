@@ -1,12 +1,15 @@
 #pragma once
 
-#include "NsUltrasonic.hpp"
-
 #include <AFMotor.h>
 
 namespace NsCar {
 
-	extern const AF_DCMotor dcMotors[4];
+	AF_DCMotor dcMotors[4] = {
+		(void*)0,
+		(void*)0,
+		(void*)0,
+		(void*)0,
+	};
 
 	void stop();
 	void moveLeft();

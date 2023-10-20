@@ -1,10 +1,9 @@
-#define ENABLE_DEBUG_LOGS // Used by `Globals.hpp`.
+#define ENABLE_DEBUG_LOGS // Used by `DebuggingMacros.hpp`.
 
 #include "CustomRoutines/BluetoothRoutine.hpp"
 #include "CustomRoutines/ObstacleHandlingRoutine.hpp"
 #include "CustomRoutines/VoiceControlRoutine.hpp"
-#include "DebuggingMacros.hpp"
-#include "Globals.hpp"
+#include "CustomSetup.hpp"
 
 void start() {
 	// Order to add routines in:

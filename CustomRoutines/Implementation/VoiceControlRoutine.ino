@@ -1,4 +1,4 @@
-#include "VoiceControlRoutine.hpp"
+#include "../VoiceControlRoutine.hpp"
 
 class VoiceControlRoutine : public NsAppRoutines::AppRoutine {
 public:

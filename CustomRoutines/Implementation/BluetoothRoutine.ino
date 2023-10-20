@@ -1,4 +1,4 @@
-#include "BluetoothRoutine.hpp"
+#include "../BluetoothRoutine.hpp"
 
 class BluetoothRoutine : public NsAppRoutines::AppRoutine {
 public:

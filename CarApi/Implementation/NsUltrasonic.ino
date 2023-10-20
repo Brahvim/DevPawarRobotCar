@@ -1,4 +1,8 @@
-#include "NsUltrasonic.hpp"
+#include "../NsUltrasonic.hpp"
+
+#include <Servo.h>
+
+extern const Servo g_servo;
 
 namespace NsUltrasonic {
 

@@ -1,7 +1,8 @@
-#include "NsCar.hpp"
+#include "../NsCar.hpp"
+#include "../NsUltrasonic.hpp"
 
 namespace NsCar {
-	const AF_DCMotor dcMotors[4] = {
+	AF_DCMotor dcMotors[4] = {
 		AF_DCMotor(1),
 		AF_DCMotor(2),
 		AF_DCMotor(3),

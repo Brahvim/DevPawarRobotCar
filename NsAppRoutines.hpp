@@ -26,6 +26,7 @@ namespace NsAppRoutines {
 		ROUTINE_ALREADY_EXISTS,
 	};
 
+#pragma region Methods to manage routine collections.
 	/**
 	 * @brief Attempts to add a routine of the given type, returning
 	 * `NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS` if it was already added.
@@ -37,5 +38,6 @@ namespace NsAppRoutines {
 	/** @brief Attempts to remove a routine, then tell if it was successful. */
 	template <class RoutineT>
 	bool removeRoutine();
+#pragma endregion
 
 }

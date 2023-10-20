@@ -33,7 +33,5 @@ const char *TypeInfo<TypeT>::name = "Unknown";
 #pragma endregion
 
 #pragma region Global function declarations.
-#define START_FXN_NAME start
-extern void START_FXN_NAME();
 void (*restart)(void) = 0;
 #pragma endregion
