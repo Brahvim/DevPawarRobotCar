@@ -1,8 +1,9 @@
+#pragma once
 #define ENABLE_DEBUG_LOGS
 
-#include "../DebuggingMacros.hpp"
-#include "../Globals.hpp"
-#include "../NsAppRoutines.hpp"
+#include "../Api/DebuggingMacros.hpp"
+#include "../Api/Globals.hpp"
+#include "../Api/NsAppRoutines.hpp"
 
 class ObstacleHandlingRoutine : public NsAppRoutines::AppRoutine {};
 

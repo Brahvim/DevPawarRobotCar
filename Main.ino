@@ -1,9 +1,9 @@
 #define ENABLE_DEBUG_LOGS // Used by `DebuggingMacros.hpp`.
 
-#include "CustomRoutines/BluetoothRoutine.hpp"
-#include "CustomRoutines/ObstacleHandlingRoutine.hpp"
-#include "CustomRoutines/VoiceControlRoutine.hpp"
-#include "CustomSetup.hpp"
+#include "Api/CustomSetup.hpp"
+#include "RoutineDecls/BluetoothRoutine.hpp"
+#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/VoiceControlRoutine.hpp"
 
 void start() {
 	// Order to add routines in:

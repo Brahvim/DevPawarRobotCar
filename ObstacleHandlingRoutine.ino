@@ -1,4 +1,4 @@
-#include "../ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 class ObstacleHandlingRoutine : public NsAppRoutines::AppRoutine {
 public:

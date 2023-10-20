@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Globals.hpp"
+#include "../Api/Globals.hpp"
 
 namespace NsUltrasonic {
 
