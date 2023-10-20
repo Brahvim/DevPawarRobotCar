@@ -9,16 +9,16 @@ namespace NsAppRoutines {
 	class AppRoutine {
 	public:
 		/** @brief  Called when this routine starts. */
-		virtual void setup();
+		virtual void setup(){};
 
 		/** @brief  Called in `loop()` after this routine has started. */
-		virtual void loop();
+		virtual void loop(){};
 
 		/**
 		 * @brief  Called when this routine has been requested to be removed
 		 * from the list of currently active routines.
 		 */
-		virtual void out();
+		virtual void out(){};
 	};
 
 	enum AppRoutineAdditionError {
