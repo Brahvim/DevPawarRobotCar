@@ -1,8 +1,39 @@
-#include "NsAppRoutines.hpp"
+#include "../include/Api/DebuggingMacros.hpp"
+#include "../include/Api/Globals.hpp"
+#include "../include/Api/NsAppRoutines.hpp"
 
-extern arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
+#include "../include/RoutineDecls/BluetoothRoutine.hpp"
+#include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "../include/RoutineDecls/VoiceControlRoutine.hpp"
+
+#include "ArxContainer.h"
+
+arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
+
+// template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
+
+// template bool NsAppRoutines::removeRoutine<VoiceControlRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<VoiceControlRoutine>();
+
+// template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 namespace NsAppRoutines {
+
+	void AppRoutine::setup() {
+		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `setup()`!"));
+	}
+
+	void AppRoutine::loop() {
+		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `loop()`!"));
+	}
+
+	void AppRoutine::out() {
+		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `out()`!"));
+	}
+
+
 
 	template <class RoutineT>
 	NsAppRoutines::AppRoutineAdditionError addRoutine() {
@@ -15,6 +46,7 @@ namespace NsAppRoutines {
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
 			return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
 		}
+
 
 		// Okay, here we go! Roll the callback!:
 		NsAppRoutines::AppRoutine *routine = new RoutineT(); // Fun fact: Object slicing ruined me here for DAYS 🤣
@@ -30,14 +62,14 @@ namespace NsAppRoutines {
 
 	template <class RoutineT>
 	bool removeRoutine() {
-		// Check if a routine of the same class name exists:
+		// Check if a routine of the same class name exists :
 		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); it++) {
 			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
 			if (it->first != TYPE_NAME(RoutineT))
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:
-			NsAppRoutines::AppRoutine *routine = &(it->second);
+			NsAppRoutines::AppRoutine *routine = it->second;
 			routine->out();
 			delete routine;
 
@@ -49,7 +81,7 @@ namespace NsAppRoutines {
 			DEBUG_WRITELN("`.");
 
 			// DEBUG_PRINT("Size of vector: ");
-			// DEBUG_WRITELN(s_routinesToClassNamesMap.size());
+			// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
 
 			return true;
 		}

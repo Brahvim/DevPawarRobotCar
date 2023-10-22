@@ -1,6 +1,7 @@
 // Debugging macros!:
 
 #ifdef ENABLE_DEBUG_LOGS
+#include <Arduino.h>
 
 /** @brief Logs without "[DEBUG] " prefixed. */
 #define DEBUG_WRITE(...) Serial.print(__VA_ARGS__)

@@ -14,10 +14,11 @@
 
 #pragma region Functional macros.
 #define STRINGIZE(x)	  (#x)
-#define TOKEN_PASTE(x)	  (##x)
-#define TOKEN_PASTE(x, y) (x##y)
+#define TO_STRING(x)	  STRINGIZE(x)
+#define JOIN_TOKENS(x, y) (x##y)
 
 // Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
+
 template <typename TypeT>
 struct TypeInfo {
 	static const char *name;
@@ -33,5 +34,5 @@ const char *TypeInfo<TypeT>::name = "Unknown";
 #pragma endregion
 
 #pragma region Global function declarations.
-void (*restart)(void) = 0;
+// void (*restart)(void) = 0;
 #pragma endregion

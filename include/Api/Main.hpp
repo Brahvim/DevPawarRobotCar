@@ -1,4 +1,5 @@
 #define ENABLE_DEBUG_LOGS
+#pragma once
 
 #pragma region Includes.
 #include "../CarApi/NsCar.hpp"
@@ -15,7 +16,7 @@
 #pragma endregion
 
 // #pragma region Global definitions.
-arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
+extern arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
 // #pragma endregion
 
 void setup() {
@@ -38,19 +39,29 @@ void setup() {
 	NsCar::dcMotors[4].setSpeed(WHEEL_SPEED);
 
 	DEBUG_PRINT("Calling `");
-	DEBUG_WRITE(STRINGIZE(START_FXN_NAME));
+	DEBUG_WRITE(TO_STRING(START_FXN));
 	DEBUG_WRITELN("()`.");
 
 	// Start!:
-	START_FXN_NAME();
+	START_FXN();
+
+	DEBUG_PRINTLN("Gunna loop now...");
 }
 
 void loop() {
+	// DEBUG_WRITELN("In Arduino loop.");
+	// DEBUG_PRINT("Size of vector: ");
+	// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
+
+	// if (Serial.available() > 1)
+	// 	DEBUG_PRINTLN("Received something on the serial line!");
+
 	// So we... iterate over 'em all, and...
 	// ...yeah, you get the point!:
 	for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); it++) {
-		DEBUG_PRINT("Size of vector: ");
-		DEBUG_WRITELN(g_routinesToClassNamesMap.size());
+		// DEBUG_PRINT("Running routine `");
+		// DEBUG_WRITE(it->first);
+		// DEBUG_WRITELN("`.");
 
 		// Have this variable just in case. Dunno when the big iterations are gunna be here!:
 		const auto routine = it->second;

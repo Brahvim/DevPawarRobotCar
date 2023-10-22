@@ -4,6 +4,6 @@
 
 namespace NsServo {
 
-	const Servo servo;
+	extern Servo servo;
 
 }
