@@ -15,10 +15,11 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 // template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 void ObstacleHandlingRoutine::loop() {
-	DEBUG_PRINTLN("The obstacle handling routine is executing!");
+	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
 
 	const int dist = NsUltrasonic::read(); // Could use this info later!
-	DEBUG_PRINTLN("Distance: " + dist);
+	// DEBUG_PRINT("Distance: ");
+	DEBUG_WRITELN(dist);
 	delay(100);
 
 	if (dist > 12) {

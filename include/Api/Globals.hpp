@@ -1,23 +1,10 @@
 #pragma once
 
-#pragma region Value macros.
-// Speeds and angles!...:
-#define WHEEL_SPEED				 170
-#define SERVO_POINT				 103
-#define ARDUINO_SERIAL_BAUD_RATE 9600
-
-// Pins:
-#define PIN_SERVO			10
-#define PIN_ULTRASONIC_ECHO A0
-#define PIN_ULTRASONIC_TRIG A1
-#pragma endregion
-
-#pragma region Functional macros.
 #define STRINGIZE(x)	  (#x)
 #define TO_STRING(x)	  STRINGIZE(x)
 #define JOIN_TOKENS(x, y) (x##y)
 
-// Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
+#pragma region // Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
 
 template <typename TypeT>
 struct TypeInfo {
@@ -33,6 +20,6 @@ const char *TypeInfo<TypeT>::name = "Unknown";
 	const char *TypeInfo<type>::name = #type;
 #pragma endregion
 
-#pragma region Global function declarations.
+#pragma region // Global function declarations.
 // void (*restart)(void) = 0;
 #pragma endregion

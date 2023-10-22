@@ -5,8 +5,8 @@
 #include "../include/Api/CustomSetup.hpp"
 #include "../include/Api/NsAppRoutines.hpp"
 #include "../include/RoutineDecls/BluetoothRoutine.hpp"
-#include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
 #include "../include/RoutineDecls/VoiceControlRoutine.hpp"
+#include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 void start() {
 	// Order to add routines in:

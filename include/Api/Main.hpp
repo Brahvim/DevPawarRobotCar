@@ -1,7 +1,7 @@
 #define ENABLE_DEBUG_LOGS
 #pragma once
 
-#pragma region Includes.
+#pragma region // Includes.
 #include "../CarApi/NsCar.hpp"
 #include "../CarApi/NsServo.hpp"
 #include "../CarApi/NsUltrasonic.hpp"
@@ -15,7 +15,10 @@
 #include <Servo.h>
 #pragma endregion
 
-// #pragma region Global definitions.
+#define WHEEL_SPEED				 	170
+#define ARDUINO_SERIAL_BAUD_RATE 	9600
+
+// #pragma region // Global definitions.
 extern arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
 // #pragma endregion
 
@@ -45,7 +48,7 @@ void setup() {
 	// Start!:
 	START_FXN();
 
-	DEBUG_PRINTLN("Gunna loop now...");
+	DEBUG_PRINTLN("Beginning Arduino loop.");
 }
 
 void loop() {

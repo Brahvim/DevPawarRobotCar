@@ -27,3 +27,19 @@
 #define DEBUG_PRINTLN(...)
 
 #endif
+
+/** @brief Logs without "[ERROR] " prefixed. */
+#define ERROR_WRITE(...) Serial.print(__VA_ARGS__)
+
+/** @brief Logs without "[ERROR] " prefixed, with a new-line at the end. */
+#define ERROR_WRITELN(...) Serial.println(__VA_ARGS__)
+
+/** @brief Logs with "[ERROR] " prefixed. */
+#define ERROR_PRINT(...)         \
+	Serial.print(F("[ERROR] ")); \
+	Serial.print(__VA_ARGS__)
+
+/** @brief Logs with "[ERROR] " prefixed, with a new-line at the end. */
+#define ERROR_PRINTLN(...)       \
+	Serial.print(F("[ERROR] ")); \
+	Serial.println(__VA_ARGS__)

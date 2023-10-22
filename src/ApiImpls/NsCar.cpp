@@ -16,7 +16,7 @@ namespace NsCar {
 	};
 
 	void stop() {
-		DEBUG_PRINTLN("Car is stopping.");
+		DEBUG_PRINTLN("Stop"); // "Car is stopping.");
 		NsCar::dcMotors[1].run(RELEASE);
 		NsCar::dcMotors[2].run(RELEASE);
 		NsCar::dcMotors[3].run(RELEASE);
@@ -24,7 +24,7 @@ namespace NsCar {
 	}
 
 	void moveLeft() {
-		DEBUG_PRINTLN("Car is going left.");
+		DEBUG_PRINTLN("Left"); // "Car is going left.");
 		NsCar::dcMotors[1].run(FORWARD);
 		NsCar::dcMotors[2].run(FORWARD);
 		NsCar::dcMotors[3].run(BACKWARD);
@@ -32,7 +32,7 @@ namespace NsCar {
 	}
 
 	void moveRight() {
-		DEBUG_PRINTLN("Car is going right.");
+		DEBUG_PRINTLN("Right"); // "Car is going right.");
 		NsCar::dcMotors[1].run(BACKWARD);
 		NsCar::dcMotors[2].run(BACKWARD);
 		NsCar::dcMotors[3].run(FORWARD);
@@ -40,7 +40,7 @@ namespace NsCar {
 	}
 
 	void moveForward() {
-		DEBUG_PRINTLN("Car is going forwards.");
+		DEBUG_PRINTLN("For"); // "Car is going forwards.");
 		NsCar::dcMotors[1].run(FORWARD);
 		NsCar::dcMotors[2].run(FORWARD);
 		NsCar::dcMotors[3].run(FORWARD);
@@ -48,7 +48,7 @@ namespace NsCar {
 	}
 
 	void moveBackward() {
-		DEBUG_PRINTLN("Car is going backwards.");
+		DEBUG_PRINTLN("Back"); // "Car is going backwards.");
 		NsCar::dcMotors[1].run(BACKWARD);
 		NsCar::dcMotors[2].run(BACKWARD);
 		NsCar::dcMotors[3].run(BACKWARD);

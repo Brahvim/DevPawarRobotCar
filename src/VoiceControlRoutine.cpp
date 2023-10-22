@@ -1,5 +1,6 @@
 #define ENABLE_DEBUG_LOGS
 
+#include <Arduino.h>
 #include "../include/Api/Globals.hpp"
 #include "../include/Api/DebuggingMacros.hpp"
 #include "../include/RoutineDecls/VoiceControlRoutine.hpp"
@@ -14,13 +15,14 @@ MAKE_TYPE_INFO(VoiceControlRoutine);
 // template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<VoiceControlRoutine>();
 
 void VoiceControlRoutine::loop() {
-	DEBUG_PRINTLN("The voice control routine is executing!");
+	// DEBUG_PRINTLN("The voice control routine is executing!");
 
 	if (Serial.available() < 1)
 		return;
 
-	char receivedValue = Serial.read();
-	DEBUG_PRINTLN("Received voice control: " + receivedValue);
+	const char receivedValue = Serial.read();
+	DEBUG_PRINT("Received voice control: ");
+	DEBUG_WRITELN(receivedValue);
 
 	switch (receivedValue) {
 		case '^':
@@ -62,7 +64,7 @@ void VoiceControlRoutine::loop() {
 		break;
 
 		default:
-		// TODO Make some error routine!
+		ERROR_PRINTLN("Received an unknown character on the voice control stream.");
 		break;
 	}
 }

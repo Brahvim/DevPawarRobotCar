@@ -16,7 +16,7 @@ void BluetoothRoutine::setup() {
 }
 
 void BluetoothRoutine::loop() {
-	DEBUG_PRINTLN("The bluetooth routine is executing!");
+	// DEBUG_PRINTLN("The bluetooth routine is executing!");
 
 	if (Serial.available() < 1)
 		return;
@@ -46,7 +46,7 @@ void BluetoothRoutine::loop() {
 		break;
 
 		default:
-		// TODO Make some error routine!
+		ERROR_PRINTLN("Received an unknown character on the bluetooth stream.");
 		break;
 	}
 }
