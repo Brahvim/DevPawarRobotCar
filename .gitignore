@@ -1,1 +1,4 @@
 .pio
+.theia
+.vscode
+.directory
