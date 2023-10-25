@@ -1,4 +1,3 @@
-#define ENABLE_DEBUG_LOGS
 #pragma once
 
 #pragma region // Includes.
@@ -36,10 +35,10 @@ void setup() {
 	// Set the motors up! All of 'em !:
 	NsServo::servo.attach(PIN_SERVO);
 
-	NsCar::dcMotors[1].setSpeed(WHEEL_SPEED);
-	NsCar::dcMotors[2].setSpeed(WHEEL_SPEED);
-	NsCar::dcMotors[3].setSpeed(WHEEL_SPEED);
-	NsCar::dcMotors[4].setSpeed(WHEEL_SPEED);
+	NsCar::dcMotor1.setSpeed(WHEEL_SPEED);
+	NsCar::dcMotor2.setSpeed(WHEEL_SPEED);
+	NsCar::dcMotor3.setSpeed(WHEEL_SPEED);
+	NsCar::dcMotor4.setSpeed(WHEEL_SPEED);
 
 	DEBUG_PRINT("Calling `");
 	DEBUG_WRITE(TO_STRING(START_FXN));
@@ -70,4 +69,5 @@ void loop() {
 		const auto routine = it->second;
 		routine->loop();
 	}
+
 }

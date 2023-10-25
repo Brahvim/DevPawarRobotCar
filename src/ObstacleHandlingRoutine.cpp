@@ -1,4 +1,3 @@
-#define ENABLE_DEBUG_LOGS
 
 #include "../include/Api/Globals.hpp"
 #include "../include/Api/DebuggingMacros.hpp"
@@ -18,8 +17,15 @@ void ObstacleHandlingRoutine::loop() {
 	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
 
 	const int dist = NsUltrasonic::read(); // Could use this info later!
+
+	if (dist == 0)
+		while (true) {
+			ERROR_PRINTLN("Ultrasonic sensor wiring is broken!");
+			delayMicroseconds(500);
+		}
+
 	// DEBUG_PRINT("Distance: ");
-	DEBUG_WRITELN(dist);
+	// DEBUG_WRITELN(dist);
 	delay(100);
 
 	if (dist > 12) {

@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "../include/CarApi/NsServo.hpp"
 #include "../include/CarApi/NsUltrasonic.hpp"
+#include "../include/Api/DebuggingMacros.hpp"
 
 namespace NsUltrasonic {
 
@@ -19,6 +20,10 @@ namespace NsUltrasonic {
 
 		// Giving the ultrasonic sensor a duration gets us a reading:
 		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH); // Pulse duration.
+
+		if (pulseDur == 0)
+			ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
+
 		pulseDur = pulseDur / 29 / 2;	// Time-to-centimeters conversion.
 		// pulseDur = sqrt(pulseDur);   	// This is important. Weirdly, the datasheet doesn't mention it.
 		return pulseDur;

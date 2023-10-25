@@ -33,8 +33,6 @@ namespace NsAppRoutines {
 		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `out()`!"));
 	}
 
-
-
 	template <class RoutineT>
 	NsAppRoutines::AppRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,

@@ -1,4 +1,3 @@
-#define ENABLE_DEBUG_LOGS
 
 #include <Arduino.h>
 #include "../include/Api/Globals.hpp"
@@ -20,11 +19,11 @@ void VoiceControlRoutine::loop() {
 	if (Serial.available() < 1)
 		return;
 
-	const char receivedValue = Serial.read();
-	DEBUG_PRINT("Received voice control: ");
-	DEBUG_WRITELN(receivedValue);
+	const char received = Serial.read();
+	// DEBUG_PRINT("Received voice control: ");
+	// DEBUG_WRITELN(Serial.readString());
 
-	switch (receivedValue) {
+	switch (received) {
 		case '^':
 		NsCar::moveForward();
 		break;

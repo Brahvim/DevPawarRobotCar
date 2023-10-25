@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ArxContainer.h>
+
 namespace NsAppRoutines {
 
 	/**
@@ -9,7 +11,6 @@ namespace NsAppRoutines {
 	 * The default implementations call `DEBUG_PRINTLN()` to remind about missing overrides.
 	 */
 	class AppRoutine {
-
 	public:
 		/** @brief  Called when this routine starts. */
 		virtual void setup();
@@ -23,6 +24,18 @@ namespace NsAppRoutines {
 		 */
 		virtual void out();
 
+	};
+
+	/**
+	 * @brief A class to allow many tasks to take place at once, and be added or removed easily.
+	 * All data is maintained privately, in a single implementation file.
+	 *
+	 * The default implementations call `DEBUG_PRINTLN()` to remind about missing overrides.
+	 */
+	template <typename ServiceCallbackT>
+	class AppRoutineWithServices : public NsAppRoutines::AppRoutine {
+	protected:
+		arx::vector<ServiceCallbackT *> callbacks;
 	};
 
 	enum AppRoutineAdditionError {

@@ -4,7 +4,7 @@
 
 namespace NsCar {
 
-	extern AF_DCMotor dcMotors[4];
+	extern AF_DCMotor dcMotor1, dcMotor2, dcMotor3, dcMotor4;
 
 	void stop();
 	void moveLeft();

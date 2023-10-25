@@ -11,6 +11,25 @@
         "vector": "cpp",
         "string_view": "cpp",
         "initializer_list": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "memory": "cpp",
+        "new": "cpp",
+        "exception": "cpp",
+        "basic_definitions": "cpp",
+        "istream": "cpp",
+        "algorithm": "cpp",
+        "serstream": "cpp",
+        "ostream": "cpp",
+        "ios": "cpp",
+        "stdexcept": "cpp"
+    },
+    "C_Cpp.codeAnalysis.exclude": {
+        "**/{$workspaceFolder}/.pio/libdeps/**": true,
+    },
+    "cSpell.words": [
+        "UCLIBCXX"
+    ],
+    // "C_Cpp.files.exclude": {
+    //     "{$workspaceFolder}/.pio/libdeps/**": true,
+    // },
 }
