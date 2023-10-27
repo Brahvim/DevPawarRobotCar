@@ -16,5 +16,7 @@ void start() {
 	NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 	// NsAppRoutines::addRoutine<VoiceControlRoutine>();
 	// NsAppRoutines::addRoutine<BluetoothRoutine>();
-	NsAppRoutines::addRoutine<BuzzerRoutine>();
+	// NsAppRoutines::addRoutine<BuzzerRoutine>();
+
+	NsBuzzer::buzzerStart();
 }

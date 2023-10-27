@@ -9,5 +9,5 @@ void BuzzerRoutine::setup() {
 }
 
 void BuzzerRoutine::loop() {
-    NsBuzzer::beepRoutine();
+    NsBuzzer::buzzerRoutine();
 }

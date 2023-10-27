@@ -5,33 +5,38 @@ namespace NsBuzzer {
 
     static int buzzerPrevState;
     static bool buzzerShouldBeep;
-    static unsigned long nextBeepMillis;
+    static unsigned long nextCheckMillis;
 
     void buzzerSetup() {
-        pinMode(2, OUTPUT);
+        pinMode(PIN_BUZZER, OUTPUT);
     }
 
-    void beepRoutine() {
+    void buzzerRoutine() {
         if (!NsBuzzer::buzzerShouldBeep)
             return;
 
-        if (millis() > NsBuzzer::nextBeepMillis) {
-            digitalWrite(PIN_BUZZER,
-                NsBuzzer::buzzerPrevState == HIGH ? LOW : HIGH);
-            NsBuzzer::nextBeepMillis = millis() + BUZZER_INTERVAL;
+        if (millis() > NsBuzzer::nextCheckMillis) {
+            if (digitalRead(PIN_BUZZER) == HIGH)
+                digitalWrite(PIN_BUZZER, LOW);
+            else
+                digitalWrite(PIN_BUZZER, HIGH);
+
+            NsBuzzer::nextCheckMillis = millis() + BUZZER_INTERVAL;
         }
     }
 
-    void beepStart() {
+    void buzzerStart() {
         NsBuzzer::buzzerShouldBeep = true;
-        NsBuzzer::nextBeepMillis = millis() + BUZZER_INTERVAL;
+        NsBuzzer::nextCheckMillis = millis() + BUZZER_INTERVAL;
+        digitalWrite(PIN_BUZZER, HIGH);
     }
 
-    void beepStop() {
+    void buzzerStop() {
         NsBuzzer::buzzerShouldBeep = false;
+        digitalWrite(PIN_BUZZER, LOW);
     }
 
-    bool isBeeping() {
+    bool buzzerIsBeeping() {
         return NsBuzzer::buzzerShouldBeep;
     }
 

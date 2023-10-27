@@ -1,6 +1,6 @@
 #pragma once
 
-#define PIN_BUZZER 9
+#define PIN_BUZZER 2
 #define BUZZER_INTERVAL 500
 
 namespace NsBuzzer {
@@ -13,18 +13,18 @@ namespace NsBuzzer {
     /**
      * @brief Call this in your routine's `loop()`!
      */
-    void beepRoutine();
+    void buzzerRoutine();
 
     /**
      * @brief Call this in your routine's `loop()`!
      */
-    void beepStart();
+    void buzzerStart();
 
     /**
      * @brief Call this in your routine's `loop()`!
      */
-    void beepStop();
+    void buzzerStop();
 
-    bool isBeeping();
+    bool buzzerIsBeeping();
 
 }

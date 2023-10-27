@@ -52,7 +52,7 @@ void ObstacleHandlingRoutine::loop() {
 		rightDist = NsUltrasonic::lookRight();
 		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
-		NsBuzzer::beepStart();
+		// NsBuzzer::buzzerStart();
 
 		goto lastCase;
 	}
