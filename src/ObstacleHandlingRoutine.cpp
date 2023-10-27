@@ -16,21 +16,22 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 void ObstacleHandlingRoutine::loop() {
 	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
 
-	const int distance = NsUltrasonic::read();
+	int forwardDist = NsUltrasonic::read();
 
 	// DEBUG_PRINT("Distance: ");
 	// DEBUG_WRITELN(dist);
 	// delay(100); // Do we not, not need this?
 
-	if (distance > LEAST_DISTANCE_FOR_OBSTACLES) {
+	if (forwardDist > LEAST_DISTANCE_FOR_OBSTACLES) {
 		NsCar::moveForward();
 		return;
 	}
 
-	NsCar::stop(500);
+	NsCar::stop(300);
 	NsCar::moveBackward(500);
-	NsCar::stop(500);
+	NsCar::stop();
 
+checkAgain:
 	int leftDist = NsUltrasonic::lookLeft();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
@@ -39,22 +40,20 @@ void ObstacleHandlingRoutine::loop() {
 	int rightDist = NsUltrasonic::lookRight();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
-	const bool
+	bool
 		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES,
 		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES;
 
 	if (!(leftBlocked || rightBlocked)) {
-		leftDist = NsUltrasonic::lookLeft();
-		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+		// "ALWAYS GO FOR RIGHT!" - Dev.
+		NsCar::moveRight(1500);
+		NsCar::stop();
 
-		delay(800);
-
-		rightDist = NsUltrasonic::lookRight();
-		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
-
-		// NsBuzzer::buzzerStart();
-
-		goto lastCase;
+		forwardDist = NsUltrasonic::read();
+		if (forwardDist > LEAST_DISTANCE_FOR_OBSTACLES)
+			return;
+		else
+			goto checkAgain;
 	}
 
 	// U-turn if there is no path ahead!:

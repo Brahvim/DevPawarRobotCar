@@ -1,9 +1,11 @@
 #include <AFMotor.h>
 #include <ArduinoSTL.h>
 
-#include "../include/Api/DebuggingMacros.hpp"
 #include "../include/CarApi/NsCar.hpp"
+#include "../include/CarApi/NsBuzzer.hpp"
 #include "../include/CarApi/NsUltrasonic.hpp"
+
+#include "../include/Api/DebuggingMacros.hpp"
 
 namespace NsCar {
 
@@ -62,12 +64,16 @@ namespace NsCar {
 	}
 
 	void moveBackward(const unsigned long p_forMs) {
+		NsBuzzer::buzzerStart();
+
 		DEBUG_PRINTLN("Back"); // "Car is going backwards.");
 		NsCar::dcMotor1.run(BACKWARD);
 		NsCar::dcMotor2.run(BACKWARD);
 		NsCar::dcMotor3.run(BACKWARD);
 		NsCar::dcMotor4.run(BACKWARD);
 		delay(p_forMs);
+
+		NsBuzzer::buzzerStop();
 	}
 
 	void stop() {
