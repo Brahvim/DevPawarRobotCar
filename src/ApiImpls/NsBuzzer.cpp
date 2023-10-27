@@ -22,12 +22,12 @@ namespace NsBuzzer {
         }
     }
 
-    void buzzerStart() {
+    void beepStart() {
         NsBuzzer::buzzerShouldBeep = true;
         NsBuzzer::nextBeepMillis = millis() + BUZZER_INTERVAL;
     }
 
-    void buzzerStop() {
+    void beepStop() {
         NsBuzzer::buzzerShouldBeep = false;
     }
 

@@ -5,6 +5,7 @@
 
 #include "../include/CarApi/NsCar.hpp"
 #include "../include/CarApi/NsServo.hpp"
+#include "../include/CarApi/NsBuzzer.hpp"
 #include "../include/CarApi/NsUltrasonic.hpp"
 
 MAKE_TYPE_INFO(ObstacleHandlingRoutine);
@@ -50,6 +51,8 @@ void ObstacleHandlingRoutine::loop() {
 
 		rightDist = NsUltrasonic::lookRight();
 		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+
+		NsBuzzer::beepStart();
 
 		goto lastCase;
 	}
