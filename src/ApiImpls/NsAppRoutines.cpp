@@ -2,6 +2,7 @@
 #include "../include/Api/Globals.hpp"
 #include "../include/Api/NsAppRoutines.hpp"
 
+#include "../include/RoutineDecls/BuzzerRoutine.hpp"
 #include "../include/RoutineDecls/BluetoothRoutine.hpp"
 #include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
 #include "../include/RoutineDecls/VoiceControlRoutine.hpp"
@@ -18,6 +19,9 @@ template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<VoiceC
 
 // template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
 template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
+
+// template bool NsAppRoutines::removeRoutine<BuzzerRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BuzzerRoutine>();
 
 namespace NsAppRoutines {
 

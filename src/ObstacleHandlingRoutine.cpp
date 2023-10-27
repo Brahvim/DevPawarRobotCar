@@ -56,13 +56,6 @@ void ObstacleHandlingRoutine::loop() {
 
 	// U-turn if there is no path ahead!:
 	if (leftBlocked && rightBlocked) {
-		// Dev's idea: ALWAYS go for right.
-		// Scan again, if there's room on the any side, go there.
-		// Else, go back, go left, BUZZ!
-
-		
-
-		/*
 		bool leftHasLessRoom = leftDist <= rightDist;
 
 		if (leftHasLessRoom)
@@ -89,9 +82,6 @@ void ObstacleHandlingRoutine::loop() {
 			NsCar::moveLeft(2500);
 
 		delay(2500);
-
-		*/
-
 	} else if (leftBlocked)
 		NsCar::moveRight(1500);
 	else if (rightBlocked)

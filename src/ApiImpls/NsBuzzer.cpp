@@ -31,6 +31,10 @@ namespace NsBuzzer {
         NsBuzzer::buzzerShouldBeep = false;
     }
 
+    bool isBeeping() {
+        return NsBuzzer::buzzerShouldBeep;
+    }
+
 }
 
 

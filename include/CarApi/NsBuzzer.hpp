@@ -25,4 +25,6 @@ namespace NsBuzzer {
      */
     void beepStop();
 
+    bool isBeeping();
+
 }
