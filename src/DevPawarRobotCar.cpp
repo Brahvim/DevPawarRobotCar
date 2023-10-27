@@ -9,12 +9,10 @@
 
 #include "../include/RoutineDecls/BuzzerRoutine.hpp"
 #include "../include/RoutineDecls/BluetoothRoutine.hpp"
-#include "../include/RoutineDecls/VoiceControlRoutine.hpp"
 #include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 void start() {
 	NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
-	// NsAppRoutines::addRoutine<VoiceControlRoutine>();
 	// NsAppRoutines::addRoutine<BluetoothRoutine>();
 	NsAppRoutines::addRoutine<BuzzerRoutine>();
 }

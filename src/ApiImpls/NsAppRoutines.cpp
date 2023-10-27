@@ -5,7 +5,6 @@
 #include "../include/RoutineDecls/BuzzerRoutine.hpp"
 #include "../include/RoutineDecls/BluetoothRoutine.hpp"
 #include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
-#include "../include/RoutineDecls/VoiceControlRoutine.hpp"
 
 #include "ArxContainer.h"
 
@@ -13,9 +12,6 @@ arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
 
 // template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
 template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
-
-// template bool NsAppRoutines::removeRoutine<VoiceControlRoutine>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<VoiceControlRoutine>();
 
 // template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
 template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
