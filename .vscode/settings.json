@@ -29,6 +29,7 @@
     "cSpell.words": [
         "UCLIBCXX"
     ],
+    "cmake.configureOnOpen": false,
     // "C_Cpp.files.exclude": {
     //     "{$workspaceFolder}/.pio/libdeps/**": true,
     // },

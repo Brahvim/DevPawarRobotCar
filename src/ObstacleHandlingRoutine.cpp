@@ -1,4 +1,3 @@
-
 #include "../include/Api/Globals.hpp"
 #include "../include/Api/DebuggingMacros.hpp"
 
@@ -16,49 +15,92 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 void ObstacleHandlingRoutine::loop() {
 	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
 
-	const int dist = NsUltrasonic::read(); // Could use this info later!
-
-	if (dist == 0)
-		while (true) {
-			ERROR_PRINTLN("Ultrasonic sensor wiring is broken!");
-			delayMicroseconds(500);
-		}
+	const int distance = NsUltrasonic::read();
 
 	// DEBUG_PRINT("Distance: ");
 	// DEBUG_WRITELN(dist);
-	delay(100);
+	// delay(100); // Do we not, not need this?
 
-	if (dist > 12) {
+	if (distance > LEAST_DISTANCE_FOR_OBSTACLES) {
 		NsCar::moveForward();
 		return;
 	}
 
-	NsCar::stop();
-	NsCar::moveBackward();
+	NsCar::stop(500);
+	NsCar::moveBackward(500);
+	NsCar::stop(500);
 
-	delay(100);
-	NsCar::stop();
-
-	const int leftVal = NsUltrasonic::lookLeft();
-	NsServo::servo.write(SERVO_POINT);
+	int leftDist = NsUltrasonic::lookLeft();
+	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
 	delay(800);
 
-	const int rightVal = NsUltrasonic::lookRight();
-	NsServo::servo.write(SERVO_POINT);
+	int rightDist = NsUltrasonic::lookRight();
+	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
-	if (leftVal < rightVal)
-		NsCar::moveRight();
-	else if (leftVal > rightVal)
-		NsCar::moveLeft();
+	const bool
+		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES,
+		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES;
 
-	delay(500);
-	NsCar::stop();
+	if (!(leftBlocked || rightBlocked)) {
+		leftDist = NsUltrasonic::lookLeft();
+		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
-	// Is this because of a race condition?
-	delay(200);
-	delay(500);
+		delay(800);
 
-	NsCar::stop();
-	delay(200);
+		rightDist = NsUltrasonic::lookRight();
+		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+
+		goto lastCase;
+	}
+
+	// U-turn if there is no path ahead!:
+	if (leftBlocked && rightBlocked) {
+
+		/*
+		bool leftHasLessRoom = leftDist <= rightDist;
+
+		if (leftHasLessRoom)
+			NsCar::moveRight(2500);
+		else
+			NsCar::moveLeft(2500);
+
+		NsCar::stop(500);
+
+		// Re-do!:
+		leftDist = NsUltrasonic::lookLeft();
+		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+
+		delay(800);
+
+		rightDist = NsUltrasonic::lookRight();
+		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+
+		leftHasLessRoom = leftDist <= rightDist;
+
+		if (leftHasLessRoom)
+			NsCar::moveRight(2500);
+		else
+			NsCar::moveLeft(2500);
+
+		delay(2500);
+
+		*/
+
+	} else if (leftBlocked)
+		NsCar::moveRight(1500);
+	else if (rightBlocked)
+		NsCar::moveLeft(1500);
+	else {
+
+	}
+
+	// if (leftVal < rightVal)
+	// 	NsCar::moveLeft();
+	// else if (leftVal > rightVal)
+	// 	NsCar::moveRight();
+
+lastCase:
+	NsCar::stop(900);
+
 }

@@ -6,7 +6,6 @@
 #include "../include/Api/DebuggingMacros.hpp"
 #include "../include/RoutineDecls/BluetoothRoutine.hpp"
 
-
 MAKE_TYPE_INFO(BluetoothRoutine);
 
 // template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
@@ -24,12 +23,12 @@ void BluetoothRoutine::loop() {
 	if (Serial.available() < 1)
 		return;
 
-	const String receivedStr = Serial.readString();
+	const String receivedStr = Serial.readStringUntil(BLUETOOTH_COMMS_TERMINATOR);
 
 	if (!receivedStr.startsWith(BLUETOOTH_COMMS_PREFIX))
 		return; // Not something we need to deal with, apparently!
 
-	DEBUG_PRINT("Received on bluetooth: ");
+	DEBUG_PRINT(BLUETOOTH_COMMS_PREFIX "Received: ");
 	DEBUG_WRITELN(receivedStr);
 
 	switch ('\n') { // Stub!
@@ -42,11 +41,11 @@ void BluetoothRoutine::loop() {
 		break;
 
 		case 'L':
-		NsCar::moveLeft();
+		NsCar::moveRight();
 		break;
 
 		case 'R':
-		NsCar::moveRight();
+		NsCar::moveLeft();
 		break;
 
 		case 'S':

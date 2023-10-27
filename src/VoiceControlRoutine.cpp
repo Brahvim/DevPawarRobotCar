@@ -34,10 +34,10 @@ void VoiceControlRoutine::loop() {
 
 		case '<': {
 			const int leftVal = NsUltrasonic::lookLeft();
-			NsServo::servo.write(SERVO_POINT);
+			NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
 			if (leftVal >= 10) {
-				NsCar::moveLeft();
+				NsCar::moveRight();
 				delay(500);
 				NsCar::stop();
 			} else if (leftVal < 10)
@@ -47,9 +47,9 @@ void VoiceControlRoutine::loop() {
 
 		case '>': {
 			const int rightVal = NsUltrasonic::lookRight();
-			NsServo::servo.write(SERVO_POINT);
+			NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 			if (rightVal >= 10) {
-				NsCar::moveRight();
+				NsCar::moveLeft();
 				delay(500);
 				NsCar::stop();
 			} else if (rightVal < 10) {

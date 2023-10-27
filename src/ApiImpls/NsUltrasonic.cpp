@@ -21,11 +21,12 @@ namespace NsUltrasonic {
 		// Giving the ultrasonic sensor a duration gets us a reading:
 		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH); // Pulse duration.
 
-		if (pulseDur == 0)
+		if (pulseDur == 0) {
 			ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
+			return 0;
+		}
 
 		pulseDur = pulseDur / 29 / 2;	// Time-to-centimeters conversion.
-		// pulseDur = sqrt(pulseDur);   	// This is important. Weirdly, the datasheet doesn't mention it.
 		return pulseDur;
 	}
 
