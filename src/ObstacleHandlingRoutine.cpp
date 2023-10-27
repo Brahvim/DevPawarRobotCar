@@ -14,6 +14,9 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 // template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 void ObstacleHandlingRoutine::loop() {
+	if (this->stoppedForever)
+		return;
+
 	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
 
 	int forwardDist = NsUltrasonic::read();
@@ -54,36 +57,10 @@ checkAgain:
 			return;
 		else
 			goto checkAgain;
-	}
-
-	// U-turn if there is no path ahead!:
-	if (leftBlocked && rightBlocked) {
-		bool leftHasLessRoom = leftDist <= rightDist;
-
-		if (leftHasLessRoom)
-			NsCar::moveRight(2500);
-		else
-			NsCar::moveLeft(2500);
-
-		NsCar::stop(500);
-
-		// Re-do!:
-		leftDist = NsUltrasonic::lookLeft();
-		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
-
-		delay(800);
-
-		rightDist = NsUltrasonic::lookRight();
-		NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
-
-		leftHasLessRoom = leftDist <= rightDist;
-
-		if (leftHasLessRoom)
-			NsCar::moveRight(2500);
-		else
-			NsCar::moveLeft(2500);
-
-		delay(2500);
+	} else if (leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
+		NsBuzzer::buzzerStart();
+		NsCar::stop();
+		this->stoppedForever = true;
 	} else if (leftBlocked)
 		NsCar::moveRight(1500);
 	else if (rightBlocked)

@@ -4,4 +4,7 @@
 
 class ObstacleHandlingRoutine : public NsAppRoutines::AppRoutine {
 	void loop();
+
+private:
+	bool stoppedForever;
 };
