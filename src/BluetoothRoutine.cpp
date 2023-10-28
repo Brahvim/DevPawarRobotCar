@@ -15,6 +15,17 @@ void BluetoothRoutine::setup() {
 	DEBUG_PRINTLN("The bluetooth routine has been set up.");
 }
 
+String BluetoothRoutine::customReadStringUntil(char p_term) {
+	String result = "";
+	char c;
+	while ((c = Serial.read()) != p_term) {
+		result += c;
+	}
+	// Include the terminator character in the resulting string
+	result += p_term;
+	return result;
+}
+
 void BluetoothRoutine::loop() {
 	// DEBUG_PRINTLN("The bluetooth routine is executing!");
 
@@ -23,37 +34,36 @@ void BluetoothRoutine::loop() {
 	if (Serial.available() < 1)
 		return;
 
-	const String receivedStr = Serial.readStringUntil(BLUETOOTH_COMMS_TERMINATOR);
+	// const String receivedStr = Serial.readString();
 
-	if (!receivedStr.startsWith(BLUETOOTH_COMMS_PREFIX))
+	// if (!receivedStr.startsWith(BLUETOOTH_COMMS_REMOTE_PREFIX))
+	// 	return; // Not something we need to deal with, apparently!
+
+	// BLUETOOTH_PRINT("Hey! You sent this: ");
+	// BLUETOOTH_WRITELN(receivedStr);
+
+	// const String receivedStr = Serial.readString();
+	const String receivedStr = this->customReadStringUntil(BLUETOOTH_COMMS_TERMINATOR_CHAR);
+
+	if (!receivedStr.startsWith(BLUETOOTH_COMMS_REMOTE_PREFIX)) {
+		DEBUG_WRITELN("Skipping this from serial:");
+		DEBUG_WRITELN(receivedStr);
 		return; // Not something we need to deal with, apparently!
-
-	DEBUG_PRINT(BLUETOOTH_COMMS_PREFIX "Received: ");
-	DEBUG_WRITELN(receivedStr);
-
-	switch ('\n') { // Stub!
-		case 'F':
-		NsCar::moveForward();
-		break;
-
-		case 'B':
-		NsCar::moveBackward();
-		break;
-
-		case 'L':
-		NsCar::moveRight();
-		break;
-
-		case 'R':
-		NsCar::moveLeft();
-		break;
-
-		case 'S':
-		NsCar::stop();
-		break;
-
-		default:
-		ERROR_PRINTLN("Received an unknown character on the bluetooth stream.");
-		break;
 	}
+
+	int start = receivedStr.indexOf(BLUETOOTH_COMMS_REMOTE_PREFIX) + BLUETOOTH_COMMS_REMOTE_PREFIX_LENGTH;
+	int end = receivedStr.indexOf('\n', start);
+
+	String intStr = receivedStr.substring(start, end);
+	const int receivedInt = intStr.toInt();
+
+	BLUETOOTH_PRINT("Hey! You sent this: ");
+	BLUETOOTH_WRITELN(receivedStr);
+
+	BLUETOOTH_PRINT("Is this the INT?: ");
+	BLUETOOTH_WRITELN(intStr);
+
+	BLUETOOTH_PRINT("Parsed INT: ");
+	BLUETOOTH_WRITELN(receivedInt);
+
 }
