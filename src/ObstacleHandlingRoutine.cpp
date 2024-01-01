@@ -65,9 +65,6 @@ checkAgain:
 		NsCar::moveRight(1500);
 	else if (rightBlocked)
 		NsCar::moveLeft(1500);
-	else {
-
-	}
 
 	// if (leftVal < rightVal)
 	// 	NsCar::moveLeft();
@@ -76,5 +73,4 @@ checkAgain:
 
 lastCase:
 	NsCar::stop(900);
-
 }

@@ -7,5 +7,5 @@ class BluetoothRoutine : public NsAppRoutines::AppRoutine {
 	void setup();
 
 private:
-	String BluetoothRoutine::customReadStringUntil(char terminator);
+	String customReadStringUntil(char terminator);
 };

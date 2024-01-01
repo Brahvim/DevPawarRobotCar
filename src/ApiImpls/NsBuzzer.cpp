@@ -3,7 +3,6 @@
 
 namespace NsBuzzer {
 
-    static int buzzerPrevState;
     static bool buzzerShouldBeep;
     static unsigned long nextCheckMillis;
 
