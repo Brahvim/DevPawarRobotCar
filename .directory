@@ -2,5 +2,8 @@
 SortHiddenLast=true
 SortOrder=1
 SortRole=modificationtime
-Timestamp=2023,10,22,13,51,57.152
+Timestamp=2023,11,6,23,22,31.046
 Version=4
+
+[Settings]
+HiddenFilesShown=true

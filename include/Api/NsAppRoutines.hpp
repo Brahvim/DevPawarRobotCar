@@ -38,7 +38,7 @@ namespace NsAppRoutines {
 		arx::vector<ServiceCallbackT *> callbacks;
 	};
 
-	enum AppRoutineAdditionError {
+	enum class AppRoutineAdditionError {
 		NO_ERROR,
 		ROUTINE_ALREADY_EXISTS,
 	};

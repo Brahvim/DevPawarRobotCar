@@ -23,12 +23,11 @@
         "ios": "cpp",
         "stdexcept": "cpp"
     },
-    "C_Cpp.codeAnalysis.exclude": {
-        "**/{$workspaceFolder}/.pio/libdeps/**": true,
-    },
     "cSpell.words": [
         "UCLIBCXX"
     ],
+    "C_Cpp.codeAnalysis.clangTidy.path": "/",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
     "cmake.configureOnOpen": false,
     // "C_Cpp.files.exclude": {
     //     "{$workspaceFolder}/.pio/libdeps/**": true,
