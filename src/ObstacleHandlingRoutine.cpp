@@ -1,12 +1,12 @@
-#include "../include/Api/Globals.hpp"
-#include "../include/Api/DebuggingMacros.hpp"
+#include "Api/Globals.hpp"
+#include "Api/DebuggingMacros.hpp"
 
-#include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
-#include "../include/CarApi/NsCar.hpp"
-#include "../include/CarApi/NsServo.hpp"
-#include "../include/CarApi/NsBuzzer.hpp"
-#include "../include/CarApi/NsUltrasonic.hpp"
+#include "CarApi/NsCar.hpp"
+#include "CarApi/NsServo.hpp"
+#include "CarApi/NsBuzzer.hpp"
+#include "CarApi/NsUltrasonic.hpp"
 
 MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 

@@ -1,5 +1,5 @@
-#include "../../include/CarApi/NsBuzzer.hpp"
-#include "../../include/Api/DebuggingMacros.hpp"
+#include "CarApi/NsBuzzer.hpp"
+#include "Api/DebuggingMacros.hpp"
 
 namespace NsBuzzer {
 

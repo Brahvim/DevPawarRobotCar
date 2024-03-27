@@ -1,7 +1,7 @@
 #include "Arduino.h"
-#include "../include/CarApi/NsServo.hpp"
-#include "../include/CarApi/NsUltrasonic.hpp"
-#include "../include/Api/DebuggingMacros.hpp"
+#include "CarApi/NsServo.hpp"
+#include "CarApi/NsUltrasonic.hpp"
+#include "Api/DebuggingMacros.hpp"
 
 namespace NsUltrasonic {
 
