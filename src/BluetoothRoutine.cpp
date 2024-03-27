@@ -1,10 +1,10 @@
 #include <ArduinoSTL.h>
 
-#include "../include/Api/Globals.hpp"
-#include "../include/CarApi/NsCar.hpp"
-#include "../include/BluetoothComms.hpp"
-#include "../include/Api/DebuggingMacros.hpp"
-#include "../include/RoutineDecls/BluetoothRoutine.hpp"
+#include "Api/Globals.hpp"
+#include "CarApi/NsCar.hpp"
+#include "BluetoothComms.hpp"
+#include "Api/DebuggingMacros.hpp"
+#include "RoutineDecls/BluetoothRoutine.hpp"
 
 MAKE_TYPE_INFO(BluetoothRoutine);
 

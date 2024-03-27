@@ -1,10 +1,10 @@
-#include "../include/Api/DebuggingMacros.hpp"
-#include "../include/Api/Globals.hpp"
-#include "../include/Api/NsAppRoutines.hpp"
+#include "Api/DebuggingMacros.hpp"
+#include "Api/Globals.hpp"
+#include "Api/NsAppRoutines.hpp"
 
-#include "../include/RoutineDecls/BuzzerRoutine.hpp"
-#include "../include/RoutineDecls/BluetoothRoutine.hpp"
-#include "../include/RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/BuzzerRoutine.hpp"
+#include "RoutineDecls/BluetoothRoutine.hpp"
+#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 #include "ArxContainer.h"
 

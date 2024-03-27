@@ -1,11 +1,11 @@
 #include <AFMotor.h>
 #include <ArduinoSTL.h>
 
-#include "../include/CarApi/NsCar.hpp"
-#include "../include/CarApi/NsBuzzer.hpp"
-#include "../include/CarApi/NsUltrasonic.hpp"
+#include "CarApi/NsCar.hpp"
+#include "CarApi/NsBuzzer.hpp"
+#include "CarApi/NsUltrasonic.hpp"
 
-#include "../include/Api/DebuggingMacros.hpp"
+#include "Api/DebuggingMacros.hpp"
 
 namespace NsCar {
 
