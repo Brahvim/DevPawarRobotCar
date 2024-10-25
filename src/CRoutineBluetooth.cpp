@@ -24,7 +24,7 @@ void CRoutineBluetooth::loop() {
 	ifl(Serial.available() < 1)
 		return;
 
-	// const String receivedStr = Serial.readString();
+	// String const receivedStr = Serial.readString();
 
 	// if (!receivedStr.startsWith(BLUETOOTH_COMMS_REMOTE_PREFIX))
 	// 	return; // Not something we need to deal with, apparently!
@@ -32,8 +32,8 @@ void CRoutineBluetooth::loop() {
 	// BLUETOOTH_PRINT("Hey! You sent this: ");
 	// BLUETOOTH_WRITELN(receivedStr);
 
-	// const String receivedStr = Serial.readString();
-	const String receivedStr = this->customReadStringUntil(BLUETOOTH_COMMS_TERMINATOR_CHAR);
+	// String const receivedStr = Serial.readString();
+	String const receivedStr = this->customReadStringUntil(BLUETOOTH_COMMS_TERMINATOR_CHAR);
 
 	ifl(!receivedStr.startsWith(BLUETOOTH_COMMS_REMOTE_PREFIX)) {
 		DEBUG_WRITELN("Skipping this from serial:");
@@ -45,7 +45,7 @@ void CRoutineBluetooth::loop() {
 	int end = receivedStr.indexOf('\n', start);
 
 	String intStr = receivedStr.substring(start, end);
-	const int receivedInt = intStr.toInt();
+	int const receivedInt = intStr.toInt();
 
 	BLUETOOTH_PRINT("Hey! You sent this: ");
 	BLUETOOTH_WRITELN(receivedStr);

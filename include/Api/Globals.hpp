@@ -10,13 +10,13 @@
 // Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
 template <typename TypeT>
 struct TypeInfo {
-	static const char *name;
+	static char const *name;
 }; // Can't be kept in `PROGMEM`...
 
 template <typename TypeT>
-const char*TypeInfo<TypeT>::name = "Unknown";
+char const *TypeInfo<TypeT>::name = "Unknown";
 
 #define TYPE_NAME(var) TypeInfo<typeof(var)>::name
 #define MAKE_TYPE_INFO(type) \
 	template <>              \
-	const char *TypeInfo<type>::name = #type;
+	char const *TypeInfo<type>::name = #type;

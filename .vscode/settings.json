@@ -23,7 +23,8 @@
         "ios": "cpp",
         "stdexcept": "cpp",
         "map": "cpp",
-        "associative_base": "cpp"
+        "associative_base": "cpp",
+        "*.stub": "cpp"
     },
     "cSpell.words": [
         "PROGMEM",

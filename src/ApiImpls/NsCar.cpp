@@ -84,32 +84,32 @@ namespace NsCar {
 		NsCar::motors[3].run(BACKWARD); // Anti-CW.
 	}
 
-	void stop(const unsigned long p_ms) {
+	void stop(unsigned long const p_ms) {
 		// DEBUG_PRINTLN("Stop"); // "Car is stopping.");
 		NsCar::stop();
 		delay(p_ms);
 	}
 
-	void moveLeft(const unsigned long p_ms) {
+	void moveLeft(unsigned long const p_ms) {
 		NsCar::moveLeftAsync();
 		delay(p_ms);
 		NsCar::stop();
 	}
 
-	void moveRight(const unsigned long p_ms) {
+	void moveRight(unsigned long const p_ms) {
 		NsCar::moveRightAsync();
 		delay(p_ms);
 		NsCar::stop();
 	}
 
-	void moveForward(const unsigned long p_ms) {
+	void moveForward(unsigned long const p_ms) {
 		// DEBUG_PRINTLN("For"); // "Car is going forwards.");
 		NsCar::moveForwardAsync();
 		delay(p_ms);
 		NsCar::stop();
 	}
 
-	void moveBackward(const unsigned long p_ms) {
+	void moveBackward(unsigned long const p_ms) {
 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_BACK_MUSIC);
 		NsCar::moveBackwardAsync();
 		delay(p_ms);
@@ -117,13 +117,13 @@ namespace NsCar {
 		NsBuzzer::buzzerStopAsyncBeeps();
 	}
 
-	void moveLeftOnSpot(const unsigned long p_ms) {
+	void moveLeftOnSpot(unsigned long const p_ms) {
 		NsCar::moveLeftOnSpotAsync();
 		delay(p_ms);
 		NsCar::stop();
 	}
 
-	void moveRightOnSpot(const unsigned long p_ms) {
+	void moveRightOnSpot(unsigned long const p_ms) {
 		NsCar::moveRightOnSpotAsync();
 		delay(p_ms);
 		NsCar::stop();

@@ -23,13 +23,13 @@ namespace NsBuzzer {
 		return s_interval;
 	}
 
-	void buzzerDoSyncBeep(const unsigned long p_beepInterval) {
+	void buzzerDoSyncBeep(unsigned long const p_beepInterval) {
 		digitalWrite(PIN_BUZZER, HIGH);
 		delay(p_beepInterval);
 		digitalWrite(PIN_BUZZER, LOW);
 	}
 
-	void buzzerStartAsyncBeeps(const unsigned long p_beepInterval) {
+	void buzzerStartAsyncBeeps(unsigned long const p_beepInterval) {
 		s_interval = p_beepInterval;
 		s_nextCheckTimestampMillis = millis() + s_interval;
 		s_shouldBeep = true;

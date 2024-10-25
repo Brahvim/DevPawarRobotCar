@@ -17,7 +17,7 @@
 #define ARDUINO_SERIAL_BAUD_RATE 	9600
 
 #pragma region // Global declarations.
-extern arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
+extern arx::map<char const*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 #pragma endregion
 
 void setup() {
@@ -76,7 +76,7 @@ void loop() {
 		// DEBUG_WRITELN("`.");
 
 		// Have this variable just in case. Dunno when the big iterations are gunna be here!:
-		const auto routine = it->second;
+		auto const routine = it->second;
 		routine->loop();
 	}
 }

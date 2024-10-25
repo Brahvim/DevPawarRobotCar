@@ -21,7 +21,7 @@ namespace NsUltrasonic {
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 
 		// Giving the ultrasonic sensor a duration gets us a reading:
-		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH); // Pulse duration.
+		unsigned long const pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH) / 29 / 2; // Pulse duration.
 
 		if (pulseDur == 0) {
 			NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
@@ -31,7 +31,6 @@ namespace NsUltrasonic {
 			return 0;
 		}
 
-		pulseDur = pulseDur / 29 / 2;	// Time-to-centimeters conversion.
 		return pulseDur;
 	}
 

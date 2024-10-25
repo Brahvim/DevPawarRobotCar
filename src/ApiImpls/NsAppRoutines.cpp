@@ -9,7 +9,7 @@
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
-arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
+arx::map<char const*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
 template bool NsRoutines::removeRoutine<CRoutineBluetooth>();

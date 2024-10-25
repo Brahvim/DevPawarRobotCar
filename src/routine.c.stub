@@ -3,6 +3,10 @@ typedef void(*routine_out_fn_t)(void);
 typedef void(*routine_loop_fn_t)(void);
 typedef void(*routine_setup_fn_t)(void);
 
+enum app_routines {
+	APP_ROUTINE_COUNT
+};
+
 struct routine {
 
 	// **You may or may not implement these.**
@@ -15,9 +19,9 @@ struct routine {
 };
 
 // This is `struct routine` as a structure-of-arrays:
-static routine_out_fn_t *s_out_calls;
-static routine_loop_fn_t *s_loop_calls;
-static routine_setup_fn_t *s_setup_calls;
+static routine_out_fn_t s_out_calls[APP_ROUTINE_COUNT];
+static routine_loop_fn_t s_loop_calls[APP_ROUTINE_COUNT];
+static routine_setup_fn_t s_setup_calls[APP_ROUTINE_COUNT];
 // **Assume `s_*_calls[0]` points to a default implementation!**
 
 // We need these only if *we know* we're going fully dynamic.

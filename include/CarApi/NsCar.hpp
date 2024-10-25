@@ -16,12 +16,12 @@ namespace NsCar {
 	void moveLeftOnSpotAsync();
 	void moveRightOnSpotAsync();
 
-	void stop(const unsigned long durationMs);
-	void moveLeft(const unsigned long durationMs);
-	void moveRight(const unsigned long durationMs);
-	void moveForward(const unsigned long durationMs);
-	void moveBackward(const unsigned long durationMs);
-	void moveLeftOnSpot(const unsigned long durationMs);
-	void moveRightOnSpot(const unsigned long durationMs);
+	void stop(unsigned long const durationMs);
+	void moveLeft(unsigned long const durationMs);
+	void moveRight(unsigned long const durationMs);
+	void moveForward(unsigned long const durationMs);
+	void moveBackward(unsigned long const durationMs);
+	void moveLeftOnSpot(unsigned long const durationMs);
+	void moveRightOnSpot(unsigned long const durationMs);
 
 }
