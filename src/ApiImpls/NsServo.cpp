@@ -4,6 +4,6 @@
 
 namespace NsServo {
 
-    Servo servo;
+	Servo servo;
 
 }

@@ -3,9 +3,12 @@
 #include "../Api/NsAppRoutines.hpp"
 
 class BluetoothRoutine : public NsAppRoutines::AppRoutine {
+
+public:
 	void loop();
 	void setup();
 
 private:
-	String BluetoothRoutine::customReadStringUntil(char terminator);
+	String customReadStringUntil(char terminator);
+
 };

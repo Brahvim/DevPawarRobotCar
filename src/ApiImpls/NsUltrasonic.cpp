@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "CarApi/NsServo.hpp"
+#include "CarApi/NsBuzzer.hpp"
 #include "CarApi/NsUltrasonic.hpp"
 #include "Api/DebuggingMacros.hpp"
 
@@ -22,6 +23,7 @@ namespace NsUltrasonic {
 		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH); // Pulse duration.
 
 		if (pulseDur == 0) {
+			NsBuzzer::buzzerStart(BUZZER_INTERVAL_ULTRASONIC_BROKE);
 			ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
 			return 0;
 		}

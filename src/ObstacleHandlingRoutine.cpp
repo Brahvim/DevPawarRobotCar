@@ -1,6 +1,5 @@
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
-
 #include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 #include "CarApi/NsCar.hpp"
@@ -14,67 +13,78 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 // template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 void ObstacleHandlingRoutine::loop() {
-	if (this->stoppedForever)
-		return;
-
-	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
-
-	int forwardDist = NsUltrasonic::read();
-
-	// DEBUG_PRINT("Distance: ");
-	// DEBUG_WRITELN(dist);
-	// delay(100); // Do we not, not need this?
-
-	if (forwardDist > LEAST_DISTANCE_FOR_OBSTACLES) {
-		NsCar::moveForward();
+	ifu(this->stoppedForever) { // Set to be *unlikely* so that the upcoming stuff is speculatively executed.
+		DEBUG_PRINTLN("Stopped forever...");
 		return;
 	}
 
+	// ...
+	// ...These boards surely *don't* have spec-ex! No way!
+	// Yet I use `__builtin_expect()`. *Anyway*.
+
+	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
+
+	// DEBUG_PRINTLN("Performing routinely distance check...");
+	int forwardDist = NsUltrasonic::read();
+
+	// DEBUG_PRINT("Distance: ");
+	// DEBUG_WRITELN(forwardDist);
+	// delay(100); // Do we not, not* need this?
+
+	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
+		NsCar::moveForwardAsync();
+		return;
+	}
+
+	DEBUG_PRINTLN("Car is moving backwards...");
 	NsCar::stop(300);
 	NsCar::moveBackward(500);
 	NsCar::stop();
 
 checkAgain:
+	DEBUG_PRINTLN("Looking left...");
 	int leftDist = NsUltrasonic::lookLeft();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
 	delay(800);
 
+	DEBUG_PRINTLN("Looking right...");
 	int rightDist = NsUltrasonic::lookRight();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 
 	bool
-		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES,
-		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES;
+		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES_CM,
+		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES_CM;
 
-	if (!(leftBlocked || rightBlocked)) {
+	ifu(!(leftBlocked || rightBlocked)) {
+		DEBUG_PRINTLN("No obstacles, going right...");
 		// "ALWAYS GO FOR RIGHT!" - Dev.
-		NsCar::moveRight(1500);
+		NsCar::moveRightOnSpot(1500);
 		NsCar::stop();
 
+		DEBUG_PRINTLN("No obstacles, reading distance...");
 		forwardDist = NsUltrasonic::read();
-		if (forwardDist > LEAST_DISTANCE_FOR_OBSTACLES)
+		ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
+			DEBUG_PRINTLN("Obstacle too far, continuing...");
 			return;
-		else
+		} else {
+			DEBUG_PRINTLN("Obstacle may be in range, checking again...");
 			goto checkAgain;
-	} else if (leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
-		NsBuzzer::buzzerStart();
+		}
+	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
+		DEBUG_PRINTLN("No path! Starting buzzer...");
+		NsBuzzer::buzzerStart(BUZZER_INTERVAL_NO_PATH);
 		NsCar::stop();
 		this->stoppedForever = true;
-	} else if (leftBlocked)
-		NsCar::moveRight(1500);
-	else if (rightBlocked)
-		NsCar::moveLeft(1500);
-	else {
-
+	} else ifl(leftBlocked) {
+		DEBUG_PRINTLN("Left blocked...");
+		NsCar::moveRightOnSpot(1500);
+	} else ifl(rightBlocked) {
+		DEBUG_PRINTLN("Right blocked...");
+		NsCar::moveLeftOnSpot(1500);
+	} else {
+		DEBUG_PRINTLN("Nothing was blocked. But also was everything. *You shouldn't see be seeing this log!*");
 	}
 
-	// if (leftVal < rightVal)
-	// 	NsCar::moveLeft();
-	// else if (leftVal > rightVal)
-	// 	NsCar::moveRight();
-
-lastCase:
 	NsCar::stop(900);
-
 }

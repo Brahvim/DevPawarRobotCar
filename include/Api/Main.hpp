@@ -1,30 +1,30 @@
 #pragma once
 
-#pragma region // Includes.
+#include <Servo.h>
+#include <Arduino.h>
+#include <ArxContainer.h>
+
+#include "Globals.hpp"
+#include "CustomSetup.hpp"
+#include "NsAppRoutines.hpp"
+#include "DebuggingMacros.hpp"
+
 #include "../CarApi/NsCar.hpp"
 #include "../CarApi/NsServo.hpp"
 #include "../CarApi/NsUltrasonic.hpp"
-#include "CustomSetup.hpp"
-#include "DebuggingMacros.hpp"
-#include "Globals.hpp"
-#include "NsAppRoutines.hpp"
-
-#include <Arduino.h>
-#include <ArxContainer.h>
-#include <Servo.h>
-#pragma endregion
 
 #define WHEEL_SPEED				 	170
 #define ARDUINO_SERIAL_BAUD_RATE 	9600
 
-// #pragma region // Global definitions.
-extern arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
-// #pragma endregion
+#pragma region // Global declarations.
+extern arx::map<const char*, NsAppRoutines::AppRoutine*> g_routinesToClassNamesMap;
+#pragma endregion
 
 void setup() {
 	// "iS mY bOWl oF cErEAl hERe yET?!?1!1/":
 	while (!Serial)
 		;
+	// (For some reason, NOT attaching the USB cable still allows this.)
 
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
 
@@ -35,10 +35,20 @@ void setup() {
 	// Set the motors up! All of 'em !:
 	NsServo::servo.attach(PIN_SERVO);
 
-	NsCar::dcMotor1.setSpeed(WHEEL_SPEED);
-	NsCar::dcMotor2.setSpeed(WHEEL_SPEED);
-	NsCar::dcMotor3.setSpeed(WHEEL_SPEED);
-	NsCar::dcMotor4.setSpeed(WHEEL_SPEED);
+	// `AF_DCMotor::setSpeed()` goes through a WHOLE `switch`
+	// over the motor number to set some addresses to `WHEEL_SPEED`.
+	// ...At least that's what VSCode highlightion showed.
+	// ...For the Arduino Uno.
+	// NsCar::motors[1].setSpeed(WHEEL_SPEED);
+	// NsCar::motors[2].setSpeed(WHEEL_SPEED);
+	// NsCar::motors[3].setSpeed(WHEEL_SPEED);
+	// NsCar::motors[4].setSpeed(WHEEL_SPEED);
+
+	// ...Let's not be pathetic, then (already *terribly* am with OO design an no DoD):
+	OCR2A = WHEEL_SPEED;
+	OCR2B = WHEEL_SPEED;
+	OCR0A = WHEEL_SPEED;
+	OCR0B = WHEEL_SPEED;
 
 	DEBUG_PRINT("Calling `");
 	DEBUG_WRITE(TO_STRING(START_FXN));
@@ -60,7 +70,7 @@ void loop() {
 
 	// So we... iterate over 'em all, and...
 	// ...yeah, you get the point!:
-	for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); it++) {
+	for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
 		// DEBUG_PRINT("Running routine `");
 		// DEBUG_WRITE(it->first);
 		// DEBUG_WRITELN("`.");
@@ -69,5 +79,4 @@ void loop() {
 		const auto routine = it->second;
 		routine->loop();
 	}
-
 }

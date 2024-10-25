@@ -5,9 +5,9 @@
 #include "RoutineDecls/BuzzerRoutine.hpp"
 
 void BuzzerRoutine::setup() {
-    NsBuzzer::buzzerSetup();
+	NsBuzzer::buzzerSetup();
 }
 
 void BuzzerRoutine::loop() {
-    NsBuzzer::buzzerRoutine();
+	NsBuzzer::buzzerRoutine();
 }

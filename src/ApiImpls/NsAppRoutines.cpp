@@ -1,14 +1,14 @@
-#include "Api/DebuggingMacros.hpp"
+#include <ArxContainer.h>
+
 #include "Api/Globals.hpp"
 #include "Api/NsAppRoutines.hpp"
+#include "Api/DebuggingMacros.hpp"
 
 #include "RoutineDecls/BuzzerRoutine.hpp"
 #include "RoutineDecls/BluetoothRoutine.hpp"
 #include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
-#include "ArxContainer.h"
-
-arx::map<const char *, NsAppRoutines::AppRoutine *> g_routinesToClassNamesMap;
+arx::map<const char*, NsAppRoutines::AppRoutine*> g_routinesToClassNamesMap;
 
 // template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
 template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
@@ -36,7 +36,7 @@ namespace NsAppRoutines {
 	template <class RoutineT>
 	NsAppRoutines::AppRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,
-		if (g_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != g_routinesToClassNamesMap.end()) {
+		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != g_routinesToClassNamesMap.end()) {
 			DEBUG_PRINT("Routine of type `");
 			DEBUG_WRITE(TYPE_NAME(RoutineT));
 			DEBUG_WRITELN("` already exists. Didn't add another.");
@@ -63,7 +63,7 @@ namespace NsAppRoutines {
 		// Check if a routine of the same class name exists :
 		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); it++) {
 			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
-			if (it->first != TYPE_NAME(RoutineT))
+			ifu(it->first != TYPE_NAME(RoutineT))
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:

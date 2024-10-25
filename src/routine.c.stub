@@ -1,0 +1,122 @@
+typedef unsigned long size_t;
+typedef void(*routine_out_fn_t)(void);
+typedef void(*routine_loop_fn_t)(void);
+typedef void(*routine_setup_fn_t)(void);
+
+struct routine {
+
+	// **You may or may not implement these.**
+	size_t id_out;
+	size_t id_loop;
+	size_t id_setup;
+	// If you don't, their default value will be `0`.
+	// You'll see why that's great *one* comment later.
+
+};
+
+// This is `struct routine` as a structure-of-arrays:
+static routine_out_fn_t *s_out_calls;
+static routine_loop_fn_t *s_loop_calls;
+static routine_setup_fn_t *s_setup_calls;
+// **Assume `s_*_calls[0]` points to a default implementation!**
+
+// We need these only if *we know* we're going fully dynamic.
+static size_t s_cap_outs = 0;
+static size_t s_cap_loops = 0;
+static size_t s_cap_setups = 0;
+
+static size_t s_size_outs = 1;
+static size_t s_size_loops = 1;
+static size_t s_size_setups = 1;
+
+void routine_add_setup(struct routine p_routine, routine_setup_fn_t const p_function) {
+	// <Insert size checks and allocation code here.>
+	s_setup_calls[s_size_setups] = p_function;
+	++s_size_setups;
+}
+
+void routine_add_loop(struct routine p_routine, routine_loop_fn_t const p_function) {
+	// <Insert size checks and allocation code here.>
+	s_loop_calls[s_size_loops] = p_function;
+	++s_size_loops;
+}
+
+void routine_call_setup(struct routine const p_routine) {
+	s_setup_calls[p_routine.id_setup]();
+}
+
+void routine_call_loop(struct routine const p_routine) {
+	s_loop_calls[p_routine.id_setup]();
+}
+
+void routine_setup_default_implementation() {
+
+}
+
+void routine_loop_default_implementation() {
+
+}
+
+void routine_out_default_implementation() {
+
+}
+
+struct routine create_routine() {
+	struct routine to_ret = {
+
+		.id_setup = 0,
+		.id_loop = 0,
+		.id_out = 0,
+
+	};
+
+	return to_ret;
+}
+
+void routine_call_all_setups() {
+	for (size_t i = 0; i < s_size_setups; ++i)
+		s_setup_calls[i]();
+}
+
+void routine_call_all_loops() {
+	for (size_t i = 0; i < s_size_setups; ++i)
+		s_loop_calls[i]();
+}
+
+void routine_call_all_outs() {
+	for (size_t i = 0; i < s_size_outs; ++i)
+		s_out_calls[i]();
+}
+
+// User-space code:
+static char app_is_alive = 1;
+
+void app_routine_ultrasonic_sensor_loop() {
+	// Lift your pins and whatnot...
+}
+
+void app_routine_bluetooth_setup() {
+	// Setup your modes and whatnot...
+}
+
+int main() {
+	struct routine app_routine_bluetooth = create_routine();
+	struct routine app_routine_ultrasonic_sensor = create_routine();
+
+	// Allocations outside of user-space are HERE!:
+	routine_add_loop(app_routine_bluetooth, app_routine_bluetooth_setup);
+	routine_add_loop(app_routine_ultrasonic_sensor, app_routine_ultrasonic_sensor_loop);
+	// Assuming you're not receiving any code over the network suddenly to read off of DRAM,
+	// *which we know you can't*, these allocations shouldn't even be over function calls.
+	// You should allocate for these at compile-time yourself. Use an `enum` perhaps.
+	// The only thing that matters is your ability to "disable" the callbacks by
+	// replacing them with a default implementation.
+
+	routine_call_all_setups();
+
+	while (app_is_alive) {
+		routine_call_all_loops();
+	}
+
+	routine_call_all_outs();
+}

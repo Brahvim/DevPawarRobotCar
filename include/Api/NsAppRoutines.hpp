@@ -35,7 +35,7 @@ namespace NsAppRoutines {
 	template <typename ServiceCallbackT>
 	class AppRoutineWithServices : public NsAppRoutines::AppRoutine {
 	protected:
-		arx::vector<ServiceCallbackT *> callbacks;
+		arx::vector<ServiceCallbackT*> callbacks;
 	};
 
 	enum class AppRoutineAdditionError {
