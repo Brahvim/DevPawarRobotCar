@@ -1,19 +1,19 @@
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
-#include "RoutineDecls/StoppedForeverRoutine.hpp"
-#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/RoutineStoppedForever.hpp"
+#include "RoutineDecls/RoutineObstacleHandling.hpp"
 
 #include "CarApi/NsCar.hpp"
 #include "CarApi/NsServo.hpp"
 #include "CarApi/NsBuzzer.hpp"
 #include "CarApi/NsUltrasonic.hpp"
 
-MAKE_TYPE_INFO(ObstacleHandlingRoutine);
+MAKE_TYPE_INFO(RoutineObstacleHandling);
 
-// template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
-// template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
+// template bool NsAppRoutines::removeRoutine<RoutineObstacleHandling>();
+// template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineObstacleHandling>();
 
-void ObstacleHandlingRoutine::loop() {
+void RoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
 	// DEBUG_PRINT("Distance: ");
@@ -61,9 +61,9 @@ labelCheckAgain:
 		}
 	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_NO_PATH);
-		NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
-		StoppedForeverRoutine::reason = "No path ahead car!";
-		NsAppRoutines::addRoutine<StoppedForeverRoutine>();
+		NsAppRoutines::removeRoutine<RoutineObstacleHandling>();
+		RoutineStoppedForever::reason = "No path ahead car!";
+		NsAppRoutines::addRoutine<RoutineStoppedForever>();
 		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
 	} else ifl(leftBlocked) {

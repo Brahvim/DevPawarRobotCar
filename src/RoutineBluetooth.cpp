@@ -4,18 +4,18 @@
 #include "CarApi/NsCar.hpp"
 #include "BluetoothComms.hpp"
 #include "Api/DebuggingMacros.hpp"
-#include "RoutineDecls/BluetoothRoutine.hpp"
+#include "RoutineDecls/RoutineBluetooth.hpp"
 
-MAKE_TYPE_INFO(BluetoothRoutine);
+MAKE_TYPE_INFO(RoutineBluetooth);
 
-// template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
-// template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
+// template bool NsAppRoutines::removeRoutine<RoutineBluetooth>();
+// template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineBluetooth>();
 
-void BluetoothRoutine::setup() {
+void RoutineBluetooth::setup() {
 	DEBUG_PRINTLN("The bluetooth routine has been set up.");
 }
 
-void BluetoothRoutine::loop() {
+void RoutineBluetooth::loop() {
 	// DEBUG_PRINTLN("The bluetooth routine is executing!");
 
 	// Unconventional, but accounts for bad cases without `<=`.
@@ -57,7 +57,7 @@ void BluetoothRoutine::loop() {
 	BLUETOOTH_WRITELN(receivedInt);
 }
 
-String BluetoothRoutine::customReadStringUntil(char p_term) {
+String RoutineBluetooth::customReadStringUntil(char p_term) {
 	char c;
 	String result = "";
 

@@ -3,7 +3,7 @@
 #include "../Api/NsAppRoutines.hpp"
 
 // See `NsBuzzer.cpp` for implementation.
-class BuzzerRoutine : public NsAppRoutines::AppRoutine {
+class RoutineBuzzer : public NsAppRoutines::AppRoutine {
 
 public:
 	void loop();

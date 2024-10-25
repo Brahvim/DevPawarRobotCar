@@ -2,7 +2,7 @@
 
 #include "../Api/NsAppRoutines.hpp"
 
-class ObstacleHandlingRoutine : public NsAppRoutines::AppRoutine {
+class RoutineObstacleHandling : public NsAppRoutines::AppRoutine {
 
 public:
 	void loop();

@@ -2,7 +2,7 @@
 
 #include "../Api/NsAppRoutines.hpp"
 
-class BluetoothRoutine : public NsAppRoutines::AppRoutine {
+class RoutineBluetooth : public NsAppRoutines::AppRoutine {
 
 public:
 	void loop();

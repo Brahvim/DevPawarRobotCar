@@ -2,7 +2,7 @@
 
 #include "../Api/NsAppRoutines.hpp"
 
-class StoppedForeverRoutine : public NsAppRoutines::AppRoutine {
+class RoutineStoppedForever : public NsAppRoutines::AppRoutine {
 
 public:
 	static String reason;

@@ -7,9 +7,9 @@
 #include "Api/NsAppRoutines.hpp"
 #include "Api/DebuggingMacros.hpp"
 
-#include "RoutineDecls/BuzzerRoutine.hpp"
-#include "RoutineDecls/BluetoothRoutine.hpp"
-#include "RoutineDecls/ObstacleHandlingRoutine.hpp"
+#include "RoutineDecls/RoutineBuzzer.hpp"
+#include "RoutineDecls/RoutineBluetooth.hpp"
+#include "RoutineDecls/RoutineObstacleHandling.hpp"
 
 void sideTest() {
 	delay(500);
@@ -38,7 +38,7 @@ void wheelTest() {
 }
 
 void start() {
-	NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
-	// // NsAppRoutines::addRoutine<BluetoothRoutine>();
-	NsAppRoutines::addRoutine<BuzzerRoutine>();
+	NsAppRoutines::addRoutine<RoutineObstacleHandling>();
+	// // NsAppRoutines::addRoutine<RoutineBluetooth>();
+	NsAppRoutines::addRoutine<RoutineBuzzer>();
 }

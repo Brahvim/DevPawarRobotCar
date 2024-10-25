@@ -3,7 +3,7 @@
 #include "CarApi/NsBuzzer.hpp"
 #include "CarApi/NsUltrasonic.hpp"
 #include "Api/DebuggingMacros.hpp"
-#include "RoutineDecls/StoppedForeverRoutine.hpp"
+#include "RoutineDecls/RoutineStoppedForever.hpp"
 
 namespace NsUltrasonic {
 
@@ -25,8 +25,8 @@ namespace NsUltrasonic {
 
 		if (pulseDur == 0) {
 			NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
-			StoppedForeverRoutine::reason = "Ultrasonic sensor wiring broke!";
-			NsAppRoutines::addRoutine<StoppedForeverRoutine>();
+			RoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
+			NsAppRoutines::addRoutine<RoutineStoppedForever>();
 			ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
 			return 0;
 		}
