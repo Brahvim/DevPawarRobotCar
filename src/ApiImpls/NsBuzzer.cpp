@@ -1,6 +1,7 @@
 #include "Api/Globals.hpp"
 #include "CarApi/NsBuzzer.hpp"
 #include "Api/DebuggingMacros.hpp"
+#include "RoutineDecls/BuzzerRoutine.hpp"
 
 static bool s_shouldBeep;
 static unsigned long s_interval;
@@ -8,28 +9,27 @@ static unsigned long s_nextCheckTimestampMillis;
 
 namespace NsBuzzer {
 
-	void buzzerSetup() {
-		pinMode(PIN_BUZZER, OUTPUT);
+	void buzzerStopAsyncBeeps() {
+		s_shouldBeep = false;
+		// DEBUG_PRINTLN("Buzzer stopped.");
+		digitalWrite(PIN_BUZZER, LOW);
 	}
 
-	void buzzerRoutine() {
-		ifu(!s_shouldBeep)
-			return;
-
-		if (millis() > s_nextCheckTimestampMillis) {
-			if (digitalRead(PIN_BUZZER) == HIGH) {
-				DEBUG_PRINTLN("Buzzer now `LOW`.");
-				digitalWrite(PIN_BUZZER, LOW);
-			} else {
-				DEBUG_PRINTLN("Buzzer now `HIGH`.");
-				digitalWrite(PIN_BUZZER, HIGH);
-			}
-
-			s_nextCheckTimestampMillis = millis() + s_interval;
-		}
+	bool buzzerIsDoingAsyncBeeps() {
+		return s_shouldBeep;
 	}
 
-	void buzzerStart(const unsigned long p_beepInterval) {
+	unsigned long buzzerGetAsyncBeepsInterval() {
+		return s_interval;
+	}
+
+	void buzzerDoSyncBeep(const unsigned long p_beepInterval) {
+		digitalWrite(PIN_BUZZER, HIGH);
+		delay(p_beepInterval);
+		digitalWrite(PIN_BUZZER, LOW);
+	}
+
+	void buzzerStartAsyncBeeps(const unsigned long p_beepInterval) {
 		s_interval = p_beepInterval;
 		s_nextCheckTimestampMillis = millis() + s_interval;
 		s_shouldBeep = true;
@@ -37,20 +37,39 @@ namespace NsBuzzer {
 		digitalWrite(PIN_BUZZER, HIGH);
 	}
 
-	void buzzerStop() {
-		s_shouldBeep = false;
-		// DEBUG_PRINTLN("Buzzer stopped.");
-		digitalWrite(PIN_BUZZER, LOW);
-	}
-
-	bool buzzerIsBeeping() {
-		return s_shouldBeep;
-	}
-
-	unsigned long buzzerGetBeepInterval() {
-		return s_interval;
-	}
-
 }
 
+void playStartupBeepPattern() {
+	for (char i = 0; i < 3; ++i) {
+		NsBuzzer::buzzerDoSyncBeep(80);
+		delay(20);
+	}
 
+	NsBuzzer::buzzerDoSyncBeep(120);
+}
+
+#pragma region // `BuzzerRoutine` implementation.
+void BuzzerRoutine::setup() {
+	pinMode(PIN_BUZZER, OUTPUT);
+
+	DEBUG_PRINTLN("Buzzer-routine started, beeping to notify.");
+	playStartupBeepPattern();
+}
+
+void BuzzerRoutine::loop() {
+	ifu(!s_shouldBeep) // DoD-Book discouraged :/
+		return;
+
+	if (millis() > s_nextCheckTimestampMillis) {
+		if (digitalRead(PIN_BUZZER) == HIGH) {
+			DEBUG_PRINTLN("Buzzer now `LOW`.");
+			digitalWrite(PIN_BUZZER, LOW);
+		} else {
+			DEBUG_PRINTLN("Buzzer now `HIGH`.");
+			digitalWrite(PIN_BUZZER, HIGH);
+		}
+
+		s_nextCheckTimestampMillis = millis() + s_interval;
+	}
+}
+#pragma endregion

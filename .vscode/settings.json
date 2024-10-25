@@ -22,7 +22,8 @@
         "ostream": "cpp",
         "ios": "cpp",
         "stdexcept": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "associative_base": "cpp"
     },
     "cSpell.words": [
         "PROGMEM",

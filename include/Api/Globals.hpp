@@ -7,8 +7,7 @@
 #define ifu(x)	if (__builtin_expect(x, 0))
 #define ifl(x)	if (__builtin_expect(x, 1))
 
-#pragma region // Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
-
+// Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
 template <typename TypeT>
 struct TypeInfo {
 	static const char *name;
@@ -21,8 +20,3 @@ const char*TypeInfo<TypeT>::name = "Unknown";
 #define MAKE_TYPE_INFO(type) \
 	template <>              \
 	const char *TypeInfo<type>::name = #type;
-#pragma endregion
-
-#pragma region // Global function declarations.
-// void (*restart)(void) = 0;
-#pragma endregion

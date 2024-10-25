@@ -3,32 +3,21 @@
 #define PIN_BUZZER 2
 #define BUZZER_INTERVAL_NO_PATH 500
 #define BUZZER_INTERVAL_BACK_MUSIC 250
-#define BUZZER_INTERVAL_ULTRASONIC_BROKE 50
+#define BUZZER_INTERVAL_ULTRASONIC_BROKE 25
 
 namespace NsBuzzer {
 
-	/**
-	 * @brief Call this in this `start()`.
-	 */
-	void buzzerSetup();
+	/** @brief Ends the car's "SOS beep cycle". */
+	void buzzerStopAsyncBeeps();
 
-	/**
-	 * @brief Call this in your routine's `loop()`!
-	 */
-	void buzzerRoutine();
+	bool buzzerIsDoingAsyncBeeps();
 
-	/**
-	 * @brief Starts the car's "SOS beep cycle".
-	 */
-	void buzzerStart(unsigned long beepInterval);
+	unsigned long buzzerGetAsyncBeepsInterval();
 
-	/**
-	 * @brief Ends the car's "SOS beep cycle".
-	 */
-	void buzzerStop();
+	void buzzerDoSyncBeep(unsigned long duration);
 
-	bool buzzerIsBeeping();
+	/** @brief Starts the car's "SOS beep cycle". */
+	void buzzerStartAsyncBeeps(unsigned long beepInterval);
 
-	unsigned long buzzerGetBeepInterval();
 
 }

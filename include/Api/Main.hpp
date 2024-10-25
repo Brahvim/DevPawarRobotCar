@@ -13,7 +13,7 @@
 #include "../CarApi/NsServo.hpp"
 #include "../CarApi/NsUltrasonic.hpp"
 
-#define WHEEL_SPEED				 	170
+#define WHEEL_SPEED				 	 170
 #define ARDUINO_SERIAL_BAUD_RATE 	9600
 
 #pragma region // Global declarations.
@@ -40,7 +40,7 @@ void setup() {
 	// ...At least that's what VSCode highlightion showed.
 	// ...For the Arduino Uno.
 	// NsCar::motors[1].setSpeed(WHEEL_SPEED);
-	// NsCar::motors[2].setSpeed(WHEEL_SPEED);
+	NsCar::motors[2].setSpeed(WHEEL_SPEED);
 	// NsCar::motors[3].setSpeed(WHEEL_SPEED);
 	// NsCar::motors[4].setSpeed(WHEEL_SPEED);
 

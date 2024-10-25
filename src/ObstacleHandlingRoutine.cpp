@@ -1,5 +1,6 @@
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
+#include "RoutineDecls/StoppedForeverRoutine.hpp"
 #include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 #include "CarApi/NsCar.hpp"
@@ -13,23 +14,10 @@ MAKE_TYPE_INFO(ObstacleHandlingRoutine);
 // template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 void ObstacleHandlingRoutine::loop() {
-	ifu(this->stoppedForever) { // Set to be *unlikely* so that the upcoming stuff is speculatively executed.
-		DEBUG_PRINTLN("Stopped forever...");
-		return;
-	}
-
-	// ...
-	// ...These boards surely *don't* have spec-ex! No way!
-	// Yet I use `__builtin_expect()`. *Anyway*.
-
-	// DEBUG_PRINTLN("The obstacle handling routine is executing!");
-
-	// DEBUG_PRINTLN("Performing routinely distance check...");
 	int forwardDist = NsUltrasonic::read();
 
 	// DEBUG_PRINT("Distance: ");
 	// DEBUG_WRITELN(forwardDist);
-	// delay(100); // Do we not, not* need this?
 
 	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 		NsCar::moveForwardAsync();
@@ -41,7 +29,7 @@ void ObstacleHandlingRoutine::loop() {
 	NsCar::moveBackward(500);
 	NsCar::stop();
 
-checkAgain:
+labelCheckAgain:
 	DEBUG_PRINTLN("Looking left...");
 	int leftDist = NsUltrasonic::lookLeft();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
@@ -59,7 +47,7 @@ checkAgain:
 	ifu(!(leftBlocked || rightBlocked)) {
 		DEBUG_PRINTLN("No obstacles, going right...");
 		// "ALWAYS GO FOR RIGHT!" - Dev.
-		NsCar::moveRightOnSpot(1500);
+		NsCar::moveRight(1500);
 		NsCar::stop();
 
 		DEBUG_PRINTLN("No obstacles, reading distance...");
@@ -69,19 +57,21 @@ checkAgain:
 			return;
 		} else {
 			DEBUG_PRINTLN("Obstacle may be in range, checking again...");
-			goto checkAgain;
+			goto labelCheckAgain;
 		}
 	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
-		DEBUG_PRINTLN("No path! Starting buzzer...");
-		NsBuzzer::buzzerStart(BUZZER_INTERVAL_NO_PATH);
+		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_NO_PATH);
+		NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
+		StoppedForeverRoutine::reason = "No path ahead car!";
+		NsAppRoutines::addRoutine<StoppedForeverRoutine>();
+		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
-		this->stoppedForever = true;
 	} else ifl(leftBlocked) {
 		DEBUG_PRINTLN("Left blocked...");
-		NsCar::moveRightOnSpot(1500);
+		NsCar::moveRight(1500);
 	} else ifl(rightBlocked) {
 		DEBUG_PRINTLN("Right blocked...");
-		NsCar::moveLeftOnSpot(1500);
+		NsCar::moveLeft(1500);
 	} else {
 		DEBUG_PRINTLN("Nothing was blocked. But also was everything. *You shouldn't see be seeing this log!*");
 	}

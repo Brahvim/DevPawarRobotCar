@@ -6,18 +6,20 @@
 
 #include "RoutineDecls/BuzzerRoutine.hpp"
 #include "RoutineDecls/BluetoothRoutine.hpp"
+#include "RoutineDecls/StoppedForeverRoutine.hpp"
 #include "RoutineDecls/ObstacleHandlingRoutine.hpp"
 
 arx::map<const char*, NsAppRoutines::AppRoutine*> g_routinesToClassNamesMap;
 
-// template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
+template bool NsAppRoutines::removeRoutine<BuzzerRoutine>();
+template bool NsAppRoutines::removeRoutine<BluetoothRoutine>();
+template bool NsAppRoutines::removeRoutine<StoppedForeverRoutine>();
+template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
 
-// template bool NsAppRoutines::removeRoutine<ObstacleHandlingRoutine>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
-
-// template bool NsAppRoutines::removeRoutine<BuzzerRoutine>();
 template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BuzzerRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<BluetoothRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<StoppedForeverRoutine>();
+template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<ObstacleHandlingRoutine>();
 
 namespace NsAppRoutines {
 
