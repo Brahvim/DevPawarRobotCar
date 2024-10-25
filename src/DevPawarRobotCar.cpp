@@ -4,12 +4,12 @@
 #include "CarApi/NsBuzzer.hpp"
 
 #include "Api/CustomSetup.hpp"
-#include "Api/NsAppRoutines.hpp"
+#include "Api/NsRoutines.hpp"
 #include "Api/DebuggingMacros.hpp"
 
-#include "RoutineDecls/RoutineBuzzer.hpp"
-#include "RoutineDecls/RoutineBluetooth.hpp"
-#include "RoutineDecls/RoutineObstacleHandling.hpp"
+#include "RoutineDecls/CRoutineBuzzer.hpp"
+#include "RoutineDecls/CRoutineBluetooth.hpp"
+#include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
 void sideTest() {
 	delay(500);
@@ -38,7 +38,7 @@ void wheelTest() {
 }
 
 void start() {
-	NsAppRoutines::addRoutine<RoutineObstacleHandling>();
-	// // NsAppRoutines::addRoutine<RoutineBluetooth>();
-	NsAppRoutines::addRoutine<RoutineBuzzer>();
+	NsRoutines::addRoutine<CRoutineBuzzer>();
+	// // NsRoutines::addRoutine<CRoutineBluetooth>();
+	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 }

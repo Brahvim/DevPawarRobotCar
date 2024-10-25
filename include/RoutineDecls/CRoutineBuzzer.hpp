@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Api/NsAppRoutines.hpp"
+#include "../Api/NsRoutines.hpp"
 
 // See `NsBuzzer.cpp` for implementation.
-class RoutineBuzzer : public NsAppRoutines::AppRoutine {
+class CRoutineBuzzer : public NsRoutines::CRoutine {
 
 public:
 	void loop();

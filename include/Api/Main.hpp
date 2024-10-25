@@ -6,7 +6,7 @@
 
 #include "Globals.hpp"
 #include "CustomSetup.hpp"
-#include "NsAppRoutines.hpp"
+#include "NsRoutines.hpp"
 #include "DebuggingMacros.hpp"
 
 #include "../CarApi/NsCar.hpp"
@@ -17,7 +17,7 @@
 #define ARDUINO_SERIAL_BAUD_RATE 	9600
 
 #pragma region // Global declarations.
-extern arx::map<const char*, NsAppRoutines::AppRoutine*> g_routinesToClassNamesMap;
+extern arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 #pragma endregion
 
 void setup() {

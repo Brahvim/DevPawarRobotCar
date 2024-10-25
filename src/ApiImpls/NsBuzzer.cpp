@@ -1,7 +1,7 @@
 #include "Api/Globals.hpp"
 #include "CarApi/NsBuzzer.hpp"
 #include "Api/DebuggingMacros.hpp"
-#include "RoutineDecls/RoutineBuzzer.hpp"
+#include "RoutineDecls/CRoutineBuzzer.hpp"
 
 static bool s_shouldBeep;
 static unsigned long s_interval;
@@ -48,15 +48,15 @@ void playStartupBeepPattern() {
 	NsBuzzer::buzzerDoSyncBeep(120);
 }
 
-#pragma region // `RoutineBuzzer` implementation.
-void RoutineBuzzer::setup() {
+#pragma region // `CRoutineBuzzer` implementation.
+void CRoutineBuzzer::setup() {
 	pinMode(PIN_BUZZER, OUTPUT);
 
 	DEBUG_PRINTLN("Buzzer-routine started, beeping to notify.");
 	playStartupBeepPattern();
 }
 
-void RoutineBuzzer::loop() {
+void CRoutineBuzzer::loop() {
 	ifu(!s_shouldBeep) // DoD-Book discouraged :/
 		return;
 

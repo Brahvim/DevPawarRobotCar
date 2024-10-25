@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Api/NsAppRoutines.hpp"
+#include "../Api/NsRoutines.hpp"
 
-class RoutineStoppedForever : public NsAppRoutines::AppRoutine {
+class CRoutineStoppedForever : public NsRoutines::CRoutine {
 
 public:
 	static String reason;

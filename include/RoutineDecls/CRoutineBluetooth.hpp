@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Api/NsAppRoutines.hpp"
+#include "../Api/NsRoutines.hpp"
 
-class RoutineBluetooth : public NsAppRoutines::AppRoutine {
+class CRoutineBluetooth : public NsRoutines::CRoutine {
 
 public:
 	void loop();

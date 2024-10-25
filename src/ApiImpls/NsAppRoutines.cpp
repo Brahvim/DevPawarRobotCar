@@ -1,42 +1,42 @@
 #include <ArxContainer.h>
 
 #include "Api/Globals.hpp"
-#include "Api/NsAppRoutines.hpp"
+#include "Api/NsRoutines.hpp"
 #include "Api/DebuggingMacros.hpp"
 
-#include "RoutineDecls/RoutineBuzzer.hpp"
-#include "RoutineDecls/RoutineBluetooth.hpp"
-#include "RoutineDecls/RoutineStoppedForever.hpp"
-#include "RoutineDecls/RoutineObstacleHandling.hpp"
+#include "RoutineDecls/CRoutineBuzzer.hpp"
+#include "RoutineDecls/CRoutineBluetooth.hpp"
+#include "RoutineDecls/CRoutineStoppedForever.hpp"
+#include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
-arx::map<const char*, NsAppRoutines::AppRoutine*> g_routinesToClassNamesMap;
+arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
-template bool NsAppRoutines::removeRoutine<RoutineBuzzer>();
-template bool NsAppRoutines::removeRoutine<RoutineBluetooth>();
-template bool NsAppRoutines::removeRoutine<RoutineStoppedForever>();
-template bool NsAppRoutines::removeRoutine<RoutineObstacleHandling>();
+template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
+template bool NsRoutines::removeRoutine<CRoutineBluetooth>();
+template bool NsRoutines::removeRoutine<CRoutineStoppedForever>();
+template bool NsRoutines::removeRoutine<CRoutineObstacleHandling>();
 
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineBuzzer>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineBluetooth>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineStoppedForever>();
-template NsAppRoutines::AppRoutineAdditionError NsAppRoutines::addRoutine<RoutineObstacleHandling>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBuzzer>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBluetooth>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineStoppedForever>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
 
-namespace NsAppRoutines {
+namespace NsRoutines {
 
-	void AppRoutine::setup() {
+	void CRoutine::setup() {
 		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `setup()`!"));
 	}
 
-	void AppRoutine::loop() {
+	void CRoutine::loop() {
 		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `loop()`!"));
 	}
 
-	void AppRoutine::out() {
+	void CRoutine::out() {
 		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `out()`!"));
 	}
 
 	template <class RoutineT>
-	NsAppRoutines::AppRoutineAdditionError addRoutine() {
+	NsRoutines::EcRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,
 		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != g_routinesToClassNamesMap.end()) {
 			DEBUG_PRINT("Routine of type `");
@@ -44,12 +44,12 @@ namespace NsAppRoutines {
 			DEBUG_WRITELN("` already exists. Didn't add another.");
 
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
-			return NsAppRoutines::AppRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
+			return NsRoutines::EcRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
 		}
 
 
 		// Okay, here we go! Roll the callback!:
-		NsAppRoutines::AppRoutine *routine = new RoutineT(); // Fun fact: Object slicing ruined me here for DAYS 🤣
+		NsRoutines::CRoutine *routine = new RoutineT(); // Fun fact: Object slicing ruined me here for DAYS 🤣
 		g_routinesToClassNamesMap[TYPE_NAME(RoutineT)] = routine;
 		routine->setup();
 
@@ -57,19 +57,19 @@ namespace NsAppRoutines {
 		DEBUG_WRITE(TYPE_NAME(RoutineT));
 		DEBUG_WRITELN("`.");
 
-		return NsAppRoutines::AppRoutineAdditionError::NO_ERROR;
+		return NsRoutines::EcRoutineAdditionError::NO_ERROR;
 	}
 
 	template <class RoutineT>
 	bool removeRoutine() {
 		// Check if a routine of the same class name exists :
-		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); it++) {
+		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
 			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
 			ifu(it->first != TYPE_NAME(RoutineT))
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:
-			NsAppRoutines::AppRoutine *routine = it->second;
+			NsRoutines::CRoutine *routine = it->second;
 			routine->out();
 			delete routine;
 
