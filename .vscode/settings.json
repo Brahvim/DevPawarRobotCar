@@ -27,7 +27,8 @@
     },
     "cSpell.words": [
         "PROGMEM",
-        "UCLIBCXX"
+        "UCLIBCXX",
+        "Wdelete"
     ],
     "C_Cpp.codeAnalysis.clangTidy.path": "/",
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",

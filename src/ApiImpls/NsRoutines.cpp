@@ -23,6 +23,8 @@ template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObsta
 
 namespace NsRoutines {
 
+	CRoutine::~CRoutine() { }
+
 	void CRoutine::setup() {
 		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `setup()`!"));
 	}

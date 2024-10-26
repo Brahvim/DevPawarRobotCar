@@ -11,17 +11,18 @@ namespace NsRoutines {
 	 * The default implementations call `DEBUG_PRINTLN()` to remind about missing overrides.
 	 */
 	class CRoutine {
+
 	public:
+		/** @brief `virtual` destructor so `-Wdelete-non-virtual-dtor` is happy. Typical OO slow-thing. Sorry I'm not writing data-oriented C yet... */
+		virtual ~CRoutine();
+
 		/** @brief  Called when this routine starts. */
 		virtual void setup();
 
 		/** @brief  Called in `loop()` after this routine has started. */
 		virtual void loop();
 
-		/**
-		 * @brief  Called when this routine has been requested to be removed
-		 * from the list of currently active routines.
-		 */
+		/** @brief  Called when this routine has been requested to be removed from the list of currently active routines. */
 		virtual void out();
 
 	};

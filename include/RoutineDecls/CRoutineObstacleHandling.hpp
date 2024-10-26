@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Api/NsRoutines.hpp"
+#include "Api/NsRoutines.hpp"
 
 class CRoutineObstacleHandling : public NsRoutines::CRoutine {
 
