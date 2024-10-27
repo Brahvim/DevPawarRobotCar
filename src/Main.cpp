@@ -29,7 +29,7 @@ void setup() {
     // ...At least that's what VSCode highlightion showed.
     // ...For the Arduino Uno.
     // NsCar::motors[1].setSpeed(WHEEL_SPEED);
-    NsCar::motors[2].setSpeed(WHEEL_SPEED);
+    // NsCar::motors[2].setSpeed(WHEEL_SPEED);
     // NsCar::motors[3].setSpeed(WHEEL_SPEED);
     // NsCar::motors[4].setSpeed(WHEEL_SPEED);
 

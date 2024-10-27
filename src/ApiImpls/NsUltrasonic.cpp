@@ -22,7 +22,7 @@ namespace NsUltrasonic {
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 
 		// Giving the ultrasonic sensor a duration gets us a reading:
-		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH); // Pulse duration.
+		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
 
 		if (pulseDur == 0) {
 			CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
