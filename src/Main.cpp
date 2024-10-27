@@ -8,7 +8,6 @@
 #include "Api/DebuggingMacros.hpp"
 
 #include "RoutineDecls/CRoutineBuzzer.hpp"
-#include "RoutineDecls/CRoutineBluetooth.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
 void setup() {

@@ -1,542 +1,554 @@
 [
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/CDC.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/CDC.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/CDC.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/CDC.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/CDC.cpp",
         "output": ".pio/build/uno/FrameworkArduino/CDC.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial.cpp",
         "output": ".pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial0.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial0.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial0.cpp",
         "output": ".pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial1.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial1.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial1.cpp",
         "output": ".pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial2.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial2.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial2.cpp",
         "output": ".pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial3.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial3.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/HardwareSerial3.cpp",
         "output": ".pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/IPAddress.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/IPAddress.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/IPAddress.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/IPAddress.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/IPAddress.cpp",
         "output": ".pio/build/uno/FrameworkArduino/IPAddress.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/PluggableUSB.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/PluggableUSB.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/PluggableUSB.cpp",
         "output": ".pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Print.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Print.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Print.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Print.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Print.cpp",
         "output": ".pio/build/uno/FrameworkArduino/Print.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Stream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Stream.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Stream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Stream.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Stream.cpp",
         "output": ".pio/build/uno/FrameworkArduino/Stream.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Tone.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Tone.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/Tone.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Tone.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/Tone.cpp",
         "output": ".pio/build/uno/FrameworkArduino/Tone.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/USBCore.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/USBCore.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/USBCore.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/USBCore.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/USBCore.cpp",
         "output": ".pio/build/uno/FrameworkArduino/USBCore.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/WInterrupts.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WInterrupts.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/WInterrupts.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WInterrupts.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WInterrupts.c",
         "output": ".pio/build/uno/FrameworkArduino/WInterrupts.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WMath.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WMath.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WMath.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WMath.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WMath.cpp",
         "output": ".pio/build/uno/FrameworkArduino/WMath.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WString.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WString.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/WString.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WString.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/WString.cpp",
         "output": ".pio/build/uno/FrameworkArduino/WString.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/abi.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/abi.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/abi.cpp",
         "output": ".pio/build/uno/FrameworkArduino/abi.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/hooks.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/hooks.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/hooks.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/hooks.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/hooks.c",
         "output": ".pio/build/uno/FrameworkArduino/hooks.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/main.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/main.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/main.cpp",
         "output": ".pio/build/uno/FrameworkArduino/main.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/new.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/new.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/FrameworkArduino/new.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/new.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/new.cpp",
         "output": ".pio/build/uno/FrameworkArduino/new.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring.c",
         "output": ".pio/build/uno/FrameworkArduino/wiring.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_analog.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_analog.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_analog.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_analog.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_analog.c",
         "output": ".pio/build/uno/FrameworkArduino/wiring_analog.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_digital.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_digital.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_digital.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_digital.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_digital.c",
         "output": ".pio/build/uno/FrameworkArduino/wiring_digital.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -mmcu=atmega328p -x assembler-with-cpp -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard -c -o .pio/build/uno/FrameworkArduino/wiring_pulse.S.o /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.S",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -mmcu=atmega328p -x assembler-with-cpp -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard -c -o .pio/build/uno/FrameworkArduino/wiring_pulse.S.o /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.S",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.S",
         "output": ".pio/build/uno/FrameworkArduino/wiring_pulse.S.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_pulse.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_pulse.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_pulse.c",
         "output": ".pio/build/uno/FrameworkArduino/wiring_pulse.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_shift.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/FrameworkArduino/wiring_shift.c.o -c -std=gnu11 -fno-fat-lto-objects -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard /home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c",
         "output": ".pio/build/uno/FrameworkArduino/wiring_shift.c.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/ArduinoSTL.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ArduinoSTL.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/ArduinoSTL.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ArduinoSTL.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/ArduinoSTL.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/ArduinoSTL.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/ArduinoSTL.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/abi/abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/abi/abi.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/abi/abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/abi/abi.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/abi/abi.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/abi/abi.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/abi/abi.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/algorithm.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/algorithm.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/algorithm.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/algorithm.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/algorithm.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/algorithm.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/algorithm.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/associative_base.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/associative_base.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/associative_base.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/associative_base.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/associative_base.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/associative_base.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/associative_base.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/bitset.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/bitset.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/bitset.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/bitset.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/bitset.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/bitset.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/bitset.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/char_traits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/char_traits.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/char_traits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/char_traits.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/char_traits.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/char_traits.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/char_traits.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/complex.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/complex.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/complex.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/complex.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/complex.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/complex.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/complex.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_op.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_op.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_op.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_op.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_op.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opnt.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opnt.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_opnt.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_opnt.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_opnt.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_ops.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_ops.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_ops.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_ops.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_ops.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_ops.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_ops.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opv.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opv.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_opv.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_opv.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_opv.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opvnt.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opvnt.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_opvnt.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_opvnt.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_opvnt.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/del_opvs.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opvs.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/del_opvs.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/del_opvs.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/del_opvs.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/del_opvs.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/del_opvs.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/deque.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/deque.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/deque.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/deque.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/deque.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/deque.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/deque.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/eh_alloc.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/eh_alloc.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/eh_alloc.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/eh_alloc.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/eh_alloc.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/eh_alloc.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/eh_alloc.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/eh_globals.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/eh_globals.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/eh_globals.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/eh_globals.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/eh_globals.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/eh_globals.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/eh_globals.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/exception.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/exception.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/exception.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/exception.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/exception.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/func_exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/func_exception.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/func_exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/func_exception.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/func_exception.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/func_exception.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/func_exception.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/iomanip.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iomanip.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/iomanip.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iomanip.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/iomanip.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/iomanip.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/iomanip.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/ios.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ios.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/ios.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ios.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/ios.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/ios.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/ios.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/iostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iostream.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/iostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iostream.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/iostream.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/iostream.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/iostream.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/istream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/istream.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/istream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/istream.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/istream.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/istream.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/istream.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/iterator.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iterator.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/iterator.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/iterator.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/iterator.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/iterator.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/iterator.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/limits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/limits.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/limits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/limits.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/limits.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/limits.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/limits.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/list.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/list.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/list.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/list.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/list.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/list.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/list.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/locale.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/locale.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/locale.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/locale.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/locale.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/locale.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/locale.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/map.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/map.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/map.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/map.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/map.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/map.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/map.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/new_handler.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_handler.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/new_handler.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_handler.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/new_handler.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/new_handler.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/new_handler.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/new_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_op.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/new_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_op.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/new_op.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/new_op.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/new_op.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/new_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opnt.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/new_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opnt.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/new_opnt.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/new_opnt.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/new_opnt.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/new_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opv.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/new_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opv.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/new_opv.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/new_opv.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/new_opv.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/new_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opvnt.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/new_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/new_opvnt.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/new_opvnt.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/new_opvnt.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/new_opvnt.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/numeric.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/numeric.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/numeric.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/numeric.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/numeric.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/numeric.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/numeric.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/ostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ostream.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/ostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ostream.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/ostream.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/ostream.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/ostream.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/ostream_helpers.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ostream_helpers.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/ostream_helpers.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/ostream_helpers.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/ostream_helpers.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/ostream_helpers.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/ostream_helpers.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/queue.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/queue.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/queue.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/queue.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/queue.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/queue.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/queue.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/set.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/set.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/set.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/set.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/set.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/set.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/set.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/sstream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/sstream.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/sstream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/sstream.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/sstream.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/sstream.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/sstream.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/stack.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/stack.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/stack.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/stack.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/stack.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/stack.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/stack.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/stdexcept.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/stdexcept.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/stdexcept.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/stdexcept.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/stdexcept.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/stdexcept.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/stdexcept.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/streambuf.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/streambuf.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/streambuf.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/streambuf.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/streambuf.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/streambuf.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/streambuf.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/string.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/string.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/string.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/string.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/string.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/string.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/string.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/support.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/support.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/support.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/support.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/support.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/support.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/support.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/typeinfo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/typeinfo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/typeinfo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/typeinfo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/typeinfo.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/typeinfo.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/typeinfo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/utility.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/utility.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/utility.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/utility.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/utility.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/utility.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/utility.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/valarray.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/valarray.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/valarray.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/valarray.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/valarray.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/valarray.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/valarray.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libb6f/ArduinoSTL/vector.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/vector.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libff1/ArduinoSTL/vector.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/ArduinoSTL/src/vector.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/ArduinoSTL/src/vector.cpp",
-        "output": ".pio/build/uno/libb6f/ArduinoSTL/vector.cpp.o"
+        "output": ".pio/build/uno/libff1/ArduinoSTL/vector.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/avr/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/avr/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/avr/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/avr/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/avr/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/avr/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/avr/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/mbed/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/mbed/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/mbed/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/mbed/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/mbed/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/mbed/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/mbed/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/megaavr/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/megaavr/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/megaavr/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/megaavr/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/megaavr/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/megaavr/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/megaavr/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/nrf52/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/nrf52/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/nrf52/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/nrf52/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/nrf52/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/nrf52/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/nrf52/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/renesas/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/renesas/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/renesas/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/renesas/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/renesas/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/renesas/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/renesas/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/sam/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/sam/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/sam/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/sam/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/sam/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/sam/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/sam/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/samd/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/samd/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/samd/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/samd/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/samd/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/samd/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/samd/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/lib641/Servo/stm32f4/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/stm32f4/Servo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/stm32f4/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/stm32f4/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Servo/src/stm32f4/Servo.cpp",
-        "output": ".pio/build/uno/lib641/Servo/stm32f4/Servo.cpp.o"
+        "output": ".pio/build/uno/libfdc/Servo/stm32f4/Servo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o \".pio/build/uno/lib995/Adafruit Motor Shield library/AFMotor.cpp.o\" -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard \".pio/libdeps/uno/Adafruit Motor Shield library/AFMotor.cpp\"",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/libfdc/Servo/xmc/Servo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio/libdeps/uno/Servo/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard .pio/libdeps/uno/Servo/src/xmc/Servo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "file": ".pio/libdeps/uno/Servo/src/xmc/Servo.cpp",
+        "output": ".pio/build/uno/libfdc/Servo/xmc/Servo.cpp.o"
+    },
+    {
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o \".pio/build/uno/lib684/Adafruit Motor Shield library/AFMotor.cpp.o\" -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard \".pio/libdeps/uno/Adafruit Motor Shield library/AFMotor.cpp\"",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": ".pio/libdeps/uno/Adafruit Motor Shield library/AFMotor.cpp",
-        "output": ".pio/build/uno/lib995/Adafruit Motor Shield library/AFMotor.cpp.o"
+        "output": ".pio/build/uno/lib684/Adafruit Motor Shield library/AFMotor.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsRoutines.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsRoutines.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
-        "file": "src/ApiImpls/NsRoutines.cpp",
-        "output": ".pio/build/uno/src/ApiImpls/NsRoutines.cpp.o"
-    },
-    {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsBuzzer.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsBuzzer.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsBuzzer.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsBuzzer.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/ApiImpls/NsBuzzer.cpp",
         "output": ".pio/build/uno/src/ApiImpls/NsBuzzer.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsCar.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsCar.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsCar.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsCar.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/ApiImpls/NsCar.cpp",
         "output": ".pio/build/uno/src/ApiImpls/NsCar.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsServo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsServo.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsRoutines.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsRoutines.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "file": "src/ApiImpls/NsRoutines.cpp",
+        "output": ".pio/build/uno/src/ApiImpls/NsRoutines.cpp.o"
+    },
+    {
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsServo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsServo.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/ApiImpls/NsServo.cpp",
         "output": ".pio/build/uno/src/ApiImpls/NsServo.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsUltrasonic.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsUltrasonic.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/ApiImpls/NsUltrasonic.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/ApiImpls/NsUltrasonic.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/ApiImpls/NsUltrasonic.cpp",
         "output": ".pio/build/uno/src/ApiImpls/NsUltrasonic.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineBluetooth.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineBluetooth.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineBluetooth.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineBluetooth.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/CRoutineBluetooth.cpp",
         "output": ".pio/build/uno/src/CRoutineBluetooth.cpp.o"
     },
     {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineBuzzer.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineBuzzer.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
-        "file": "src/CRoutineBuzzer.cpp",
-        "output": ".pio/build/uno/src/CRoutineBuzzer.cpp.o"
-    },
-    {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/DevPawarRobotCar.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/DevPawarRobotCar.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
-        "file": "src/DevPawarRobotCar.cpp",
-        "output": ".pio/build/uno/src/DevPawarRobotCar.cpp.o"
-    },
-    {
-        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineObstacleHandling.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60111 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineObstacleHandling.cpp",
-        "directory": "/home/brahvim/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineObstacleHandling.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineObstacleHandling.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
         "file": "src/CRoutineObstacleHandling.cpp",
         "output": ".pio/build/uno/src/CRoutineObstacleHandling.cpp.o"
+    },
+    {
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/CRoutineStoppedForever.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/CRoutineStoppedForever.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "file": "src/CRoutineStoppedForever.cpp",
+        "output": ".pio/build/uno/src/CRoutineStoppedForever.cpp.o"
+    },
+    {
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/Main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/Main.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "file": "src/Main.cpp",
+        "output": ".pio/build/uno/src/Main.cpp.o"
+    },
+    {
+        "command": "/home/brahvim/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/uno/src/Tests.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -O3 -flto -finline-functions -finline-small-functions -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60116 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc \"-I.pio/libdeps/uno/Adafruit Motor Shield library\" -I.pio/libdeps/uno/Servo/src -I.pio/libdeps/uno/ArxContainer -I.pio/libdeps/uno/ArduinoSTL/src -I/home/brahvim/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/brahvim/.platformio/packages/framework-arduino-avr/variants/standard src/Tests.cpp",
+        "directory": "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar",
+        "file": "src/Tests.cpp",
+        "output": ".pio/build/uno/src/Tests.cpp.o"
     }
 ]
