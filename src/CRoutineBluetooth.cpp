@@ -8,12 +8,7 @@
 
 MAKE_TYPE_INFO(CRoutineBluetooth);
 
-// template bool NsRoutines::removeRoutine<CRoutineBluetooth>();
-// template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBluetooth>();
-
-void CRoutineBluetooth::setup() {
-	DEBUG_PRINTLN("The bluetooth routine has been set up.");
-}
+void CRoutineBluetooth::out() { }
 
 void CRoutineBluetooth::loop() {
 	// DEBUG_PRINTLN("The bluetooth routine is executing!");
@@ -55,6 +50,10 @@ void CRoutineBluetooth::loop() {
 
 	BLUETOOTH_PRINT("Parsed INT: ");
 	BLUETOOTH_WRITELN(receivedInt);
+}
+
+void CRoutineBluetooth::setup() {
+	DEBUG_PRINTLN("The bluetooth routine has been set up.");
 }
 
 String CRoutineBluetooth::customReadStringUntil(char p_term) {

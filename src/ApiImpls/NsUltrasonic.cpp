@@ -8,6 +8,8 @@
 
 namespace NsUltrasonic {
 
+	volatile int g_countingSemaphoreZeroReads = 0;
+
 	int read() {
 		// Lower `TRIG` for `4` microseconds as an error check:
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
@@ -22,19 +24,25 @@ namespace NsUltrasonic {
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 
 		// Giving the ultrasonic sensor a duration gets us a reading:
-		unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
+		const unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
+		const unsigned long distCm = pulseDur / 29 / 2; // Time-to-centimeters conversion.
 
-		if (pulseDur == 0) {
-			CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
-			NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
-			NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-			NsRoutines::addRoutine<CRoutineStoppedForever>();
-			ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
-			return 0;
+		ifl(pulseDur == 0) {
+
+			ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 0) {
+				CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
+				NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
+				NsRoutines::removeRoutine<CRoutineObstacleHandling>();
+				NsRoutines::addRoutine<CRoutineStoppedForever>();
+				ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
+				return 0;
+			}
+
+			--NsUltrasonic::g_countingSemaphoreZeroReads;
+
 		}
 
-		pulseDur = pulseDur / 29 / 2;	// Time-to-centimeters conversion.
-		return pulseDur;
+		return distCm;
 	}
 
 	int lookLeft() {

@@ -3,10 +3,11 @@
 #include "Api/NsRoutines.hpp"
 
 // See `NsBuzzer.cpp` for implementation.
-class CRoutineBuzzer : public NsRoutines::CRoutine {
+class CRoutineBuzzer : public NsRoutines::CRoutine<CRoutineBuzzer> {
 
 public:
-	void loop();
 	void setup();
+	void loop();
+	void out();
 
 };

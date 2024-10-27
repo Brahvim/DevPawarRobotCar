@@ -9,7 +9,7 @@
 #define ARDUINO_SERIAL_BAUD_RATE 	9600
 
 #pragma region // Global declarations.
-extern arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap; // See `NsAppRoutines.cpp` for definition.
+extern arx::map<const char*, NsRoutines::CRoutineBase*> g_routinesToClassNamesMap; // See `NsAppRoutines.cpp` for definition.
 #pragma endregion
 
 extern void setup();

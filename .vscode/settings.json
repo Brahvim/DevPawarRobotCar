@@ -24,7 +24,13 @@
         "stdexcept": "cpp",
         "map": "cpp",
         "associative_base": "cpp",
-        "istream_helpers": "cpp"
+        "istream_helpers": "cpp",
+        "bitset": "cpp",
+        "limits": "cpp",
+        "set": "cpp",
+        "streambuf": "cpp",
+        "string_iostream": "cpp",
+        "utility": "cpp"
     },
     "cSpell.words": [
         "PROGMEM",

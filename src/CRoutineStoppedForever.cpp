@@ -6,7 +6,11 @@ MAKE_TYPE_INFO(CRoutineStoppedForever);
 
 String CRoutineStoppedForever::reason = "";
 
+void CRoutineStoppedForever::out() { }
+
 void CRoutineStoppedForever::loop() {
 	ERROR_PRINT("Stopped forever... Reason: ");
 	ERROR_WRITELN(CRoutineStoppedForever::reason);
 }
+
+void CRoutineStoppedForever::setup() { }

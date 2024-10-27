@@ -2,11 +2,12 @@
 
 #include "Api/NsRoutines.hpp"
 
-class CRoutineBluetooth : public NsRoutines::CRoutine {
+class CRoutineBluetooth : public NsRoutines::CRoutine<CRoutineBluetooth> {
 
 public:
-	void loop();
 	void setup();
+	void loop();
+	void out();
 
 private:
 	String customReadStringUntil(char terminator);

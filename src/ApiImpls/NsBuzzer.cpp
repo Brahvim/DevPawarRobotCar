@@ -51,8 +51,6 @@ void playStartupBeepPattern() {
 
 #pragma region // `CRoutineBuzzer` implementation.
 void CRoutineBuzzer::setup() {
-	pinMode(PIN_BUZZER, OUTPUT);
-
 	DEBUG_PRINTLN("Buzzer-routine started, beeping to notify.");
 	playStartupBeepPattern();
 }
@@ -73,4 +71,6 @@ void CRoutineBuzzer::loop() {
 		s_nextCheckTimestampMillis = millis() + s_interval;
 	}
 }
+
+void CRoutineBuzzer::out() { }
 #pragma endregion

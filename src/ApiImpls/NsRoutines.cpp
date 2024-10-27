@@ -9,8 +9,9 @@
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
-arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
+arx::map<const char*, NsRoutines::CRoutineBase*> g_routinesToClassNamesMap;
 
+#pragma region // Template instances.
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
 template bool NsRoutines::removeRoutine<CRoutineBluetooth>();
 template bool NsRoutines::removeRoutine<CRoutineStoppedForever>();
@@ -20,29 +21,16 @@ template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBuzze
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBluetooth>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineStoppedForever>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
+#pragma endregion
 
 namespace NsRoutines {
 
-	CRoutine::~CRoutine() { }
-
-	void CRoutine::setup() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `setup()`!"));
-	}
-
-	void CRoutine::loop() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `loop()`!"));
-	}
-
-	void CRoutine::out() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `out()`!"));
-	}
-
-	template <class RoutineT>
+	template <class TRoutine>
 	NsRoutines::EcRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,
-		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != g_routinesToClassNamesMap.end()) {
+		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(TRoutine)) != g_routinesToClassNamesMap.end()) {
 			DEBUG_PRINT("Routine of type `");
-			DEBUG_WRITE(TYPE_NAME(RoutineT));
+			DEBUG_WRITE(TYPE_NAME(TRoutine));
 			DEBUG_WRITELN("` already exists. Didn't add another.");
 
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
@@ -51,35 +39,35 @@ namespace NsRoutines {
 
 
 		// Okay, here we go! Roll the callback!:
-		NsRoutines::CRoutine *routine = new RoutineT(); // Fun fact: Object slicing ruined me here for DAYS 🤣
-		g_routinesToClassNamesMap[TYPE_NAME(RoutineT)] = routine;
-		routine->setup();
+		NsRoutines::CRoutineBase *routine = static_cast<NsRoutines::CRoutineBase*>(new TRoutine()); // Fun fact: Object slicing ruined me here for DAYS 🤣
+		g_routinesToClassNamesMap[TYPE_NAME(TRoutine)] = routine;
+		routine->callSetup();
 
 		DEBUG_PRINT("Added routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(RoutineT));
+		DEBUG_WRITE(TYPE_NAME(TRoutine));
 		DEBUG_WRITELN("`.");
 
 		return NsRoutines::EcRoutineAdditionError::NO_ERROR;
 	}
 
-	template <class RoutineT>
+	template <class TRoutine>
 	bool removeRoutine() {
 		// Check if a routine of the same class name exists :
 		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
 			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
-			ifu(it->first != TYPE_NAME(RoutineT))
+			ifu(it->first != TYPE_NAME(TRoutine))
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:
-			NsRoutines::CRoutine *routine = it->second;
-			routine->out();
+			NsRoutines::CRoutineBase *routine = it->second;
+			routine->callOut();
 			delete routine;
 
 			// ...As well as remove our object from our map:
 			g_routinesToClassNamesMap.erase(it);
 
 			DEBUG_PRINT("Removed routine of type: `");
-			DEBUG_WRITE(TYPE_NAME(RoutineT));
+			DEBUG_WRITE(TYPE_NAME(TRoutine));
 			DEBUG_WRITELN("`.");
 
 			// DEBUG_PRINT("Size of vector: ");
@@ -89,7 +77,7 @@ namespace NsRoutines {
 		}
 
 		DEBUG_PRINT("Found no removable routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(RoutineT));
+		DEBUG_WRITE(TYPE_NAME(TRoutine));
 		DEBUG_WRITELN("`.");
 
 		return false;

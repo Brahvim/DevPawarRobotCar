@@ -2,10 +2,13 @@
 
 #include "Api/NsRoutines.hpp"
 
-class CRoutineStoppedForever : public NsRoutines::CRoutine {
+class CRoutineStoppedForever : public NsRoutines::CRoutine<CRoutineStoppedForever> {
 
 public:
 	static String reason;
-	void loop(); // Why, oh *why* did I go with virtual calls thinking `sizeof(class)` is smaller than a function pointer's?
+
+	void setup();
+	void loop();
+	void out();
 
 };
