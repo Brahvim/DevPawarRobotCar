@@ -2,7 +2,7 @@
 
 #include "Api/NsRoutines.hpp"
 
-class CRoutineObstacleHandling : public NsRoutines::CRoutine < CRoutineObstacleHandling> {
+class CRoutineObstacleHandling : public NsRoutines::CRoutine {
 
 public:
 	void setup();

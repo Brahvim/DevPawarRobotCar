@@ -59,6 +59,6 @@ void loop() {
 		// DEBUG_PRINT("Running routine `");
 		// DEBUG_WRITE(it->first);
 		// DEBUG_WRITELN("`.");
-		it->second->callLoop();
+		it->second->loop();
 	}
 }

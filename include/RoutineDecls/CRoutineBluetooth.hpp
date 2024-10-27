@@ -2,7 +2,7 @@
 
 #include "Api/NsRoutines.hpp"
 
-class CRoutineBluetooth : public NsRoutines::CRoutine<CRoutineBluetooth> {
+class CRoutineBluetooth : public NsRoutines::CRoutine {
 
 public:
 	void setup();

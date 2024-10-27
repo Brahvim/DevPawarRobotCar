@@ -9,7 +9,7 @@
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
-arx::map<const char*, NsRoutines::CRoutineBase*> g_routinesToClassNamesMap;
+arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
 #pragma region // Template instances.
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
@@ -25,6 +25,8 @@ template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObsta
 
 namespace NsRoutines {
 
+	
+
 	template <class TRoutine>
 	NsRoutines::EcRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,
@@ -39,9 +41,9 @@ namespace NsRoutines {
 
 
 		// Okay, here we go! Roll the callback!:
-		NsRoutines::CRoutineBase *routine = static_cast<NsRoutines::CRoutineBase*>(new TRoutine()); // Fun fact: Object slicing ruined me here for DAYS 🤣
+		NsRoutines::CRoutine *routine = static_cast<NsRoutines::CRoutine*>(new TRoutine()); // Fun fact: Object slicing ruined me here for DAYS 🤣
 		g_routinesToClassNamesMap[TYPE_NAME(TRoutine)] = routine;
-		routine->callSetup();
+		routine->setup();
 
 		DEBUG_PRINT("Added routine of type: `");
 		DEBUG_WRITE(TYPE_NAME(TRoutine));
@@ -59,8 +61,8 @@ namespace NsRoutines {
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:
-			NsRoutines::CRoutineBase *routine = it->second;
-			routine->callOut();
+			NsRoutines::CRoutine *routine = it->second;
+			routine->out();
 			delete routine;
 
 			// ...As well as remove our object from our map:
