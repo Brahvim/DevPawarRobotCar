@@ -1,3 +1,5 @@
+#include <Wire.h>
+
 #include "CarApi/NsCar.hpp"
 #include "CarApi/NsServo.hpp"
 #include "CarApi/NsBuzzer.hpp"
@@ -16,6 +18,7 @@ void setup() {
 		;
 	// (For some reason, NOT attaching the USB cable still allows this.)
 
+	Wire.begin();
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
 
 	// Make sure we can talk with the ultrasonic sensor:
@@ -37,6 +40,7 @@ void setup() {
 	/* NsCar::motors[3].setSpeed(WHEEL_SPEED); */ OCR0A = WHEEL_SPEED;
 	/* NsCar::motors[4].setSpeed(WHEEL_SPEED); */ OCR0B = WHEEL_SPEED;
 
+
 	NsRoutines::addRoutine<CRoutineBuzzer>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 
@@ -48,7 +52,7 @@ void loop() {
 	// DEBUG_PRINT("Size of vector: ");
 	// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
 
-	// if (Serial.available() > 1)
+	// ifu (Serial.available() > 1)
 	// 	DEBUG_PRINTLN("Received something on the serial line!");
 
 	// So we... iterate over 'em all, and...

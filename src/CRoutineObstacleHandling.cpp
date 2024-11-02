@@ -10,8 +10,6 @@
 
 MAKE_TYPE_INFO(CRoutineObstacleHandling);
 
-void CRoutineObstacleHandling::setup() { }
-
 void CRoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
@@ -79,5 +77,3 @@ labelCheckAgain:
 
 	NsCar::stop(900);
 }
-
-void CRoutineObstacleHandling::out() { }

@@ -71,6 +71,4 @@ void CRoutineBuzzer::loop() {
 		s_nextCheckTimestampMillis = millis() + s_interval;
 	}
 }
-
-void CRoutineBuzzer::out() { }
 #pragma endregion

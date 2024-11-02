@@ -8,6 +8,5 @@ class CRoutineBuzzer : public NsRoutines::CRoutine {
 public:
 	void setup();
 	void loop();
-	void out();
 
 };
