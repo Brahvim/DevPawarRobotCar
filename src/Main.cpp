@@ -19,6 +19,7 @@ void setup() {
 	// (For some reason, NOT attaching the USB cable still allows this.)
 
 	Wire.begin();
+	Wire.setWireTimeout(0);
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
 
 	// Make sure we can talk with the ultrasonic sensor:

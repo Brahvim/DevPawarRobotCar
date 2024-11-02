@@ -17,13 +17,13 @@ namespace NsRoutines {
 		virtual ~CRoutine() = default;
 
 		/** @brief  Called when this routine starts. */
-		virtual void setup() = 0;
+		virtual void setup();
 
 		/** @brief  Called in `loop()` after this routine has started. */
-		virtual void loop() = 0;
+		virtual void loop();
 
 		/** @brief  Called when this routine has been requested to be removed from the list of currently active routines. */
-		virtual void out() = 0;
+		virtual void out();
 
 	};
 

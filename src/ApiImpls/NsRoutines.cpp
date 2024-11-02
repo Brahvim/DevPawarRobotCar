@@ -22,6 +22,12 @@ template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObsta
 
 namespace NsRoutines {
 
+	void CRoutine::out() { }
+
+	void CRoutine::loop() { }
+
+	void CRoutine::setup() { }
+
 	template <class TRoutine>
 	NsRoutines::EcRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,

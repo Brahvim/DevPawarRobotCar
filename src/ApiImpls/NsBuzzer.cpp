@@ -7,6 +7,8 @@ static bool s_shouldBeep;
 static unsigned long s_interval;
 static unsigned long s_nextCheckTimestampMillis;
 
+MAKE_TYPE_INFO(CRoutineBuzzer);
+
 namespace NsBuzzer {
 
 	void buzzerStopAsyncBeeps() {

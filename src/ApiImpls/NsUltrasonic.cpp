@@ -30,11 +30,10 @@ namespace NsUltrasonic {
 		// ifl(pulseDur == 0) {
 		//
 		// 	ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 0) {
-		// 		CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
+		// 		CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::SENSOR;
 		// 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
 		// 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
 		// 		NsRoutines::addRoutine<CRoutineStoppedForever>();
-		// 		ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
 		// 		return 0;
 		// 	}
 		//

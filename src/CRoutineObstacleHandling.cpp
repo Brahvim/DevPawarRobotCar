@@ -59,9 +59,9 @@ labelCheckAgain:
 		}
 
 	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
+		CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::PATH;
 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_NO_PATH);
 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-		CRoutineStoppedForever::reason = "No path ahead car!";
 		NsRoutines::addRoutine<CRoutineStoppedForever>();
 		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
