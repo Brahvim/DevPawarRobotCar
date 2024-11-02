@@ -38,7 +38,6 @@ void setup() {
 	/* NsCar::motors[4].setSpeed(WHEEL_SPEED); */ OCR0B = WHEEL_SPEED;
 
 	NsRoutines::addRoutine<CRoutineBuzzer>();
-	// NsRoutines::addRoutine<CRoutineBluetooth>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 
 	DEBUG_PRINTLN("Beginning Arduino loop.");

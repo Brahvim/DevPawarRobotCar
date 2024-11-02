@@ -5,7 +5,6 @@
 #include "Api/DebuggingMacros.hpp"
 
 #include "RoutineDecls/CRoutineBuzzer.hpp"
-#include "RoutineDecls/CRoutineBluetooth.hpp"
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
@@ -13,19 +12,17 @@ arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
 #pragma region // Template instances.
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
-template bool NsRoutines::removeRoutine<CRoutineBluetooth>();
 template bool NsRoutines::removeRoutine<CRoutineStoppedForever>();
 template bool NsRoutines::removeRoutine<CRoutineObstacleHandling>();
 
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBuzzer>();
-template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBluetooth>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineStoppedForever>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
 #pragma endregion
 
 namespace NsRoutines {
 
-	
+
 
 	template <class TRoutine>
 	NsRoutines::EcRoutineAdditionError addRoutine() {
@@ -38,7 +35,6 @@ namespace NsRoutines {
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
 			return NsRoutines::EcRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
 		}
-
 
 		// Okay, here we go! Roll the callback!:
 		NsRoutines::CRoutine *routine = static_cast<NsRoutines::CRoutine*>(new TRoutine()); // Fun fact: Object slicing ruined me here for DAYS 🤣

@@ -27,20 +27,22 @@ namespace NsUltrasonic {
 		const unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
 		const unsigned long distCm = pulseDur / 29 / 2; // Time-to-centimeters conversion.
 
-		ifl(pulseDur == 0) {
-
-			ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 0) {
-				CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
-				NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
-				NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-				NsRoutines::addRoutine<CRoutineStoppedForever>();
-				ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
-				return 0;
-			}
-
-			--NsUltrasonic::g_countingSemaphoreZeroReads;
-
-		}
+		// ifl(pulseDur == 0) {
+		//
+		// 	ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 0) {
+		// 		CRoutineStoppedForever::reason = "Ultrasonic sensor wiring broke!";
+		// 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
+		// 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
+		// 		NsRoutines::addRoutine<CRoutineStoppedForever>();
+		// 		ERROR_PRINTLN("Ultrasonic sensor wiring broke!");
+		// 		return 0;
+		// 	}
+		//
+		// 	ERROR_PRINT("Semaphore 'zero-reads' hit! Value: ");
+		// 	ERROR_WRITE(NsUltrasonic::g_countingSemaphoreZeroReads);
+		//
+		// 	--NsUltrasonic::g_countingSemaphoreZeroReads;
+		// }
 
 		return distCm;
 	}
