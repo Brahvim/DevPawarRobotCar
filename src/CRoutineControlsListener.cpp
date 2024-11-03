@@ -13,50 +13,50 @@ MAKE_TYPE_INFO(CRoutineControlsListener);
 
 using namespace NsControls;
 
-void awaitBytes(long const p_bytes) {
+static void awaitBytes(long const p_bytes) {
 	while (Wire.available() < p_bytes)
 		/* Waiting... */;
 }
 
-MessageType parseMessageType(void *p_data) {
-	MessageType type;
-	memcpy(&type, p_data, g_szMessageType);
+static EspCamMessageType parseMessageType(void *p_data) {
+	EspCamMessageType type;
+	memcpy(&type, p_data, sizeof(EspCamMessageType));
 	return type;
 }
 
-void readBytes(long const p_bytes, uint8_t *const p_buffer) {
+static void readBytes(long const p_bytes, uint8_t *const p_buffer) {
 	for (int i = 0; i < p_bytes; ++i) {
 		p_buffer[i] = Wire.read(); // Compiler won't unroll this :(
 	}
 }
 
-void sendResponse(MessageType const p_message) {
-	char resultMessageTypeData[g_szMessageType];
+static void sendResponse(ArduinoMessageType const p_message) {
+	char resultMessageTypeData[sizeof(ArduinoMessageType)];
 
-	memcpy(resultMessageTypeData, &p_message, g_szMessageType);
+	memcpy(resultMessageTypeData, &p_message, sizeof(ArduinoMessageType));
 	Wire.beginTransmission(I2C_ADDR_ESP_CAM);
-	Wire.write(resultMessageTypeData, g_szMessageType);
+	Wire.write(resultMessageTypeData, sizeof(ArduinoMessageType));
 	Wire.endTransmission();
 }
 
-void sendResponse(MessageType const p_message, int const p_size, void *p_buffer) {
-	char resultMessageTypeData[g_szMessageType];
+static void sendResponse(ArduinoMessageType const p_message, int const p_size, void *p_buffer) {
+	char resultMessageTypeData[sizeof(ArduinoMessageType)];
 
-	memcpy(resultMessageTypeData, &p_message, g_szMessageType);
+	memcpy(resultMessageTypeData, &p_message, sizeof(ArduinoMessageType));
 	Wire.beginTransmission(I2C_ADDR_ESP_CAM);
-	Wire.write(resultMessageTypeData, g_szMessageType);
+	Wire.write(resultMessageTypeData, sizeof(ArduinoMessageType));
 	Wire.write((char*) p_buffer, p_size);
 	Wire.endTransmission();
 }
 
 void CRoutineControlsListener::loop() {
-	Wire.requestFrom(I2C_ADDR_ESP_CAM, g_szMessageType);
-	awaitBytes(g_szMessageType);
+	Wire.requestFrom(I2C_ADDR_ESP_CAM, sizeof(EspCamMessageType));
+	awaitBytes(sizeof(EspCamMessageType));
 
-	uint8_t typeData[g_szMessageType];
-	readBytes(g_szMessageType, typeData);
+	uint8_t typeData[sizeof(EspCamMessageType)];
+	readBytes(sizeof(EspCamMessageType), typeData);
 
-	MessageType const type = parseMessageType(typeData);
+	EspCamMessageType const type = parseMessageType(typeData);
 
 	switch (type) {
 
@@ -64,18 +64,33 @@ void CRoutineControlsListener::loop() {
 
 		} break;
 
-		case MessageType::START: {
-			sendResponse(MessageType::START_OK);
+		case EspCamMessageType::STOP: {
+			NsCar::stop();
+			sendResponse(ArduinoMessageType::MOVE_OK);
 		} break;
 
-		case MessageType::MOVE_FORWARD: {
+		case EspCamMessageType::START: {
+			sendResponse(ArduinoMessageType::START_OK);
+		} break;
+
+		case EspCamMessageType::MOVE_LEFT: {
+			NsCar::moveLeftAsync();
+			sendResponse(ArduinoMessageType::MOVE_OK);
+		} break;
+
+		case EspCamMessageType::MOVE_RIGHT: {
+			NsCar::moveRightAsync();
+			sendResponse(ArduinoMessageType::MOVE_OK);
+		} break;
+
+		case EspCamMessageType::MOVE_FORWARD: {
 			NsCar::moveForwardAsync();
-			sendResponse(MessageType::MOVE_OK);
+			sendResponse(ArduinoMessageType::MOVE_OK);
 		} break;
 
-		case MessageType::MOVE_BACKWARD: {
+		case EspCamMessageType::MOVE_BACKWARD: {
 			NsCar::moveBackwardAsync();
-			sendResponse(MessageType::MOVE_OK);
+			sendResponse(ArduinoMessageType::MOVE_OK);
 		} break;
 
 	}
