@@ -41,7 +41,6 @@ void setup() {
 	/* NsCar::motors[3].setSpeed(WHEEL_SPEED); */ OCR0A = WHEEL_SPEED;
 	/* NsCar::motors[4].setSpeed(WHEEL_SPEED); */ OCR0B = WHEEL_SPEED;
 
-
 	NsRoutines::addRoutine<CRoutineBuzzer>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 

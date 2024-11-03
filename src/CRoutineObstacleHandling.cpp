@@ -21,6 +21,11 @@ void CRoutineObstacleHandling::loop() {
 		return;
 	}
 
+	DEBUG_PRINTLN("Car is moving backwards...");
+	NsCar::stop(300);
+	NsCar::moveBackward(500);
+	NsCar::stop();
+
 labelCheckAgain:
 	DEBUG_PRINT("Looking left... ");
 	int const leftDist = NsUltrasonic::lookLeft();
