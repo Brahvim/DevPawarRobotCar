@@ -8,9 +8,11 @@
 
 namespace NsUltrasonic {
 
-	volatile int g_countingSemaphoreZeroReads = 0;
+	volatile int g_countingSemaphoreZeroReads = ULTRASONIC_MAX_ZERO_READS;
 
 	int read() {
+again:
+		noInterrupts();
 		// Lower `TRIG` for `4` microseconds as an error check:
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 		delayMicroseconds(4); // ...We'll also wait this out.
@@ -24,25 +26,29 @@ namespace NsUltrasonic {
 		digitalWrite(PIN_ULTRASONIC_TRIG, LOW);
 
 		// Giving the ultrasonic sensor a duration gets us a reading:
-		const unsigned long pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
-		const unsigned long distCm = pulseDur / 29 / 2; // Time-to-centimeters conversion.
+		unsigned long const pulseDur = pulseIn(PIN_ULTRASONIC_ECHO, HIGH, 10000); // Pulse duration.
+		unsigned long const distCm = pulseDur / 29 / 2; // Time-to-centimeters conversion.
 
-		// ifl(pulseDur == 0) {
-		//
-		// 	ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 0) {
-		// 		CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::SENSOR;
-		// 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
-		// 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-		// 		NsRoutines::addRoutine<CRoutineStoppedForever>();
-		// 		return 0;
-		// 	}
-		//
-		// 	ERROR_PRINT("Semaphore 'zero-reads' hit! Value: ");
-		// 	ERROR_WRITE(NsUltrasonic::g_countingSemaphoreZeroReads);
-		//
-		// 	--NsUltrasonic::g_countingSemaphoreZeroReads;
-		// }
+		ifl(pulseDur == 0) {
 
+			ERROR_PRINTLN("ZEEEEEEEROOOO!");
+
+			--NsUltrasonic::g_countingSemaphoreZeroReads;
+
+			ifu(NsUltrasonic::g_countingSemaphoreZeroReads < 1) {
+				CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::SENSOR;
+				NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
+				NsRoutines::removeRoutine<CRoutineObstacleHandling>();
+				NsRoutines::addRoutine<CRoutineStoppedForever>();
+				return 0;
+			} else {
+				ERROR_PRINT("Semaphore 'zero-reads' hit! Value: ");
+				ERROR_WRITELN(NsUltrasonic::g_countingSemaphoreZeroReads);
+				goto again;
+			}
+
+		}
+		interrupts();
 		return distCm;
 	}
 

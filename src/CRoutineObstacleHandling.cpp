@@ -13,33 +13,39 @@ MAKE_TYPE_INFO(CRoutineObstacleHandling);
 void CRoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
-	// DEBUG_PRINT("Distance: ");
-	// DEBUG_WRITELN(forwardDist);
+	DEBUG_PRINT("Forward distance: ");
+	DEBUG_WRITELN(forwardDist);
 
 	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 		NsCar::moveForwardAsync();
 		return;
 	}
 
-	DEBUG_PRINTLN("Car is moving backwards...");
-	NsCar::stop(300);
-	NsCar::moveBackward(500);
-	NsCar::stop();
-
 labelCheckAgain:
-	DEBUG_PRINTLN("Looking left...");
-	int leftDist = NsUltrasonic::lookLeft();
+	DEBUG_PRINT("Looking left... ");
+	int const leftDist = NsUltrasonic::lookLeft();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+	DEBUG_WRITE("Distance: ");
+	DEBUG_WRITELN(leftDist);
 
 	delay(800);
 
-	DEBUG_PRINTLN("Looking right...");
-	int rightDist = NsUltrasonic::lookRight();
+	DEBUG_PRINT("Looking right... ");
+	int const rightDist = NsUltrasonic::lookRight();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+	DEBUG_WRITE("Distance: ");
+	DEBUG_WRITELN(rightDist);
 
 	bool
 		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES_CM,
 		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES_CM;
+
+	ifu(leftBlocked || rightBlocked) { // For all blockages.
+		DEBUG_PRINTLN("Car is moving backwards...");
+		NsCar::stop(300);
+		NsCar::moveBackward(500);
+		NsCar::stop();
+	}
 
 	ifu(!(leftBlocked || rightBlocked)) { // No blockages...
 
