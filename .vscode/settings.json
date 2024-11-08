@@ -40,7 +40,7 @@
     "C_Cpp.codeAnalysis.clangTidy.path": "/",
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
     "cmake.configureOnOpen": false,
-    // "C_Cpp.files.exclude": {
-    //     "{$workspaceFolder}/.pio/libdeps/**": true,
-    // },
+    "C_Cpp.files.exclude": {
+        "{$workspaceFolder}/.pio/**": true,
+    },
 }

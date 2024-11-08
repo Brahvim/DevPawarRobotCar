@@ -6,21 +6,23 @@
 #include "CarApi/NsUltrasonic.hpp"
 
 #include "Api/Main.hpp"
+#include "Api/Tests.hpp"
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
 
+#include "Shared/ProtocolCarControls.hpp"
+
 #include "RoutineDecls/CRoutineBuzzer.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
+#include "RoutineDecls/CRoutineControlsListener.hpp"
 
 void setup() {
 	// "iS mY bOWl oF cErEAl hERe yET?!?1!1/":
-	while (!Serial)
+	while (!Serial)// (For some reason, NOT attaching the USB cable still allows this.)
 		;
-	// (For some reason, NOT attaching the USB cable still allows this.)
 
-	Wire.begin();
-	Wire.setWireTimeout(5);
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
+	Wire.begin(); // Macro in `ProtocolCarControls.hpp`.
 
 	// Make sure we can talk with the ultrasonic sensor:
 	pinMode(PIN_ULTRASONIC_TRIG, OUTPUT); // This guy triggers the sensor,
@@ -36,13 +38,14 @@ void setup() {
 	// ...For the Arduino Uno.
 
 	// ...Let's not be pathetic, then!:
-	/* NsCar::motors[1].setSpeed(WHEEL_SPEED); */ OCR2A = WHEEL_SPEED;
-	/* NsCar::motors[2].setSpeed(WHEEL_SPEED); */ OCR2B = WHEEL_SPEED;
-	/* NsCar::motors[3].setSpeed(WHEEL_SPEED); */ OCR0A = WHEEL_SPEED;
-	/* NsCar::motors[4].setSpeed(WHEEL_SPEED); */ OCR0B = WHEEL_SPEED;
+	/* NsCar::motors[0].setSpeed(WHEEL_SPEED); */ OCR2A = WHEEL_SPEED;
+	/* NsCar::motors[1].setSpeed(WHEEL_SPEED); */ OCR2B = WHEEL_SPEED;
+	/* NsCar::motors[2].setSpeed(WHEEL_SPEED); */ OCR0A = WHEEL_SPEED;
+	/* NsCar::motors[3].setSpeed(WHEEL_SPEED); */ OCR0B = WHEEL_SPEED;
 
 	NsRoutines::addRoutine<CRoutineBuzzer>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
+	// NsRoutines::addRoutine<CRoutineControlsListener>();
 
 	DEBUG_PRINTLN("Beginning Arduino loop.");
 }
@@ -61,6 +64,7 @@ void loop() {
 		// DEBUG_PRINT("Running routine `");
 		// DEBUG_WRITE(it->first);
 		// DEBUG_WRITELN("`.");
+
 		it->second->loop();
 	}
 }
