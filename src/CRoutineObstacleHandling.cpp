@@ -22,25 +22,25 @@ void CRoutineObstacleHandling::loop() {
 	}
 
 	DEBUG_PRINTLN("Car is moving backwards...");
-	NsCar::stop();
+	NsCar::stop(300);
 	NsCar::moveBackward(500);
 	NsCar::stop();
 
 labelCheckAgain:
 	DEBUG_PRINT("Looking left... ");
 	NsServo::servo.write(180);
-	delay(600);
+	delay(800);
 
 	int const cmLeft = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 	DEBUG_WRITE("Distance: ");
 	DEBUG_WRITELN(cmLeft);
 
-	delay(600);
+	delay(800);
 
 	DEBUG_PRINT("Looking right... ");
-	NsServo::servo.write(0);
-	delay(600);
+	NsServo::servo.write(20);
+	delay(800);
 
 	int const cmRight = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
