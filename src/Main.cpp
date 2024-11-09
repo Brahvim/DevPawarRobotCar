@@ -22,7 +22,8 @@ void setup() {
 		;
 
 	Serial.begin(ARDUINO_SERIAL_BAUD_RATE); // Macro in `Globals.hpp`.
-	Wire.begin(); // Macro in `ProtocolCarControls.hpp`.
+	Wire.setClock(100000);
+	Wire.begin(I2C_ADDR); // Macro in `ProtocolCarControls.hpp`.
 
 	// Make sure we can talk with the ultrasonic sensor:
 	pinMode(PIN_ULTRASONIC_TRIG, OUTPUT); // This guy triggers the sensor,

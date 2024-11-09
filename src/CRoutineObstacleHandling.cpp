@@ -22,37 +22,43 @@ void CRoutineObstacleHandling::loop() {
 	}
 
 	DEBUG_PRINTLN("Car is moving backwards...");
-	NsCar::stop(300);
+	NsCar::stop();
 	NsCar::moveBackward(500);
 	NsCar::stop();
 
 labelCheckAgain:
 	DEBUG_PRINT("Looking left... ");
-	int const leftDist = NsUltrasonic::lookLeft();
+	NsServo::servo.write(180);
+	delay(600);
+
+	int const cmLeft = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 	DEBUG_WRITE("Distance: ");
-	DEBUG_WRITELN(leftDist);
+	DEBUG_WRITELN(cmLeft);
 
-	delay(800);
+	delay(600);
 
 	DEBUG_PRINT("Looking right... ");
-	int const rightDist = NsUltrasonic::lookRight();
+	NsServo::servo.write(0);
+	delay(600);
+
+	int const cmRight = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
 	DEBUG_WRITE("Distance: ");
-	DEBUG_WRITELN(rightDist);
+	DEBUG_WRITELN(cmRight);
 
 	bool
-		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES_CM,
-		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES_CM;
+		isBlockedLeft = cmLeft < LEAST_DISTANCE_FOR_OBSTACLES_CM,
+		isBlockedRight = cmRight < LEAST_DISTANCE_FOR_OBSTACLES_CM;
 
-	ifu(leftBlocked || rightBlocked) { // For all blockages.
+	ifu(isBlockedLeft || isBlockedRight) { // For all blockages.
 		DEBUG_PRINTLN("Car is moving backwards...");
 		NsCar::stop(300);
 		NsCar::moveBackward(500);
 		NsCar::stop();
 	}
 
-	ifu(!(leftBlocked || rightBlocked)) { // No blockages...
+	ifu(!(isBlockedLeft || isBlockedRight)) { // No blockages...
 
 		DEBUG_PRINTLN("No obstacles, going right...");
 		NsCar::moveRight(1500); // "ALWAYS GO FOR RIGHT!" - Dev.
@@ -69,17 +75,17 @@ labelCheckAgain:
 			goto labelCheckAgain;
 		}
 
-	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
+	} else ifu(isBlockedLeft && isBlockedRight) { // U-turn if there is no path ahead!:
 		CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::PATH;
 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_NO_PATH);
 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
 		NsRoutines::addRoutine<CRoutineStoppedForever>();
 		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
-	} else ifl(leftBlocked) {
+	} else ifl(isBlockedLeft) {
 		DEBUG_PRINTLN("Left blocked...");
 		NsCar::moveRight(1500);
-	} else ifl(rightBlocked) {
+	} else ifl(isBlockedRight) {
 		DEBUG_PRINTLN("Right blocked...");
 		NsCar::moveLeft(1500);
 	} else {

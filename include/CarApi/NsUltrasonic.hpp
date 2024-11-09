@@ -6,12 +6,6 @@
 
 namespace NsUltrasonic {
 
-	extern volatile int g_countingSemaphoreZeroReads;
-
 	int read();
-
-	int lookLeft();
-
-	int lookRight();
 
 }

@@ -3,8 +3,7 @@
 #include <stdint.h>
 #include <Wire.h>
 
-#define I2C_ADDR_ARDUINO 0x01
-#define I2C_ADDR_ESP_CAM 0x02
+#define I2C_ADDR 0x08
 
 // From [ https://docs.arduino.cc/language-reference/en/functions/communication/Wire/ ]:
 #define I2C_PIN_SDA_ARDUINO A4

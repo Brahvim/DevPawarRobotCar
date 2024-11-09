@@ -51,7 +51,7 @@ void i2cSendResponse(MessageTypeArduino const p_message) {
 	char resultMessageTypeData[sizeof(MessageTypeArduino)];
 
 	memcpy(resultMessageTypeData, &p_message, sizeof(MessageTypeArduino));
-	Wire.beginTransmission(I2C_ADDR_ESP_CAM);
+	Wire.beginTransmission(I2C_ADDR);
 	size_t const bytes_sent = Wire.write(resultMessageTypeData, sizeof(MessageTypeArduino));
 	uint8_t const wire_status = Wire.endTransmission(false);
 
@@ -73,7 +73,7 @@ void i2cSendResponse(MessageTypeArduino const p_message, size_t const p_size, vo
 	char resultMessageTypeData[sizeof(MessageTypeArduino)];
 
 	memcpy(resultMessageTypeData, &p_message, sizeof(MessageTypeArduino));
-	Wire.beginTransmission(I2C_ADDR_ESP_CAM);
+	Wire.beginTransmission(I2C_ADDR);
 
 	size_t bytes_sent = 0;
 
@@ -113,7 +113,7 @@ void i2cReadEspCam(size_t const p_bytes, uint8_t *const p_buffer) {
 }
 
 void i2cAwaitEspCam(int const p_bytes, size_t const p_interval_millis = 1, size_t const p_interval_count = 100) {
-	uint8_t const bytes = Wire.requestFrom(I2C_ADDR_ESP_CAM, sizeof(MessageTypeArduino));
+	uint8_t const bytes = Wire.requestFrom(I2C_ADDR, sizeof(MessageTypeArduino));
 
 	// DEBUG_PRINT("Received `");
 	// DEBUG_WRITE(bytes);
@@ -165,7 +165,7 @@ void CRoutineControlsListener::loop() {
 
 		case MessageTypeEspCam::STEER: {
 			DEBUG_PRINTLN("I2C request: steer.");
-			Wire.requestFrom(I2C_ADDR_ESP_CAM, sizeof(MessageSteer));
+			Wire.requestFrom(I2C_ADDR, sizeof(MessageSteer));
 			i2cAwaitEspCam(sizeof(MessageSteer));
 
 			char buf[sizeof(MessageSteer)];
