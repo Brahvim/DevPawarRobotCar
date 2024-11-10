@@ -1,5 +1,7 @@
 #include <memory>
 
+#include <Arduino.h>
+
 #include "Api/Main.hpp"
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
@@ -124,7 +126,7 @@ void i2cAwaitEspCam(int const p_bytes, size_t const p_interval_millis = 1, size_
 	}
 }
 
-void CRoutineControlsListener::loop() {
+void loopI2c() {
 	// DEBUG_PRINTLN("Attempting to receive I2C messages...");
 
 	MessageTypeEspCam const message = i2cAwaitMessageEspCam();
@@ -197,4 +199,58 @@ void CRoutineControlsListener::loop() {
 		} break;
 
 	}
+}
+
+void CRoutineControlsListener::loop() {
+	pinMode(A5, INPUT);
+	pinMode(A4, INPUT);
+
+	int const readingA4 = analogRead(A4); // Steering.
+	int const readingA5 = analogRead(A5); // Forwards/Backwards movement via [-1, 1] values.
+
+	if (readingA4 == 0 || readingA5 == 0)
+		return;
+
+	// No writes. No more.
+	// pinMode(A5, OUTPUT);
+	// pinMode(A4, OUTPUT);
+
+	// FP operations suck on AVR, apparently:
+
+	// NsCar::motors[0].setSpeed((uint8_t) (((float) readingA4 / 1024.0f) * WHEEL_SPEED));
+	// NsCar::motors[1].setSpeed((uint8_t) (((float) readingA4 / 1024.0f) * WHEEL_SPEED));
+	// NsCar::motors[2].setSpeed((uint8_t) (((float) readingA4 / 1024.0f) * WHEEL_SPEED));
+	// NsCar::motors[3].setSpeed((uint8_t) (((float) readingA4 / 1024.0f) * WHEEL_SPEED));
+
+	NsCar::motors[0].setSpeed(127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
+
+	NsCar::motors[1].setSpeed(-127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
+	NsCar::motors[2].setSpeed(-127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
+
+	NsCar::motors[3].setSpeed(127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
+
+	// analogWrite(14, (uint8_t) MessageTypeArduino::STEER_OK);
+
+	DEBUG_PRINT("[Steer, Gear] read: ");
+	DEBUG_WRITE(readingA4); DEBUG_WRITE(" "); DEBUG_WRITELN(readingA5);
+
+	bool const
+		inRangeBackwards = readingA5 < 450,
+		inRangeForwards = readingA5 > 550,
+		inRangeStop = !(inRangeBackwards || inRangeForwards);
+
+	ifl(inRangeForwards) {
+		NsCar::moveForwardAsync();
+		DEBUG_PRINTLN("Car will go forwards.");
+		// analogWrite(15, (uint8_t) MessageTypeArduino::GEAR_OK);
+	} else ifl(inRangeBackwards) {
+		NsCar::moveBackwardAsync();
+		DEBUG_PRINTLN("Car will go backwards.");
+		// analogWrite(15, (uint8_t) MessageTypeArduino::GEAR_OK);
+	} else ifu(inRangeStop) {
+		NsCar::stop();
+		DEBUG_PRINTLN("Car has stopped.");
+		// analogWrite(15, (uint8_t) MessageTypeArduino::GEAR_OK);
+	}
+
 }
