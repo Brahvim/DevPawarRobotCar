@@ -54,10 +54,14 @@ void loop() {
 	// So we... iterate over 'em all, and...
 	// ...yeah, you get the point!:
 	for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
-		// DEBUG_PRINT("Running routine `");
-		// DEBUG_WRITE(it->first);
-		// DEBUG_WRITELN("`.");
+		// 	// DEBUG_PRINT("Running routine `");
+		// 	// DEBUG_WRITE(it->first);
+		// 	// DEBUG_WRITELN("`.");
 
 		it->second->loop();
 	}
+
+	// Serial.print("`Reading`: ");
+	// Serial.println(NsUltrasonic::read());
+
 }

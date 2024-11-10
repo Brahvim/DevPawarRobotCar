@@ -10,7 +10,6 @@
             "includePath": [
                 "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/include",
                 "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/src",
-                "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/Adafruit Motor Shield library",
                 "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/Servo/src",
                 "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/ArxContainer",
@@ -23,6 +22,7 @@
                 "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -30,7 +30,6 @@
                 "path": [
                     "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/include",
                     "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/src",
-                    "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/Adafruit Motor Shield library",
                     "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/Servo/src",
                     "/home/brahvim/Documents/Code/PlatformIo/Arduino/DevPawarRobotCar/.pio/libdeps/uno/ArxContainer",
@@ -43,6 +42,7 @@
                     "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                     "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/home/brahvim/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     ""
                 ]
             },
