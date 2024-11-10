@@ -9,7 +9,7 @@ EcRoutineStoppedForeverCallReason CRoutineStoppedForever::reason = EcRoutineStop
 static char const *s_errorMessages[] = {
 
 	/* `PATH` */ 	"No path ahead car!",
-	/* `SENSOR` */ 	"Ultrasonic sensor wiring broke!",
+	/* `SENSOR` */ 	"Ultrasonic sensor `TRIG` loosened.",
 	/* `UNKNOWN` */ "REASON UNKNOWN!",
 
 };

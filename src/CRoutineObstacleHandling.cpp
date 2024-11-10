@@ -13,8 +13,8 @@ MAKE_TYPE_INFO(CRoutineObstacleHandling);
 void CRoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
-	DEBUG_PRINT("Forward distance: ");
-	DEBUG_APPENDLN(forwardDist);
+	// DEBUG_PRINT("Forward distance: ");
+	// DEBUG_APPENDLN(forwardDist);
 
 	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 		NsCar::moveForwardAsync();

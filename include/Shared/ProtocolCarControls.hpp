@@ -1,56 +1,9 @@
 #pragma once
 
-#include <stdint.h>
+#define PIN_CAR_ARDUINO_1			2	// *Digital only!*
+#define PIN_CAR_ARDUINO_2			10 	// PWM included 👍️
+#define PIN_CAR_ARDUINO_STEER		A5	// ***Steering!***
 
-namespace NsControls {
-
-	enum class MessageTypeArduino : uint8_t {
-
-		// Is-alive response.
-		PONG,
-
-		GEAR_OK,
-		STOP_OK,
-		STEER_OK,
-		BRAKE_OK,
-		MAX_SPEED_OK,
-
-		GEAR_FAILED,
-		STOP_FAILED,
-		STEER_FAILED,
-		BRAKE_FAILED,
-		MAX_SPEED_FAILED,
-
-	};
-
-	enum class MessageTypeEspCam : uint8_t {
-
-		STOP,
-
-		// Is-alive request.
-		PING,
-
-		// Make sure to send a `MessageSteer` after sending this!
-		STEER,
-
-		// Make sure to send a `MessageMaxSpeed` after sending this!
-		SPEED,
-
-		GEAR_FORWARD,
-		GEAR_BACKWARD,
-
-	};
-
-	struct MessageSteer {
-
-		float steer_normal; // `-1` is all left, `1` is all right.
-
-	};
-
-	struct MessageMaxSpeed {
-
-		uint8_t speed; // `AF_DCMotor::setSpeed()` values, `[0, 255]`.
-
-	};
-
-}
+#define PIN_CAR_ESP_CAM_1			2	// ESP32-CAM GPIO pin!
+#define PIN_CAR_ESP_CAM_2			12 	// ESP32-CAM GPIO + PWM pin!
+#define PIN_CAR_ESP_CAM_STEER		14	// ESP32-CAM GPIO + PWM pin.

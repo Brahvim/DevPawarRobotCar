@@ -11,6 +11,7 @@
 #include "Shared/ProtocolCarControls.hpp"
 
 #include "RoutineDecls/CRoutineBuzzer.hpp"
+#include "RoutineDecls/CRoutineSwitchActuator.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 #include "RoutineDecls/CRoutineControlsListener.hpp"
 
@@ -36,7 +37,8 @@ void setup() {
 	NsCar::motors[2].setSpeed(WHEEL_SPEED);
 	NsCar::motors[3].setSpeed(WHEEL_SPEED);
 
-	// NsRoutines::addRoutine<CRoutineBuzzer>();
+	NsRoutines::addRoutine<CRoutineBuzzer>();
+	NsRoutines::addRoutine<CRoutineSwitchActuator>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 	// NsRoutines::addRoutine<CRoutineControlsListener>();
 

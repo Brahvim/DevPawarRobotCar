@@ -5,6 +5,7 @@
 #include "Api/DebuggingMacros.hpp"
 
 #include "RoutineDecls/CRoutineBuzzer.hpp"
+#include "RoutineDecls/CRoutineSwitchActuator.hpp"
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
 #include "RoutineDecls/CRoutineControlsListener.hpp"
@@ -13,11 +14,13 @@ arx::map<const char*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
 #pragma region // Template instances.
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
+template bool NsRoutines::removeRoutine<CRoutineSwitchActuator>();
 template bool NsRoutines::removeRoutine<CRoutineStoppedForever>();
 template bool NsRoutines::removeRoutine<CRoutineObstacleHandling>();
 template bool NsRoutines::removeRoutine<CRoutineControlsListener>();
 
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBuzzer>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineSwitchActuator>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineStoppedForever>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineControlsListener>();

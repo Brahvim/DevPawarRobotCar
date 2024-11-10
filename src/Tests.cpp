@@ -1,19 +1,8 @@
 #include <Arduino.h>
 
 #include "CarApi/NsCar.hpp"
-#include "CarApi/NsI2c.hpp"
 
 #include "Api/DebuggingMacros.hpp"
-
-void testI2c() {
-	NsControls::MessageTypeEspCam message = i2cAwaitMessageEspCam();
-	DEBUG_PRINTLN("Received `PING` from ESP32-CAM.");
-
-	if (message == NsControls::MessageTypeEspCam::PING) {
-		DEBUG_PRINTLN("Received `PING` from ESP32-CAM.");
-		i2cSendResponse(NsControls::MessageTypeArduino::PONG);
-	}
-}
 
 void textSide() {
 	delay(500);

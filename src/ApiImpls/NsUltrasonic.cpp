@@ -31,7 +31,7 @@ namespace NsUltrasonic {
 			}
 
 			s_msLastRead = millis();
-			DEBUG_PRINTLN("Delay complete.");
+			// DEBUG_PRINTLN("Delay complete.");
 
 			// Calls to `millis()` also disable interrupts, so we'll do it here!:
 			noInterrupts(); // Don't play around with and expand my delays!
@@ -56,6 +56,7 @@ namespace NsUltrasonic {
 
 			}
 
+			// TODO: Get these logs back!
 			ERROR_PRINTLN("ZEEEEEEEROOOO!");
 			--s_semaphoreCountingZeroReads;
 
@@ -70,6 +71,7 @@ namespace NsUltrasonic {
 
 			} else {
 
+				// TODO: Get these logs back, too!
 				ERROR_PRINT("Semaphore 'zero-reads' hit! Value: ");
 				ERROR_APPENDLN(s_semaphoreCountingZeroReads);
 
@@ -81,5 +83,3 @@ namespace NsUltrasonic {
 	}
 
 }
-
-

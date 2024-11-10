@@ -6,52 +6,70 @@
 #include "Api/DebuggingMacros.hpp"
 
 #include "CarApi/NsCar.hpp"
-#include "CarApi/NsI2c.hpp"
 
+#include "Shared/ProtocolCarControls.hpp"
+
+#include "RoutineDecls/CRoutineSwitchActuator.hpp"
 #include "RoutineDecls/CRoutineControlsListener.hpp"
+#include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
 MAKE_TYPE_INFO(CRoutineControlsListener);
 
-using namespace NsControls;
-
 void CRoutineControlsListener::loop() {
-	pinMode(A5, INPUT);
-	pinMode(A4, INPUT);
+	pinMode(PIN_CAR_ARDUINO_1, INPUT);
+	pinMode(PIN_CAR_ARDUINO_2, INPUT);
+	// pinMode(PIN_CAR_ARDUINO_STEER, INPUT);
 
-	int const readingA4 = analogRead(A4); // Steering.
-	int const readingA5 = analogRead(A5); // Forwards/Backwards movement via [-1, 1] values.
+	int const reading1 = digitalRead(PIN_CAR_ARDUINO_1);
+	int const reading2 = digitalRead(PIN_CAR_ARDUINO_2);
+	int const readingSteer = analogRead(PIN_CAR_ARDUINO_STEER);
 
-	if (readingA4 == 0 || readingA5 == 0)
-		return;
+	// Steering:
 
-	// DEBUG_PRINT("[Steer, Gear] read: ");
-	// DEBUG_APPEND(readingA4); DEBUG_APPEND(" "); DEBUG_APPENDLN(readingA5);
+	uint8_t const steering = map(readingSteer, 0, 1023, 0, 255); // `int` to `char`.
+	DEBUG_PRINT("Steering read: `");
+	DEBUG_APPEND(steering);
+	DEBUG_APPEND("`. ");
 
-	// NsCar::motors[0].setSpeed(127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
-	// NsCar::motors[1].setSpeed(-127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
-	// NsCar::motors[2].setSpeed(-127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
-	// NsCar::motors[3].setSpeed(127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
+	NsCar::motors[0].setSpeed(steering); // Right.
+	NsCar::motors[1].setSpeed(-steering); // Left.
+	NsCar::motors[2].setSpeed(-steering); // Left.
+	NsCar::motors[3].setSpeed(steering); // Right.
 
 	bool const
-		inRangeBackwards = readingA5 < 450,
-		inRangeForwards = readingA5 > 550,
-		inRangeStop = !(inRangeBackwards || inRangeForwards);
+		gearStop = !(reading1 && reading2), // Does routine stuff.
+		gearNeutral = reading1 && reading2,
+		gearForwards = reading1 && !reading2,
+		gearBackwards = !reading1 && reading2;
 
-	ifl(inRangeForwards) {
+	ifl(gearForwards) {
 
 		NsCar::moveForwardAsync();
-		DEBUG_PRINTLN("Car will go forwards.");
+		DEBUG_PRINTLN("Car gear forwards.");
 
-	} else ifl(inRangeBackwards) {
+	} else ifl(gearBackwards) {
 
 		NsCar::moveBackwardAsync();
-		DEBUG_PRINTLN("Car will go backwards.");
+		DEBUG_PRINTLN("Car gear backwards.");
 
-	} else ifu(inRangeStop) {
+	} else ifu(gearNeutral) {
 
 		NsCar::stop();
-		DEBUG_PRINTLN("Car has stopped.");
+		DEBUG_PRINTLN("Car gear neutral.");
+
+	} else ifu(gearStop) {
+
+		NsCar::stop();
+		DEBUG_PRINTLN("Car now in obstacle avoidance mode.");
+
+		NsRoutines::addRoutine<CRoutineSwitchActuator>();
+		NsRoutines::addRoutine<CRoutineObstacleHandling>();
+
+		NsRoutines::removeRoutine<CRoutineControlsListener>();
+
+		pinMode(PIN_CAR_ARDUINO_1, INPUT_PULLUP);
+		pinMode(PIN_CAR_ARDUINO_2, INPUT_PULLUP);
+		// pinMode(PIN_CAR_ARDUINO_STEER, INPUT_PULLUP);
 
 	}
-
 }
