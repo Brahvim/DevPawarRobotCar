@@ -1,12 +1,12 @@
-#include "CarApi/NsCar.hpp"
-#include "CarApi/NsServo.hpp"
-#include "CarApi/NsBuzzer.hpp"
-#include "CarApi/NsUltrasonic.hpp"
-
 #include "Api/Main.hpp"
 #include "Api/Tests.hpp"
 #include "Api/Globals.hpp"
 #include "Api/DebuggingMacros.hpp"
+
+#include "CarApi/NsCar.hpp"
+#include "CarApi/NsServo.hpp"
+#include "CarApi/NsBuzzer.hpp"
+#include "CarApi/NsUltrasonic.hpp"
 
 #include "Shared/ProtocolCarControls.hpp"
 
@@ -36,7 +36,7 @@ void setup() {
 	NsCar::motors[2].setSpeed(WHEEL_SPEED);
 	NsCar::motors[3].setSpeed(WHEEL_SPEED);
 
-	NsRoutines::addRoutine<CRoutineBuzzer>();
+	// NsRoutines::addRoutine<CRoutineBuzzer>();
 	NsRoutines::addRoutine<CRoutineObstacleHandling>();
 	// NsRoutines::addRoutine<CRoutineControlsListener>();
 
@@ -44,9 +44,9 @@ void setup() {
 }
 
 void loop() {
-	// DEBUG_WRITELN("In Arduino loop.");
+	// DEBUG_APPENDLN("In Arduino loop.");
 	// DEBUG_PRINT("Size of vector: ");
-	// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
+	// DEBUG_APPENDLN(g_routinesToClassNamesMap.size());
 
 	// ifu (Serial.available() > 1)
 	// 	DEBUG_PRINTLN("Received something on the serial line!");
@@ -54,9 +54,9 @@ void loop() {
 	// So we... iterate over 'em all, and...
 	// ...yeah, you get the point!:
 	for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
-		// 	// DEBUG_PRINT("Running routine `");
-		// 	// DEBUG_WRITE(it->first);
-		// 	// DEBUG_WRITELN("`.");
+		// DEBUG_PRINT("Running routine `");
+		// DEBUG_APPEND(it->first);
+		// DEBUG_APPENDLN("`.");
 
 		it->second->loop();
 	}

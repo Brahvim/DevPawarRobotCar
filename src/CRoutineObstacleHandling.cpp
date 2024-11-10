@@ -14,7 +14,7 @@ void CRoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
 	DEBUG_PRINT("Forward distance: ");
-	DEBUG_WRITELN(forwardDist);
+	DEBUG_APPENDLN(forwardDist);
 
 	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 		NsCar::moveForwardAsync();
@@ -27,25 +27,25 @@ void CRoutineObstacleHandling::loop() {
 	NsCar::stop();
 
 labelCheckAgain:
-	DEBUG_PRINT("Looking left... ");
+	DEBUG_PRINTLN("Looking left...");
 	NsServo::servo.write(180);
 	delay(800);
 
 	int const cmLeft = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
-	DEBUG_WRITE("Distance: ");
-	DEBUG_WRITELN(cmLeft);
+	DEBUG_PRINT("Distance: ");
+	DEBUG_APPENDLN(cmLeft);
 
 	delay(800);
 
-	DEBUG_PRINT("Looking right... ");
+	DEBUG_PRINTLN("Looking right...");
 	NsServo::servo.write(20);
 	delay(800);
 
 	int const cmRight = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
-	DEBUG_WRITE("Distance: ");
-	DEBUG_WRITELN(cmRight);
+	DEBUG_PRINT("Distance: ");
+	DEBUG_APPENDLN(cmRight);
 
 	bool
 		isBlockedLeft = cmLeft < LEAST_DISTANCE_FOR_OBSTACLES_CM,
@@ -83,10 +83,10 @@ labelCheckAgain:
 		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
 	} else ifl(isBlockedLeft) {
-		DEBUG_PRINTLN("Left blocked...");
+		DEBUG_PRINTLN("Going right, left blocked...");
 		NsCar::moveRight(1500);
 	} else ifl(isBlockedRight) {
-		DEBUG_PRINTLN("Right blocked...");
+		DEBUG_PRINTLN("Going left, right blocked...");
 		NsCar::moveLeft(1500);
 	} else {
 		DEBUG_PRINTLN("Nothing was blocked. But also was everything. *You shouldn't see be seeing this log!*");

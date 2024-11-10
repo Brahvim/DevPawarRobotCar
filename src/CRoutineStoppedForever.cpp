@@ -16,5 +16,5 @@ static char const *s_errorMessages[] = {
 
 void CRoutineStoppedForever::loop() {
 	ERROR_PRINT("Stopped forever... Reason: ");
-	ERROR_WRITELN(s_errorMessages[(uint8_t) CRoutineStoppedForever::reason]);
+	ERROR_APPENDLN(s_errorMessages[(uint8_t) CRoutineStoppedForever::reason]);
 }

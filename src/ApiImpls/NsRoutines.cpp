@@ -36,8 +36,8 @@ namespace NsRoutines {
 		// If an object of this class already exists,
 		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(TRoutine)) != g_routinesToClassNamesMap.end()) {
 			DEBUG_PRINT("Routine of type `");
-			DEBUG_WRITE(TYPE_NAME(TRoutine));
-			DEBUG_WRITELN("` already exists. Didn't add another.");
+			DEBUG_APPEND(TYPE_NAME(TRoutine));
+			DEBUG_APPENDLN("` already exists. Didn't add another.");
 
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
 			return NsRoutines::EcRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
@@ -49,8 +49,8 @@ namespace NsRoutines {
 		routine->setup();
 
 		DEBUG_PRINT("Added routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(TRoutine));
-		DEBUG_WRITELN("`.");
+		DEBUG_APPEND(TYPE_NAME(TRoutine));
+		DEBUG_APPENDLN("`.");
 
 		return NsRoutines::EcRoutineAdditionError::NO_ERROR;
 	}
@@ -72,18 +72,18 @@ namespace NsRoutines {
 			g_routinesToClassNamesMap.erase(it);
 
 			DEBUG_PRINT("Removed routine of type: `");
-			DEBUG_WRITE(TYPE_NAME(TRoutine));
-			DEBUG_WRITELN("`.");
+			DEBUG_APPEND(TYPE_NAME(TRoutine));
+			DEBUG_APPENDLN("`.");
 
 			// DEBUG_PRINT("Size of vector: ");
-			// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
+			// DEBUG_APPENDLN(g_routinesToClassNamesMap.size());
 
 			return true;
 		}
 
 		DEBUG_PRINT("Found no removable routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(TRoutine));
-		DEBUG_WRITELN("`.");
+		DEBUG_APPEND(TYPE_NAME(TRoutine));
+		DEBUG_APPENDLN("`.");
 
 		return false;
 	}

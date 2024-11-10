@@ -25,7 +25,7 @@ void CRoutineControlsListener::loop() {
 		return;
 
 	// DEBUG_PRINT("[Steer, Gear] read: ");
-	// DEBUG_WRITE(readingA4); DEBUG_WRITE(" "); DEBUG_WRITELN(readingA5);
+	// DEBUG_APPEND(readingA4); DEBUG_APPEND(" "); DEBUG_APPENDLN(readingA5);
 
 	// NsCar::motors[0].setSpeed(127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
 	// NsCar::motors[1].setSpeed(-127 + (uint8_t) ((readingA4 * WHEEL_SPEED) / 1024));
