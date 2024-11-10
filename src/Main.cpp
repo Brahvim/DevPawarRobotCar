@@ -1,5 +1,3 @@
-#include <Wire.h>
-
 #include "CarApi/NsCar.hpp"
 #include "CarApi/NsServo.hpp"
 #include "CarApi/NsBuzzer.hpp"
@@ -38,9 +36,9 @@ void setup() {
 	NsCar::motors[2].setSpeed(WHEEL_SPEED);
 	NsCar::motors[3].setSpeed(WHEEL_SPEED);
 
-	// NsRoutines::addRoutine<CRoutineBuzzer>();
-	// NsRoutines::addRoutine<CRoutineObstacleHandling>();
-	NsRoutines::addRoutine<CRoutineControlsListener>();
+	NsRoutines::addRoutine<CRoutineBuzzer>();
+	NsRoutines::addRoutine<CRoutineObstacleHandling>();
+	// NsRoutines::addRoutine<CRoutineControlsListener>();
 
 	DEBUG_PRINTLN("Beginning Arduino loop.");
 }

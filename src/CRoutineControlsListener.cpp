@@ -1,5 +1,4 @@
 #include <memory>
-
 #include <Arduino.h>
 
 #include "Api/Main.hpp"
