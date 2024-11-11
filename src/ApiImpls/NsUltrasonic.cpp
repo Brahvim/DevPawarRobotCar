@@ -52,7 +52,7 @@ namespace NsUltrasonic {
 				s_semaphoreCountingZeroReads = ULTRASONIC_MAX_ZERO_READS;
 				return usSensorPulse / 29 / 2; // Time-to-centimeters conversion.
 				// For inches, divide by `148`.
-				// These calculations assume that the speed of sound is `340ms`.
+				// These calculations assume that the speed of sound is `340ms`.mode=
 
 			}
 

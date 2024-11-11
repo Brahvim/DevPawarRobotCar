@@ -26,14 +26,15 @@ void CRoutineControlsListener::loop() {
 
 	// Steering:
 
-	uint8_t const steering = map(readingSteer, 0, 1023, 0, 255); // `int` to `char`.
+	// uint8_t const steering = map(readingSteer, 0, 1023, 0, 255); // `int` to `char`.
+	uint8_t const steering = readingSteer; // Should be in [0, 255].
 	DEBUG_PRINT("Steering read: `");
 	DEBUG_APPEND(steering);
 	DEBUG_APPEND("`. ");
 
 	NsCar::motors[0].setSpeed(steering); // Right.
-	NsCar::motors[1].setSpeed(-steering); // Left.
-	NsCar::motors[2].setSpeed(-steering); // Left.
+	NsCar::motors[1].setSpeed(1023 - steering); // Left.
+	NsCar::motors[2].setSpeed(1023 - steering); // Left.
 	NsCar::motors[3].setSpeed(steering); // Right.
 
 	bool const
