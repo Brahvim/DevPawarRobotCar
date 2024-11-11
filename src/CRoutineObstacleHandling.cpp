@@ -1,23 +1,20 @@
-#include "Api/Globals.hpp"
-#include "Api/DebuggingMacros.hpp"
-#include "RoutineDecls/CRoutineStoppedForever.hpp"
-#include "RoutineDecls/CRoutineObstacleHandling.hpp"
-
 #include "CarApi/NsCar.hpp"
 #include "CarApi/NsServo.hpp"
 #include "CarApi/NsBuzzer.hpp"
 #include "CarApi/NsUltrasonic.hpp"
 
-MAKE_TYPE_INFO(CRoutineObstacleHandling);
+#include "Api/Globals.hpp"
+#include "Api/DebuggingMacros.hpp"
+#include "RoutineDecls/CRoutineStoppedForever.hpp"
+#include "RoutineDecls/CRoutineObstacleHandling.hpp"
 
-// template bool NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-// template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
+MAKE_TYPE_INFO(CRoutineObstacleHandling);
 
 void CRoutineObstacleHandling::loop() {
 	int forwardDist = NsUltrasonic::read();
 
-	// DEBUG_PRINT("Distance: ");
-	// DEBUG_WRITELN(forwardDist);
+	// DEBUG_PRINT("Forward distance: ");
+	// DEBUG_APPENDLN(forwardDist);
 
 	ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 		NsCar::moveForwardAsync();
@@ -31,27 +28,45 @@ void CRoutineObstacleHandling::loop() {
 
 labelCheckAgain:
 	DEBUG_PRINTLN("Looking left...");
-	int leftDist = NsUltrasonic::lookLeft();
+	NsServo::servo.write(180);
+	delay(800);
+
+	int const cmLeft = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+	DEBUG_PRINT("Distance: ");
+	DEBUG_APPENDLN(cmLeft);
 
 	delay(800);
 
 	DEBUG_PRINTLN("Looking right...");
-	int rightDist = NsUltrasonic::lookRight();
+	NsServo::servo.write(20);
+	delay(800);
+
+	int const cmRight = NsUltrasonic::read();
 	NsServo::servo.write(SERVO_STRAIGHT_ANGLE);
+	DEBUG_PRINT("Distance: ");
+	DEBUG_APPENDLN(cmRight);
 
 	bool
-		leftBlocked = leftDist < LEAST_DISTANCE_FOR_OBSTACLES_CM,
-		rightBlocked = rightDist < LEAST_DISTANCE_FOR_OBSTACLES_CM;
+		isBlockedLeft = cmLeft < LEAST_DISTANCE_FOR_OBSTACLES_CM,
+		isBlockedRight = cmRight < LEAST_DISTANCE_FOR_OBSTACLES_CM;
 
-	ifu(!(leftBlocked || rightBlocked)) {
+	ifu(isBlockedLeft || isBlockedRight) { // For all blockages.
+		DEBUG_PRINTLN("Car is moving backwards...");
+		NsCar::stop(300);
+		NsCar::moveBackward(500);
+		NsCar::stop();
+	}
+
+	ifu(!(isBlockedLeft || isBlockedRight)) { // No blockages...
+
 		DEBUG_PRINTLN("No obstacles, going right...");
-		// "ALWAYS GO FOR RIGHT!" - Dev.
-		NsCar::moveRight(1500);
+		NsCar::moveRight(1500); // "ALWAYS GO FOR RIGHT!" - Dev.
 		NsCar::stop();
 
-		DEBUG_PRINTLN("No obstacles, reading distance...");
+		DEBUG_PRINTLN("Re-reading...");
 		forwardDist = NsUltrasonic::read();
+
 		ifu(forwardDist > LEAST_DISTANCE_FOR_OBSTACLES_CM) {
 			DEBUG_PRINTLN("Obstacle too far, continuing...");
 			return;
@@ -59,18 +74,19 @@ labelCheckAgain:
 			DEBUG_PRINTLN("Obstacle may be in range, checking again...");
 			goto labelCheckAgain;
 		}
-	} else ifu(leftBlocked && rightBlocked) { // U-turn if there is no path ahead!:
+
+	} else ifu(isBlockedLeft && isBlockedRight) { // U-turn if there is no path ahead!:
+		CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::PATH;
 		NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_NO_PATH);
 		NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-		CRoutineStoppedForever::reason = "No path ahead car!";
 		NsRoutines::addRoutine<CRoutineStoppedForever>();
 		DEBUG_PRINTLN("No path!");
 		NsCar::stop();
-	} else ifl(leftBlocked) {
-		DEBUG_PRINTLN("Left blocked...");
+	} else ifl(isBlockedLeft) {
+		DEBUG_PRINTLN("Going right, left blocked...");
 		NsCar::moveRight(1500);
-	} else ifl(rightBlocked) {
-		DEBUG_PRINTLN("Right blocked...");
+	} else ifl(isBlockedRight) {
+		DEBUG_PRINTLN("Going left, right blocked...");
 		NsCar::moveLeft(1500);
 	} else {
 		DEBUG_PRINTLN("Nothing was blocked. But also was everything. *You shouldn't see be seeing this log!*");

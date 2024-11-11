@@ -6,6 +6,7 @@
 
 namespace NsCar {
 
+	extern bool g_wasForwards;
 	extern AF_DCMotor motors[4];
 
 	void stop();

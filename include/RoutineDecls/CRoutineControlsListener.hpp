@@ -2,7 +2,7 @@
 
 #include "Api/NsRoutines.hpp"
 
-class CRoutineObstacleHandling : public NsRoutines::CRoutine {
+class CRoutineControlsListener : public NsRoutines::CRoutine {
 
 public:
 	void loop();

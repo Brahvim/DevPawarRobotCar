@@ -25,7 +25,7 @@ void loop() {
 
 void routine_stopped_forever_loop() {
 	ERROR_PRINT("Stopped forever... Reason: ");
-	ERROR_WRITELN(g_stopped_forever_reason);
+	ERROR_APPENDLN(g_stopped_forever_reason);
 }
 
 void routine_obstacle_handling_loop() {

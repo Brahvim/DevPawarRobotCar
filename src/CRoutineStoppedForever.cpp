@@ -4,9 +4,17 @@
 
 MAKE_TYPE_INFO(CRoutineStoppedForever);
 
-String CRoutineStoppedForever::reason = "";
+EcRoutineStoppedForeverCallReason CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::UNKNOWN;
+
+static char const *s_errorMessages[] = {
+
+	/* `PATH` */ 	"No path ahead car!",
+	/* `SENSOR` */ 	"Ultrasonic sensor `TRIG` loosened.",
+	/* `UNKNOWN` */ "REASON UNKNOWN!",
+
+};
 
 void CRoutineStoppedForever::loop() {
 	ERROR_PRINT("Stopped forever... Reason: ");
-	ERROR_WRITELN(CRoutineStoppedForever::reason);
+	ERROR_APPENDLN(s_errorMessages[(uint8_t) CRoutineStoppedForever::reason]);
 }

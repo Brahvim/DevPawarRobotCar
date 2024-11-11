@@ -3,10 +3,9 @@
 #include "Api/NsRoutines.hpp"
 
 // See `NsBuzzer.cpp` for implementation.
-class CRoutineBuzzer : public NsRoutines::CRoutine {
+class CRoutineSwitchActuator : public NsRoutines::CRoutine {
 
 public:
-	void setup();
-	void loop();
+    void loop();
 
 };

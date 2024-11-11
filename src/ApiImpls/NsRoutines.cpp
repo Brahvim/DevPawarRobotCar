@@ -5,67 +5,65 @@
 #include "Api/DebuggingMacros.hpp"
 
 #include "RoutineDecls/CRoutineBuzzer.hpp"
-#include "RoutineDecls/CRoutineBluetooth.hpp"
+#include "RoutineDecls/CRoutineSwitchActuator.hpp"
 #include "RoutineDecls/CRoutineStoppedForever.hpp"
 #include "RoutineDecls/CRoutineObstacleHandling.hpp"
+#include "RoutineDecls/CRoutineControlsListener.hpp"
 
 arx::map<char const*, NsRoutines::CRoutine*> g_routinesToClassNamesMap;
 
+#pragma region // Template instances.
 template bool NsRoutines::removeRoutine<CRoutineBuzzer>();
-template bool NsRoutines::removeRoutine<CRoutineBluetooth>();
+template bool NsRoutines::removeRoutine<CRoutineSwitchActuator>();
 template bool NsRoutines::removeRoutine<CRoutineStoppedForever>();
 template bool NsRoutines::removeRoutine<CRoutineObstacleHandling>();
+template bool NsRoutines::removeRoutine<CRoutineControlsListener>();
 
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBuzzer>();
-template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineBluetooth>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineSwitchActuator>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineStoppedForever>();
 template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineObstacleHandling>();
+template NsRoutines::EcRoutineAdditionError NsRoutines::addRoutine<CRoutineControlsListener>();
+#pragma endregion
 
 namespace NsRoutines {
 
-	void CRoutine::setup() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `setup()`!"));
-	}
+	void CRoutine::out() { }
 
-	void CRoutine::loop() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `loop()`!"));
-	}
+	void CRoutine::loop() { }
 
-	void CRoutine::out() {
-		// DEBUG_PRINTLN(F("Looks like somebody forgot to override `out()`!"));
-	}
+	void CRoutine::setup() { }
 
-	template <class RoutineT>
+	template <class TRoutine>
 	NsRoutines::EcRoutineAdditionError addRoutine() {
 		// If an object of this class already exists,
-		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(RoutineT)) != g_routinesToClassNamesMap.end()) {
+		ifu(g_routinesToClassNamesMap.find(TYPE_NAME(TRoutine)) != g_routinesToClassNamesMap.end()) {
 			DEBUG_PRINT("Routine of type `");
-			DEBUG_WRITE(TYPE_NAME(RoutineT));
-			DEBUG_WRITELN("` already exists. Didn't add another.");
+			DEBUG_APPEND(TYPE_NAME(TRoutine));
+			DEBUG_APPENDLN("` already exists. Didn't add another.");
 
 			// Yeah, we ain't adding another (for now! ..should this change later?! ..indexed instances?!):
 			return NsRoutines::EcRoutineAdditionError::ROUTINE_ALREADY_EXISTS;
 		}
 
-
 		// Okay, here we go! Roll the callback!:
-		NsRoutines::CRoutine *routine = new RoutineT(); // Fun fact: Object slicing ruined me here for DAYS 🤣
-		g_routinesToClassNamesMap[TYPE_NAME(RoutineT)] = routine;
+		NsRoutines::CRoutine *routine = static_cast<NsRoutines::CRoutine*>(new TRoutine()); // Fun fact: Object slicing ruined me here for DAYS 🤣
+		g_routinesToClassNamesMap[TYPE_NAME(TRoutine)] = routine;
 		routine->setup();
 
 		DEBUG_PRINT("Added routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(RoutineT));
-		DEBUG_WRITELN("`.");
+		DEBUG_APPEND(TYPE_NAME(TRoutine));
+		DEBUG_APPENDLN("`.");
 
 		return NsRoutines::EcRoutineAdditionError::NO_ERROR;
 	}
 
-	template <class RoutineT>
+	template <class TRoutine>
 	bool removeRoutine() {
 		// Check if a routine of the same class name exists :
 		for (auto it = g_routinesToClassNamesMap.begin(); it != g_routinesToClassNamesMap.end(); ++it) {
 			// If the name of the class isn't the same, keep looking (yes, this is a guard clause!):
-			ifu(it->first != TYPE_NAME(RoutineT))
+			ifu(it->first != TYPE_NAME(TRoutine))
 				continue;
 
 			// If we've found one, we dispatch the callback and de-allocate memory:
@@ -77,18 +75,18 @@ namespace NsRoutines {
 			g_routinesToClassNamesMap.erase(it);
 
 			DEBUG_PRINT("Removed routine of type: `");
-			DEBUG_WRITE(TYPE_NAME(RoutineT));
-			DEBUG_WRITELN("`.");
+			DEBUG_APPEND(TYPE_NAME(TRoutine));
+			DEBUG_APPENDLN("`.");
 
 			// DEBUG_PRINT("Size of vector: ");
-			// DEBUG_WRITELN(g_routinesToClassNamesMap.size());
+			// DEBUG_APPENDLN(g_routinesToClassNamesMap.size());
 
 			return true;
 		}
 
 		DEBUG_PRINT("Found no removable routine of type: `");
-		DEBUG_WRITE(TYPE_NAME(RoutineT));
-		DEBUG_WRITELN("`.");
+		DEBUG_APPEND(TYPE_NAME(TRoutine));
+		DEBUG_APPENDLN("`.");
 
 		return false;
 	}

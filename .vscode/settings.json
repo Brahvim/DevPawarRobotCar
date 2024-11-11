@@ -25,15 +25,24 @@
         "map": "cpp",
         "associative_base": "cpp",
         "*.stub": "cpp"
+        "istream_helpers": "cpp",
+        "bitset": "cpp",
+        "limits": "cpp",
+        "set": "cpp",
+        "streambuf": "cpp",
+        "string_iostream": "cpp",
+        "utility": "cpp"
     },
     "cSpell.words": [
+        "APPENDLN",
         "PROGMEM",
-        "UCLIBCXX"
+        "UCLIBCXX",
+        "Wdelete"
     ],
     "C_Cpp.codeAnalysis.clangTidy.path": "/",
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
     "cmake.configureOnOpen": false,
-    // "C_Cpp.files.exclude": {
-    //     "{$workspaceFolder}/.pio/libdeps/**": true,
-    // },
+    "C_Cpp.files.exclude": {
+        "{$workspaceFolder}/.pio/**": true,
+    },
 }

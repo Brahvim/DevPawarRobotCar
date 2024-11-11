@@ -19,6 +19,12 @@ namespace NsCar {
 		3 4
 		```
 
+		As array indices:
+		```
+		1 0
+		2 3
+		```
+
 		*/
 
 			AF_DCMotor(1),
@@ -27,6 +33,7 @@ namespace NsCar {
 			AF_DCMotor(4),
 
 	};
+	bool g_wasForwards = false;
 
 	void stop() {
 		// DEBUG_PRINTLN("Stop"); // "Car is stopping.");
@@ -53,6 +60,8 @@ namespace NsCar {
 	}
 
 	void moveForwardAsync() {
+		g_wasForwards = true;
+
 		// DEBUG_PRINTLN("For"); // "Car is going forwards.");
 		NsCar::motors[0].run(FORWARD);
 		NsCar::motors[1].run(FORWARD);
@@ -61,6 +70,8 @@ namespace NsCar {
 	}
 
 	void moveBackwardAsync() {
+		g_wasForwards = false;
+
 		// DEBUG_PRINTLN("Back"); // "Car is going backwards.");
 		NsCar::motors[0].run(BACKWARD);
 		NsCar::motors[1].run(BACKWARD);

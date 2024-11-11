@@ -1,6 +1,6 @@
 #pragma once
 
-#define PIN_BUZZER 2
+#define PIN_BUZZER A3
 #define BUZZER_INTERVAL_NO_PATH 500
 #define BUZZER_INTERVAL_BACK_MUSIC 250
 #define BUZZER_INTERVAL_ULTRASONIC_BROKE 25
@@ -18,6 +18,5 @@ namespace NsBuzzer {
 
 	/** @brief Starts the car's "SOS beep cycle". */
 	void buzzerStartAsyncBeeps(unsigned long beepInterval);
-
 
 }

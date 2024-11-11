@@ -1,14 +1,13 @@
 #pragma once
 
-#define STRINGIZE(x)	 	(#x)
-#define TO_STRING(x)	 	STRINGIZE(x)
+#define TO_STRING(x)	 	(#x)
 #define JOIN_TOKENS(x, y)	(x##y)
 
 #define ifu(x)	if (__builtin_expect(x, 0))
 #define ifl(x)	if (__builtin_expect(x, 1))
 
-// Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
-template <typename TypeT>
+#pragma region // Compile-time type information! (Thanks to [ https://arduino.stackexchange.com/a/3080 ].)
+template <typename TType>
 struct TypeInfo {
 	static char const *name;
 }; // Can't be kept in `PROGMEM`...

@@ -7,6 +7,8 @@ static bool s_shouldBeep;
 static unsigned long s_interval;
 static unsigned long s_nextCheckTimestampMillis;
 
+MAKE_TYPE_INFO(CRoutineBuzzer);
+
 namespace NsBuzzer {
 
 	void buzzerStopAsyncBeeps() {
@@ -23,17 +25,18 @@ namespace NsBuzzer {
 		return s_interval;
 	}
 
-	void buzzerDoSyncBeep(unsigned long const p_beepInterval) {
+	void buzzerDoSyncBeep(const unsigned long p_duration) {
 		digitalWrite(PIN_BUZZER, HIGH);
-		delay(p_beepInterval);
+		delay(p_duration);
 		digitalWrite(PIN_BUZZER, LOW);
 	}
 
-	void buzzerStartAsyncBeeps(unsigned long const p_beepInterval) {
-		s_interval = p_beepInterval;
-		s_nextCheckTimestampMillis = millis() + s_interval;
-		s_shouldBeep = true;
+	void buzzerStartAsyncBeeps(const unsigned long p_beepInterval) {
 		// DEBUG_PRINTLN("BUZZER STARTED!");
+
+		s_nextCheckTimestampMillis = millis() + s_interval;
+		s_interval = p_beepInterval;
+		s_shouldBeep = true;
 		digitalWrite(PIN_BUZZER, HIGH);
 	}
 
@@ -50,8 +53,6 @@ void playStartupBeepPattern() {
 
 #pragma region // `CRoutineBuzzer` implementation.
 void CRoutineBuzzer::setup() {
-	pinMode(PIN_BUZZER, OUTPUT);
-
 	DEBUG_PRINTLN("Buzzer-routine started, beeping to notify.");
 	playStartupBeepPattern();
 }
