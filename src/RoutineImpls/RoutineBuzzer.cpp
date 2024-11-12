@@ -1,11 +1,8 @@
 #include "Main.h"
 #include "LoggingProjectWide.h"
 
-void setup() {
-	logSetup();
-}
+routineDefine(Buzzer, {
 
-void loop() {
-	// g_routineBuzzerCall();
 	logds("Buzzer routine running!");
-}
+
+});
