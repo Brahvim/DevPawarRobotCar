@@ -5,12 +5,6 @@
 
 #include "CarConfig.h"
 
-#define PIN_DIGITAL_SERVO               10
-
-#define PIN_ANALOG_BUZZER               A2
-#define PIN_ANALOG_ULTRASONIC_ECHO      A1
-#define PIN_ANALOG_ULTRASONIC_TRIGGER   A0
-
 enum CarStopReason {
 
 	CAR_STOP_REASON_UNKNOWN,
@@ -21,7 +15,18 @@ enum CarStopReason {
 
 extern Servo g_carServo;
 extern AF_DCMotor g_carMotors[4];
-extern CarStopReason g_carStopReason;
 
-void carModeCbck();
-unsigned long carUltrasonicSensorRead();
+void carCbckMode();
+
+unsigned long carSensorUltrasonicRead();
+
+void carMoveLeftOnSpot();
+void carMoveRightOnSpot();
+
+void carMoveStop(); void carMoveStop(unsigned long const durationMs);
+
+void carMoveLeft(); void carMoveLeft(unsigned long const durationMs);
+void carMoveRight(); void carMoveRight(unsigned long const durationMs);
+
+void carMoveForwards(); void carMoveForwards(unsigned long const durationMs);
+void carMoveBackwards(); void carMoveBackwards(unsigned long const durationMs);

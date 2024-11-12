@@ -1,6 +1,7 @@
 #include "Car.h"
 #include "Ifs.h"
 #include "Main.h"
+#include "Buzzer.h"
 #include "LoggingProjectWide.h"
 
 Servo g_carServo;
@@ -28,9 +29,76 @@ AF_DCMotor g_carMotors[4] = {
 	AF_DCMotor(4),
 
 };
-enum CarStopReason g_carStopReason = CAR_STOP_REASON_UNKNOWN;
 
-unsigned long carUltrasonicSensorRead() {
+void carCbckMode() {
+	ifu(routineControlsListenerIsRunning()) {
+		routineObstacleHandlingDisable();
+		routineControlsListenerEnable();
+	} else {
+		routineObstacleHandlingEnable();
+		routineControlsListenerDisable();
+	}
+}
+
+#pragma region Movement (Async).
+void carMoveStop() {
+	// DEBUG_PRINTLN("Stop"); // "Car is stopping.");
+	g_carMotors[0].run(RELEASE);
+	g_carMotors[1].run(RELEASE);
+	g_carMotors[2].run(RELEASE);
+	g_carMotors[3].run(RELEASE);
+}
+
+void carMoveLeft() {
+	// DEBUG_PRINTLN("Right"); // "Car is going right.");
+	g_carMotors[0].run(FORWARD);
+	g_carMotors[1].run(RELEASE);
+	g_carMotors[2].run(RELEASE);
+	g_carMotors[3].run(FORWARD);
+}
+
+void carMoveRight() {
+	// DEBUG_PRINTLN("Left"); // "Car is going left.");
+	g_carMotors[0].run(RELEASE);
+	g_carMotors[1].run(FORWARD);
+	g_carMotors[2].run(FORWARD);
+	g_carMotors[3].run(RELEASE);
+}
+
+void carMoveForwards() {
+	// DEBUG_PRINTLN("For"); // "Car is going forwards.");
+	g_carMotors[0].run(FORWARD);
+	g_carMotors[1].run(FORWARD);
+	g_carMotors[2].run(FORWARD);
+	g_carMotors[3].run(FORWARD);
+}
+
+void carMoveBackwards() {
+	// DEBUG_PRINTLN("Back"); // "Car is going backwards.");
+	g_carMotors[0].run(BACKWARD);
+	g_carMotors[1].run(BACKWARD);
+	g_carMotors[2].run(BACKWARD);
+	g_carMotors[3].run(BACKWARD);
+}
+
+void carMoveLeftOnSpot() {
+	// DEBUG_PRINTLN("Right"); // "Car is going right.");
+	g_carMotors[0].run(RELEASE); // Anti-CW.
+	g_carMotors[1].run(RELEASE); // Anti-CW.
+	g_carMotors[2].run(FORWARD);
+	g_carMotors[3].run(FORWARD);
+}
+
+void carMoveRightOnSpot() {
+	// DEBUG_PRINTLN("Left"); // "Car is going left.");
+	g_carMotors[0].run(FORWARD);
+	g_carMotors[1].run(FORWARD);
+	g_carMotors[2].run(BACKWARD); // Anti-CW.
+	g_carMotors[3].run(BACKWARD); // Anti-CW.
+}
+#pragma endregion
+
+unsigned long carSensorUltrasonicRead() {
 	int static s_semaphoreCountingZeroReads = CAR_ULTRASONIC_MAX_ZERO_READS;
 
 	while (s_semaphoreCountingZeroReads > 0) {
@@ -54,13 +122,13 @@ unsigned long carUltrasonicSensorRead() {
 		noInterrupts(); // Don't play around with and expand my delays!
 		// From the HC-SR04 datasheet:
 		// Set `TRIG` for at least `10` microseconds:
-		digitalWrite(PIN_ANALOG_ULTRASONIC_TRIGGER, HIGH);
+		digitalWrite(CAR_PIN_ANALOG_ULTRASONIC_TRIGGER, HIGH);
 		delayMicroseconds(10);
-		digitalWrite(PIN_ANALOG_ULTRASONIC_TRIGGER, LOW); // Set it low again for next use! ...things go wrong, okay!?
+		digitalWrite(CAR_PIN_ANALOG_ULTRASONIC_TRIGGER, LOW); // Set it low again for next use! ...things go wrong, okay!?
 
 		// We'll still keep `TRIG` high so the sensor doesn't skimp out.
 		// Giving the ultrasonic sensor a duration gets us a reading:
-		unsigned long const usSensorPulse = pulseIn(PIN_ANALOG_ULTRASONIC_ECHO, HIGH); // Pulse duration.
+		unsigned long const usSensorPulse = pulseIn(CAR_PIN_ANALOG_ULTRASONIC_ECHO, HIGH); // Pulse duration.
 		interrupts();
 
 		// If the sensor successfully replies back, that's a win! Reading obtained!:
@@ -79,21 +147,16 @@ unsigned long carUltrasonicSensorRead() {
 
 		ifu(s_semaphoreCountingZeroReads <= 0) {
 
-			// CRoutineStoppedForever::reason = EcRoutineStoppedForeverCallReason::SENSOR;
-			// NsBuzzer::buzzerStartAsyncBeeps(BUZZER_INTERVAL_ULTRASONIC_BROKE);
-			// NsRoutines::removeRoutine<CRoutineObstacleHandling>();
-			// NsRoutines::addRoutine<CRoutineStoppedForever>();
-
-			g_carStopReason = CAR_STOP_REASON_SENSOR_TRIGGER_DISCONNECTED;
-			g_routineObstacleHandlingCall = g_routineNullImpl;
-			g_routineStoppedCall = g_routineStoppedImpl;
+			routineStoppedEnable(CAR_STOP_REASON_SENSOR_TRIGGER_DISCONNECTED);
+			buzzerStartAsyncBeeps(CAR_BUZZER_INTERVAL_ULTRASONIC_BROKE);
+			routineObstacleHandlingDisable();
 
 			return 0;
 
 		} else {
 
 			// TODO: Get these logs back, too!
-			loge("Semaphore 'zero-reads' hit! Value: ", s_semaphoreCountingZeroReads);
+			loge("Semaphore 'zero-reads' hit! Value: `%d`.", s_semaphoreCountingZeroReads);
 
 		}
 
@@ -102,12 +165,49 @@ unsigned long carUltrasonicSensorRead() {
 	return 0;
 }
 
-void carModeCbck() {
-	ifu(g_routineControlsListenerCall == g_routineNullImpl) {
-		g_routineObstacleHandlingCall = g_routineNullImpl;
-		g_routineControlsListenerCall = g_routineControlsListenerImpl;
-	} else {
-		g_routineObstacleHandlingCall = g_routineObstacleHandlingImpl;
-		g_routineControlsListenerCall = g_routineNullImpl;
-	}
+#pragma region Movement (Synced).
+void carMoveStop(const unsigned long p_ms) {
+	// DEBUG_PRINTLN("Stop"); // "Car is stopping.");
+	carMoveStop();
+	delay(p_ms);
 }
+
+void carMoveLeft(const unsigned long p_ms) {
+	carMoveLeft();
+	delay(p_ms);
+	carMoveStop();
+}
+
+void carMoveRight(const unsigned long p_ms) {
+	carMoveRight();
+	delay(p_ms);
+	carMoveStop();
+}
+
+void carMoveForwards(const unsigned long p_ms) {
+	// DEBUG_PRINTLN("For"); // "Car is going forwards.");
+	carMoveForwards();
+	delay(p_ms);
+	carMoveStop();
+}
+
+void carMoveBackwards(const unsigned long p_ms) {
+	buzzerStartAsyncBeeps(CAR_BUZZER_INTERVAL_BACK_MUSIC);
+	carMoveBackwards();
+	delay(p_ms);
+	carMoveStop();
+	buzzerStopAsyncBeeps();
+}
+
+void carMoveLeftOnSpot(const unsigned long p_ms) {
+	carMoveLeftOnSpot();
+	delay(p_ms);
+	carMoveStop();
+}
+
+void carMoveRightOnSpot(const unsigned long p_ms) {
+	carMoveRightOnSpot();
+	delay(p_ms);
+	carMoveStop();
+}
+#pragma endregion

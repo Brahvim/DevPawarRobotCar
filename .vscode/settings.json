@@ -38,7 +38,12 @@
 		"fdev",
 		"ldms",
 		"logds",
+		"logdsnf",
+		"logesnf",
+		"logis",
+		"logisnf",
 		"logws",
+		"logwsnf",
 		"PROGMEM",
 		"UCLIBCXX",
 		"Wdelete"

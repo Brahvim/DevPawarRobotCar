@@ -3,14 +3,17 @@
 #include "Car.h"
 #include "Routines.h"
 
-extern routine_t g_routineBuzzerCall;
-extern routine_t const g_routineBuzzerImpl;
+void routineBuzzerRun();
+void routineStoppedRun();
+void routineControlsListenerRun();
+void routineObstacleHandlingRun();
 
-extern routine_t g_routineStoppedCall;
-extern routine_t const g_routineStoppedImpl;
+bool routineBuzzerIsRunning();
+bool routineStoppedIsRunning();
+bool routineControlsListenerIsRunning();
+bool routineObstacleHandlingIsRunning();
 
-extern routine_t g_routineControlsListenerCall;
-extern routine_t const g_routineControlsListenerImpl;
-
-extern routine_t g_routineObstacleHandlingCall;
-extern routine_t const g_routineObstacleHandlingImpl;
+void routineBuzzerEnable(); void routineBuzzerDisable();
+void routineControlsListenerEnable(); void routineControlsListenerDisable();
+void routineObstacleHandlingEnable(); void routineObstacleHandlingDisable();
+void routineStoppedEnable(CarStopReason const reason); void routineStoppedDisable();
