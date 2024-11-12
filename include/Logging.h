@@ -2,8 +2,8 @@
 
 #include <Arduino.h>
 
-#ifndef logSetup
-#define logSetup() Serial.begin(9600); fdevopen([](char const p_char, FILE *p_stream) -> int { return Serial.write(p_char); }, 0);
+#ifndef logSetupLogging
+#define logSetupLogging() Serial.begin(9600); fdevopen([](char const p_char, FILE *p_stream) -> int { return Serial.write(p_char); }, 0);
 #endif
 
 #ifndef LOG_TAG
