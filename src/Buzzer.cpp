@@ -19,12 +19,12 @@ static void impl() {
 
 		ifu(digitalRead(CAR_PIN_ANALOG_BUZZER) == HIGH) {
 
-			logds("Buzzer now `LOW`.");
+			logvs("Buzzer now `LOW`.");
 			digitalWrite(CAR_PIN_ANALOG_BUZZER, LOW);
 
 		} else {
 
-			logds("Buzzer now `HIGH`.");
+			logvs("Buzzer now `HIGH`.");
 			digitalWrite(CAR_PIN_ANALOG_BUZZER, HIGH);
 
 		}

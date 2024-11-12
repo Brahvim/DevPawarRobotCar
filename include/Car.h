@@ -16,7 +16,9 @@ enum CarStopReason {
 extern Servo g_carServo;
 extern AF_DCMotor g_carMotors[4];
 
-void carCbckMode();
+void carModeSwitch();
+void carModeSetController();
+void carModeSetObstacleAvoidance();
 
 unsigned long carSensorUltrasonicRead();
 

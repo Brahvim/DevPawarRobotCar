@@ -30,14 +30,30 @@ AF_DCMotor g_carMotors[4] = {
 
 };
 
-void carCbckMode() {
+void carModeSwitch() {
 	ifu(routineControlsListenerIsRunning()) {
-		routineObstacleHandlingDisable();
-		routineControlsListenerEnable();
+
+		carModeSetObstacleAvoidance();
+
 	} else {
-		routineObstacleHandlingEnable();
-		routineControlsListenerDisable();
+
+		carModeSetController();
+
 	}
+}
+
+void carModeSetController() {
+	logis("Car is changing modes!");
+	routineObstacleHandlingDisable();
+	routineControlsListenerEnable();
+	logis("Now in controller mode!");
+}
+
+void carModeSetObstacleAvoidance() {
+	logis("Car is changing modes!");
+	routineObstacleHandlingEnable();
+	routineControlsListenerDisable();
+	logis("Now in obstacle-avoidance mode!");
 }
 
 #pragma region Movement (Async).
@@ -112,7 +128,6 @@ unsigned long carSensorUltrasonicRead() {
 		// unsigned long msTarget = msToWait + millis();
 		unsigned long msTarget = 75 + s_msLastRead;
 		while (millis() < msTarget) {
-
 		}
 
 		s_msLastRead = millis();

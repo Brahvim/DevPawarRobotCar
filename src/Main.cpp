@@ -6,7 +6,7 @@
 #include "ProtocolCarControls.h"
 
 void setup() {
-	logSetupLogging();
+	logSetupLoggingArduinoUno();
 
 	pinMode(CAR_PIN_ANALOG_ULTRASONIC_TRIGGER, OUTPUT); // This guy triggers a sound wave,
 	pinMode(CAR_PIN_ANALOG_ULTRASONIC_ECHO, INPUT);  // ...This girl reports that it arrived back.
@@ -18,7 +18,7 @@ void setup() {
 	routineBuzzerEnable();
 	routineObstacleHandlingEnable();
 
-	attachInterrupt(digitalPinToInterrupt(CAR_PIN_DIGITAL_ARDUINO_1), carCbckMode, CHANGE);
+	attachInterrupt(digitalPinToInterrupt(CAR_PIN_DIGITAL_ARDUINO_1), carModeSwitch, CHANGE);
 
 	g_carMotors[0].setSpeed(CAR_WHEEL_SPEED);
 	g_carMotors[1].setSpeed(CAR_WHEEL_SPEED);

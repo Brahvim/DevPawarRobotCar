@@ -10,4 +10,6 @@
 
 #define LOG_ERROR "E"
 
+// #define LOG_VERBOSE "V"
+
 // *Yes, the text has indeed been spread W I D E.*
