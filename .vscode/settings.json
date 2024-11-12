@@ -24,7 +24,7 @@
         "stdexcept": "cpp",
         "map": "cpp",
         "associative_base": "cpp",
-        "*.stub": "cpp"
+        "*.stub": "cpp",
         "istream_helpers": "cpp",
         "bitset": "cpp",
         "limits": "cpp",
@@ -35,6 +35,9 @@
     },
     "cSpell.words": [
         "APPENDLN",
+        "fdev",
+        "logds",
+        "logws",
         "PROGMEM",
         "UCLIBCXX",
         "Wdelete"
