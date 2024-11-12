@@ -1,0 +1,4 @@
+#pragma once
+
+#define CAR_WHEEL_SPEED 255
+#define CAR_ULTRASONIC_MAX_ZERO_READS 5
